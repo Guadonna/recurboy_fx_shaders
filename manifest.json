@@ -1,0 +1,548 @@
+{
+  "version": "0.2.0",
+  "mode": "PATTERN",
+  "host": "stock",
+  "collections": [
+    {
+      "id": "data-corrupt",
+      "name": "DATA CORRUPT / SIGNAL DECAY",
+      "version": "0.1.0",
+      "shaders": [
+        {
+          "file": "dc01_vector_blocks.frag",
+          "title": "Vector Blocks",
+          "inspiration": "Datamosh",
+          "description": "Плитки смещают фазы движущихся полос; процедурная интерпретация переноса блоков без векторов видео.",
+          "controls": [
+            "Размер блоков",
+            "Разброс смещения",
+            "Заполнение / цвет"
+          ]
+        },
+        {
+          "file": "dc02_bit_rot.frag",
+          "title": "Bit Rot Raster",
+          "inspiration": "Bit Rot",
+          "description": "Битовые флаги процедурного растра переключаются по адресам ячеек; нет чтения или порчи памяти.",
+          "controls": [
+            "Плотность растра",
+            "Доля повреждений",
+            "Битовая маска / цвет"
+          ]
+        },
+        {
+          "file": "dc03_address_maze.frag",
+          "title": "Address Maze",
+          "inspiration": "Memory Corruption",
+          "description": "Линейный адрес сетки переносится в другую строку и формирует сломанные штрихкоды.",
+          "controls": [
+            "Ширина адресного поля",
+            "Перестановка строк",
+            "Длина штрихов / цвет"
+          ]
+        },
+        {
+          "file": "dc04_packet_islands.frag",
+          "title": "Packet Islands",
+          "inspiration": "Packet Loss",
+          "description": "Крупные кодовые плитки выпадают и возвращаются пачками; чистый генератор без видеовхода.",
+          "controls": [
+            "Число пакетов",
+            "Вероятность выпадения",
+            "Форма пакета / цвет"
+          ]
+        },
+        {
+          "file": "dc05_macroblock_quilt.frag",
+          "title": "Macroblock Quilt",
+          "inspiration": "Macroblock Decay",
+          "description": "Рисунок перескакивает между крупной и мелкой сеткой; имитация распада кодовых блоков.",
+          "controls": [
+            "Размер макроблоков",
+            "Степень распада",
+            "Квантование / цвет"
+          ]
+        },
+        {
+          "file": "dc06_ring_buffer.frag",
+          "title": "Ring Buffer",
+          "inspiration": "Buffer Overflow",
+          "description": "Полосы перезаписывают циклический адресный рисунок с разной фазой в каждой строке.",
+          "controls": [
+            "Число регистров",
+            "Смещение переполнения",
+            "Ширина записи / цвет"
+          ]
+        },
+        {
+          "file": "dc07_rank_bands.frag",
+          "title": "Rank Bands",
+          "inspiration": "Pixel Sorting",
+          "description": "Упорядоченные ступени яркости строятся формулой внутри длинных полос; сортировки пикселей и циклов нет.",
+          "controls": [
+            "Число полос",
+            "Длина отсортированных пробегов",
+            "Число ступеней / цвет"
+          ]
+        },
+        {
+          "file": "dc08_time_shards.frag",
+          "title": "Time Shards",
+          "inspiration": "Frame Fragmentation",
+          "description": "Каждая плитка вычисляет собственную временную фазу одного рисунка; прошлые кадры не сохраняются.",
+          "controls": [
+            "Дробление кадра",
+            "Разброс временных фаз",
+            "Толщина осколков / цвет"
+          ]
+        },
+        {
+          "file": "dc09_bitplane_cathedral.frag",
+          "title": "Bitplane Cathedral",
+          "inspiration": "Bitplane Manipulation",
+          "description": "Симметричные цифровые витражи из четырёх арифметически выделенных битовых плоскостей.",
+          "controls": [
+            "Масштаб витража",
+            "Перестановка битовых адресов",
+            "Выделение плоскостей / цвет"
+          ]
+        },
+        {
+          "file": "dc10_smear_ribbons.frag",
+          "title": "Smear Ribbons",
+          "inspiration": "Data Smearing",
+          "description": "Кодовые отрезки вытягиваются в длинные ленты с жёсткими цифровыми окончаниями.",
+          "controls": [
+            "Число лент",
+            "Длина растяжения",
+            "Толщина / цвет"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "digital",
+      "name": "DIGITAL / COMPUTATIONAL",
+      "version": "0.1.0",
+      "shaders": [
+        {
+          "file": "dg01_quantized_contours.frag",
+          "title": "Quantized Contours",
+          "inspiration": "Quantization",
+          "description": "Рельеф из круговых и ромбических изолиний с крупными ступенями яркости.",
+          "controls": [
+            "Частота контуров",
+            "Круг → ромб",
+            "Число уровней / цвет"
+          ]
+        },
+        {
+          "file": "dg02_bayer_weave.frag",
+          "title": "Bayer Weave",
+          "inspiration": "Dithering",
+          "description": "Упорядоченный 4×4 растр превращает движущееся поле в ткань из чётких светлых ячеек.",
+          "controls": [
+            "Размер зерна",
+            "Контраст поля",
+            "Заполнение / цвет"
+          ]
+        },
+        {
+          "file": "dg03_nested_frames.frag",
+          "title": "Nested Frames",
+          "inspiration": "Digital Feedback",
+          "description": "Вложенные рамки создают впечатление цифрового фидбека; каждая рамка вычисляется напрямую.",
+          "controls": [
+            "Глубина вложения",
+            "Скос рамок",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "dg04_folded_prisms.frag",
+          "title": "Folded Prisms",
+          "inspiration": "Coordinate Folding",
+          "description": "Зеркально сложенные координаты образуют сдвигающиеся треугольные призмы.",
+          "controls": [
+            "Число складок",
+            "Сдвиг отражений",
+            "Ширина граней / цвет"
+          ]
+        },
+        {
+          "file": "dg05_recursive_tiles.frag",
+          "title": "Recursive Tiles",
+          "inspiration": "Recursive Tiling",
+          "description": "Три фиксированных масштаба квадратных рамок; никаких рекурсивных вызовов или циклов.",
+          "controls": [
+            "Размер плиток",
+            "Сдвиг вложенных слоёв",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "dg06_logic_carpet.frag",
+          "title": "Logic Carpet",
+          "inspiration": "Bitwise Patterning",
+          "description": "XOR и AND четырёх младших битов координат дают ковёр из цифровых лестниц.",
+          "controls": [
+            "Плотность адресов",
+            "Смесь XOR / AND",
+            "Порог маски / цвет"
+          ]
+        },
+        {
+          "file": "dg07_rule90_tapestry.frag",
+          "title": "Rule 90 Tapestry",
+          "inspiration": "Cellular Automata",
+          "description": "Аналитический конечный срез треугольника Rule 90 через битовый критерий; состояния клеток не хранятся.",
+          "controls": [
+            "Размер клеток",
+            "Смещение поколений",
+            "Внутренний просвет / цвет"
+          ]
+        },
+        {
+          "file": "dg08_boolean_totems.frag",
+          "title": "Boolean Totems",
+          "inspiration": "Boolean Geometry",
+          "description": "Пересечение, исключение и объединение диска с движущейся квадратной маской.",
+          "controls": [
+            "Число тотемов",
+            "Логическая операция",
+            "Размер фигур / цвет"
+          ]
+        },
+        {
+          "file": "dg09_moire_engines.frag",
+          "title": "Moire Engines",
+          "inspiration": "Digital Interference",
+          "description": "Две близкие дискретные сетки образуют крупные биения и движущиеся оптические волны.",
+          "controls": [
+            "Частота сеток",
+            "Угол / расстройка",
+            "Ширина линий / цвет"
+          ]
+        },
+        {
+          "file": "dg10_circuit_truchet.frag",
+          "title": "Circuit Truchet",
+          "inspiration": "Procedural Topology",
+          "description": "Соединяемые четверти окружностей складываются в дорожки, петли и узлы схемы.",
+          "controls": [
+            "Размер дорожек",
+            "Перестройка маршрутов",
+            "Толщина / цвет"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "analog",
+      "name": "ANALOG ECHO / ELECTRONIC MEMORY",
+      "version": "0.1.0",
+      "shaders": [
+        {
+          "file": "an01_raster_afterimage.frag",
+          "title": "Raster Afterimage",
+          "inspiration": "Phosphor Persistence",
+          "description": "Дискретные затухающие полосы вокруг бегущей развёртки; без свечения, blur и памяти кадров.",
+          "controls": [
+            "Плотность развёртки",
+            "Длина условного следа",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "an02_echo_corridor.frag",
+          "title": "Echo Corridor",
+          "inspiration": "Analog Echo",
+          "description": "Смещённые вложенные контуры дают ощущение эхо-коридора; без задержанных кадров.",
+          "controls": [
+            "Число эхо-контуров",
+            "Изгиб коридора",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "an03_chroma_bleed.frag",
+          "title": "Chroma Bleed Bars",
+          "inspiration": "Signal Bleeding",
+          "description": "Сдвинутые края цветовых полос имитируют растекание сигнала; только три аналитические маски.",
+          "controls": [
+            "Частота полос",
+            "Разъезд каналов",
+            "Скважность / цвет"
+          ]
+        },
+        {
+          "file": "an04_tape_drag.frag",
+          "title": "Tape Drag",
+          "inspiration": "Magnetic Smear",
+          "description": "Плывущие горизонтальные полосы с вытянутыми разрывами магнитной ленты.",
+          "controls": [
+            "Количество полос",
+            "Глубина протяжки",
+            "Ширина записи / цвет"
+          ]
+        },
+        {
+          "file": "an05_deflection_lattice.frag",
+          "title": "Deflection Lattice",
+          "inspiration": "CRT Deflection",
+          "description": "Искривлённая калибровочная сетка с бочкой, подушкой и дрейфом луча; без glow.",
+          "controls": [
+            "Частота решётки",
+            "Бочка / подушка",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "an06_scanline_riot.frag",
+          "title": "Scanline Riot",
+          "inspiration": "Scanline Instability",
+          "description": "Строки отдельно дрожат и меняют фазу, образуя рваную типографическую развёртку.",
+          "controls": [
+            "Количество строк",
+            "Амплитуда срыва",
+            "Толщина строки / цвет"
+          ]
+        },
+        {
+          "file": "an07_exposure_steps.frag",
+          "title": "Exposure Steps",
+          "inspiration": "Temporal Integration",
+          "description": "Четыре фиксированных положения движущегося контура выглядят как ступени экспозиции; накопления нет.",
+          "controls": [
+            "Размер контура",
+            "Расстояние между экспозициями",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "an08_oscillator_cross.frag",
+          "title": "Oscillator Cross",
+          "inspiration": "Feedback Oscillation",
+          "description": "Две связанные волны формируют узлы и биения, похожие на самовозбуждение видеотракта.",
+          "controls": [
+            "Частота осцилляторов",
+            "Перекрёстная модуляция",
+            "Порог сигнала / цвет"
+          ]
+        },
+        {
+          "file": "an09_sync_curtain.frag",
+          "title": "Sync Curtain",
+          "inspiration": "Sync Drift",
+          "description": "Бегущая кадровая граница рвёт и скашивает вертикальные тестовые полосы.",
+          "controls": [
+            "Частота тестовых полос",
+            "Срыв синхронизации",
+            "Скважность / цвет"
+          ]
+        },
+        {
+          "file": "an10_carrier_weave.frag",
+          "title": "Carrier Weave",
+          "inspiration": "Analog Noise Modulation",
+          "description": "Непрерывное шумовое поле изгибает ленточную несущую, без кадрового белого шума.",
+          "controls": [
+            "Частота несущей",
+            "Глубина шумовой модуляции",
+            "Ширина ленты / цвет"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organic",
+      "name": "ORGANIC NATURE / EMERGENT SYSTEMS",
+      "version": "0.1.0",
+      "shaders": [
+        {
+          "file": "og01_turing_contours.frag",
+          "title": "Turing Contours",
+          "inspiration": "Reaction–Diffusion",
+          "description": "Пятна и лабиринты из пересечения трёх волн; визуальная интерпретация, не химическая симуляция.",
+          "controls": [
+            "Размер пятен",
+            "Полосы → островки",
+            "Порог / цвет"
+          ]
+        },
+        {
+          "file": "og02_cell_bloom.frag",
+          "title": "Cell Bloom",
+          "inspiration": "Cellular Growth",
+          "description": "Ячейки пульсируют и раскрывают мембраны с индивидуальной фазой; без размножения агентов.",
+          "controls": [
+            "Число клеток",
+            "Разброс раскрытия",
+            "Толщина мембран / цвет"
+          ]
+        },
+        {
+          "file": "og03_mycelium_traces.frag",
+          "title": "Mycelium Traces",
+          "inspiration": "Mycelium Networks",
+          "description": "Плиточные дуги и тонкие ответвления создают рисунок грибницы; без растущих частиц.",
+          "controls": [
+            "Плотность ветвей",
+            "Кривизна волокон",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "og04_vein_transport.frag",
+          "title": "Vein Transport",
+          "inspiration": "Physarum Simulation",
+          "description": "Пересекающиеся извилистые каналы напоминают транспортную сеть; агенты слизевика не моделируются.",
+          "controls": [
+            "Масштаб сети",
+            "Извилистость каналов",
+            "Ширина сосудов / цвет"
+          ]
+        },
+        {
+          "file": "og05_advected_marble.frag",
+          "title": "Advected Marble",
+          "inspiration": "Fluid Advection",
+          "description": "Мраморные слои движутся в аналитически деформированных координатах; решателя жидкости нет.",
+          "controls": [
+            "Частота слоёв",
+            "Глубина завихрения",
+            "Ширина прожилок / цвет"
+          ]
+        },
+        {
+          "file": "og06_eroded_strata.frag",
+          "title": "Eroded Strata",
+          "inspiration": "Organic Erosion",
+          "description": "Шумовой профиль вырезает уступы и пустоты в ступенчатых геологических слоях.",
+          "controls": [
+            "Количество слоёв",
+            "Глубина размыва",
+            "Ширина уступов / цвет"
+          ]
+        },
+        {
+          "file": "og07_morphing_polyps.frag",
+          "title": "Morphing Polyps",
+          "inspiration": "Morphogenesis",
+          "description": "Клеточные розетки переходят от кругов к ромбам и раскрывают внутренние кольца.",
+          "controls": [
+            "Размер розеток",
+            "Круг → ромб",
+            "Раскрытие / цвет"
+          ]
+        },
+        {
+          "file": "og08_fold_growth.frag",
+          "title": "Fold Growth",
+          "inspiration": "Differential Growth",
+          "description": "Разветвлённые складки получаются из деформированного поля расстояния; контуры не симулируются.",
+          "controls": [
+            "Плотность складок",
+            "Глубина деформации",
+            "Толщина / цвет"
+          ]
+        },
+        {
+          "file": "og09_curl_ribbons.frag",
+          "title": "Curl Ribbons",
+          "inspiration": "Turbulent Flow",
+          "description": "Ленты закручиваются двумя связанными волнами, без частиц и многооктавного шума.",
+          "controls": [
+            "Частота лент",
+            "Сила закручивания",
+            "Ширина / цвет"
+          ]
+        },
+        {
+          "file": "og10_breathing_membrane.frag",
+          "title": "Breathing Membrane",
+          "inspiration": "Membrane Dynamics",
+          "description": "Эластичная двумерная сетка растягивается в противофазе; без физического решателя.",
+          "controls": [
+            "Плотность мембраны",
+            "Растяжение",
+            "Толщина нитей / цвет"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hybrid",
+      "name": "HYBRID / EXPERIMENTAL",
+      "version": "0.1.0",
+      "shaders": [
+        {
+          "file": "hy01_organic_corruption.frag",
+          "title": "Organic Corruption",
+          "inspiration": "Organic Corruption",
+          "description": "Островки волн заражают дискретные кодовые блоки, соединяя органическую границу и цифровой разрыв.",
+          "controls": [
+            "Размер блоков",
+            "Глубина заражения",
+            "Порог / цвет"
+          ]
+        },
+        {
+          "file": "hy02_echo_garden.frag",
+          "title": "Echo Garden",
+          "inspiration": "Feedback Ecosystem",
+          "description": "Соседние ячейки содержат кольца с разными фазами и ритмами; аналитический сад без фидбека.",
+          "controls": [
+            "Число ячеек",
+            "Разница ритмов",
+            "Толщина колец / цвет"
+          ]
+        },
+        {
+          "file": "hy03_liquid_blocks.frag",
+          "title": "Liquid Blocks",
+          "inspiration": "Liquid Datamosh",
+          "description": "Жидкая деформация применяется к крупной дискретной решётке; память кадров не используется.",
+          "controls": [
+            "Размер жидких блоков",
+            "Сила течения",
+            "Заполнение / цвет"
+          ]
+        },
+        {
+          "file": "hy04_signal_parasite.frag",
+          "title": "Signal Parasite",
+          "inspiration": "Signal Parasite",
+          "description": "Волнистая органическая граница захватывает яркие полосы собственного тестового сигнала.",
+          "controls": [
+            "Частота сигнала",
+            "Глубина вторжения",
+            "Толщина следов / цвет"
+          ]
+        },
+        {
+          "file": "hy05_digital_morphogenesis.frag",
+          "title": "Digital Morphogenesis",
+          "inspiration": "Digital Morphogenesis",
+          "description": "Пульсирующие островки составлены из квадратных клеток, сдвигаемых волновым полем.",
+          "controls": [
+            "Размер цифровых клеток",
+            "Деформация островков",
+            "Порог роста / цвет"
+          ]
+        },
+        {
+          "file": "hy06_branch_echo.frag",
+          "title": "Branch Echo",
+          "inspiration": "Echo Growth",
+          "description": "Три фиксированных масштаба диагональных ответвлений дают ступенчатую растущую решётку.",
+          "controls": [
+            "Масштаб ветвления",
+            "Разлёт ветвей",
+            "Толщина / цвет"
+          ]
+        }
+      ]
+    }
+  ]
+}

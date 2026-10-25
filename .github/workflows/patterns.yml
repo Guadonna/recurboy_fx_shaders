@@ -24,21 +24,24 @@ jobs:
         env:
           EGL_PLATFORM: surfaceless
         run: python tools/validate_pattern.py
-      - name: Check patches against pinned upstream sources
-        run: python tools/check_host_patch.py
+      - name: Check generated files and archive layout
+        run: |
+          python tools/build_patterns.py
+          git diff --exit-code -- Shaders collections manifest.json
+          python -m unittest discover -s tests -v
       - name: Build and verify archives
         run: python tools/package.py
       - uses: actions/upload-artifact@v4
         with:
-          name: cv-matrix-test-results
+          name: pattern-test-results
           path: |
             artifacts/*.json
-            artifacts/*.png
+            artifacts/*.jpg
             artifacts/*.gif
       - uses: actions/upload-artifact@v4
         with:
           name: pattern-release-assets
-          path: dist/
+          path: dist/patterns-v0.2.0/
   release:
     if: startsWith(github.ref, 'refs/tags/patterns-v')
     needs: validate
@@ -63,7 +66,7 @@ jobs:
           if state=$(gh release view "$RELEASE_TAG" --json isDraft --jq .isDraft); then
             test "$state" = true || { echo 'Refusing to overwrite a published release'; exit 1; }
           else
-            gh release create "$RELEASE_TAG" --verify-tag --draft --prerelease --title "RecurBoy Patterns $version — CV Matrix prototype" --notes-file docs/release-notes.md
+            gh release create "$RELEASE_TAG" --verify-tag --draft --prerelease --title "RecurBoy Patterns $version — 46 generators" --notes-file docs/release-notes.md
           fi
           gh release upload "$RELEASE_TAG" dist/*.zip dist/SHA256SUMS
           gh release edit "$RELEASE_TAG" --draft=false --prerelease --latest=false --notes-file docs/release-notes.md
