@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Combine separately built collection ZIPs into an installable Fx/ archive."""
+"""Bundle collection ZIP contents in separate collection directories."""
 import argparse
 import hashlib
 import json
@@ -15,25 +15,25 @@ def build(archives, output, version):
             manifest = json.loads(z.read('manifest.json'))
             name = manifest['collection']
             assert name not in [c['collection'] for c in collections]
-            collections.append(manifest)
+            assert name and all(c.isalnum() or c in "_-" for c in name)
+            collections.append(dict(manifest, directory=name))
             for line in z.read('SHA256SUMS').decode().splitlines():
                 digest, item = line.split('  ', 1)
                 assert hashlib.sha256(z.read(item)).hexdigest() == digest
             for item in z.namelist():
                 assert not Path(item).is_absolute() and '..' not in Path(item).parts
-                if item == 'SHA256SUMS':
-                    continue
-                target = item if item.startswith('Fx/') else f'collections/{name}/{item}'
+                target = f'{name}/{item}'
                 assert target not in entries, f'Duplicate file: {target}'
                 entries[target] = z.read(item)
-    shaders = {p for p in entries if p.startswith('Fx/') and p.endswith('.frag')}
-    declared = [e['file'] for c in collections for e in c['effects']]
+    collections.sort(key=lambda c: c['collection'])
+    shaders = {p for p in entries if p.endswith('.frag')}
+    declared = [c['directory']+'/'+e['file'] for c in collections for e in c['effects']]
     assert len(declared) == len(set(declared)) and set(declared) == shaders
     entries['manifest.json'] = (json.dumps({'version': version, 'collections': collections}, ensure_ascii=False, indent=2)+'\n').encode()
     entries['README.md'] = (f'# RecurBoy FX Collections {version}\n\n'
-        f'Все {len(shaders)} шейдеров находятся в общей папке Fx/. Скопируйте её содержимое в ~/Fx/ на Pi или Fx в корне USB.\n\n'
-        'Инструкции, параметры ручек, версии и примеры каждой подборки лежат в collections/<название>/. '
-        'Пути Fx/ в этих инструкциях относятся к общей папке в корне архива.\n\n'
+        f'Все {len(shaders)} шейдеров разделены по подборкам: feedback/Fx/ и datamosh/Fx/.\n\n'
+        'Каждая папка содержит полную подборку с собственными README, manifest.json, docs/ и SHA256SUMS. '
+        'Для установки выбранной подборки скопируйте содержимое её Fx/ в ~/Fx/ на Pi или Fx в корне USB.\n\n'
         'Перед включением эффекта сбросьте Wet в ноль на несколько кадров. '
         'GLES-проверки выполнены; FPS и температура на Raspberry Pi пока не измерены.\n').encode()
     entries['SHA256SUMS'] = ''.join(hashlib.sha256(data).hexdigest()+'  '+name+'\n' for name,data in sorted(entries.items())).encode()
