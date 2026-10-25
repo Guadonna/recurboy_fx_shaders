@@ -31,7 +31,9 @@ def build(archives, output, version):
     assert len(declared) == len(set(declared)) and set(declared) == shaders
     entries['manifest.json'] = (json.dumps({'version': version, 'collections': collections}, ensure_ascii=False, indent=2)+'\n').encode()
     entries['README.md'] = (f'# RecurBoy FX Collections {version}\n\n'
-        f'Все {len(shaders)} шейдеров разделены по подборкам: feedback/Fx/ и datamosh/Fx/.\n\n'
+        f'Все {len(shaders)} шейдеров разделены по {len(collections)} подборкам.\n\n'
+        + ''.join('- '+c['directory']+'/Fx/ — '+str(len(c['effects']))+' эффектов\n' for c in collections)+'\n'
+        +
         'Каждая папка содержит полную подборку с собственными README, manifest.json, docs/ и SHA256SUMS. '
         'Для установки выбранной подборки скопируйте содержимое её Fx/ в ~/Fx/ на Pi или Fx в корне USB.\n\n'
         'Перед включением эффекта сбросьте Wet в ноль на несколько кадров. '
