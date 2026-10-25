@@ -1,0 +1,81 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "displacement",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/dsp01_luma_relief.frag",
+      "dry_max_error": 0,
+      "texture_reads": 6,
+      "knob_a_delta": 26.28221450617284,
+      "knob_b_delta": 18.26446759259259,
+      "clock_delta": 3.787180507330247,
+      "difference_from_input": 18.991861979166668,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp02_noise_tiles.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 45.71911168981482,
+      "knob_b_delta": 53.886031539351855,
+      "clock_delta": 36.50251374421296,
+      "difference_from_input": 46.588300540123456,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp03_rgb_vector_map.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 35.39187885802469,
+      "knob_b_delta": 58.04102768132716,
+      "clock_delta": 34.34392119984568,
+      "difference_from_input": 43.766818576388886,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp04_wandering_lens.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 47.032793209876544,
+      "knob_b_delta": 29.45782696759259,
+      "clock_delta": 22.882127700617286,
+      "difference_from_input": 18.371419270833332,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp05_memory_displacer.frag",
+      "dry_max_error": 0,
+      "texture_reads": 5,
+      "knob_a_delta": 19.606843171296298,
+      "knob_b_delta": 17.86103877314815,
+      "clock_delta": 15.774109037422837,
+      "difference_from_input": 19.46512104552469,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 47.59155574845679,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 25.69504726080247,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}

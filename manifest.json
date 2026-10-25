@@ -1,0 +1,113 @@
+{
+  "collection": "displacement",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Luma Relief",
+      "description": "Градиент яркости превращается в рельеф и раздвигает контуры.",
+      "controls": [
+        "Wet / reset",
+        "Радиус рельефа",
+        "Сила смещения",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 6,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp01_luma_relief.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Noise Tiles",
+      "description": "Шумовые ячейки растаскивают изображение в независимых направлениях.",
+      "controls": [
+        "Wet / reset",
+        "Размер ячеек",
+        "Разлёт",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp02_noise_tiles.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "RGB Vector Map",
+      "description": "Красный и синий каналы служат двумя осями карты смещения.",
+      "controls": [
+        "Wet / reset",
+        "Поворот поля",
+        "Глубина карты",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp03_rgb_vector_map.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Wandering Lens",
+      "description": "Движущаяся линза расширяет и заворачивает видео; яркость центра меняет её силу.",
+      "controls": [
+        "Wet / reset",
+        "Радиус линзы",
+        "Рефракция",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp04_wandering_lens.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Memory Displacer",
+      "description": "Перепады старого кадра искривляют текущее видео и оставляют след.",
+      "controls": [
+        "Wet / reset",
+        "Шаг поля памяти",
+        "Деформация и память",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 5,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dsp05_memory_displacer.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}
