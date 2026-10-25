@@ -1,6 +1,6 @@
 {
   "collection": "displacement",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "hardware-unverified",
   "api": "GLSL ES 1.00",
   "effects": [
@@ -108,6 +108,112 @@
         0.75,
         0.65
       ]
+    },
+    {
+      "name": "Edge Squeeze",
+      "description": "Соседние перепады яркости сжимают и растягивают горизонтальные участки.",
+      "controls": [
+        "Wet / reset",
+        "Шаг карты",
+        "Сила растяжения",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp06_edge_squeeze.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Scan Twist",
+      "description": "Полосы разной высоты поворачивают локальное направление сдвига.",
+      "controls": [
+        "Wet / reset",
+        "Высота полос",
+        "Амплитуда",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp07_scan_twist.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Cell Lenses",
+      "description": "Каждая клетка сетки работает как отдельная линза.",
+      "controls": [
+        "Wet / reset",
+        "Количество линз",
+        "Кривизна",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp08_cell_lenses.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Temporal Relief",
+      "description": "Разность текущего и прошлого кадров задаёт смещение по диагонали.",
+      "controls": [
+        "Wet / reset",
+        "Направление сдвига",
+        "Глубина памяти",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dsp09_temporal_relief.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Crossed Maps",
+      "description": "Две смещённые карты яркости управляют разными осями.",
+      "controls": [
+        "Wet / reset",
+        "Расстояние карт",
+        "Сила искажения",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dsp10_crossed_maps.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
     }
-  ]
+  ],
+  "name": "Displacement Mapping"
 }

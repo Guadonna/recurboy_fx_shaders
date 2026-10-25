@@ -64,9 +64,70 @@
       "boundary_draws": 24,
       "history_delta": 47.59155574845679,
       "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp06_edge_squeeze.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 12.239667727623457,
+      "knob_b_delta": 22.7021484375,
+      "clock_delta": 5.782007137345678,
+      "difference_from_input": 23.476490162037038,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp07_scan_twist.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 36.895640432098766,
+      "knob_b_delta": 41.14284336419753,
+      "clock_delta": 38.49402006172839,
+      "difference_from_input": 39.445408950617285,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp08_cell_lenses.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 21.05594135802469,
+      "knob_b_delta": 21.193274980709877,
+      "clock_delta": 4.874635898919753,
+      "difference_from_input": 13.551384066358025,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp09_temporal_relief.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 8.403742283950617,
+      "knob_b_delta": 6.862618152006172,
+      "clock_delta": 0.7654369212962963,
+      "difference_from_input": 13.085636091820987,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 47.587239583333336,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dsp10_crossed_maps.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 16.829716435185187,
+      "knob_b_delta": 34.243537808641975,
+      "clock_delta": 5.766564187885803,
+      "difference_from_input": 27.756667148919753,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
     }
   ],
-  "min_pair_difference": 25.69504726080247,
+  "min_pair_difference": 19.89529079861111,
   "additional_resolutions": [
     [
       63,
