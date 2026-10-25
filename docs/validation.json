@@ -1,0 +1,82 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "pixel-sorting",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/srt01_horizontal_ranks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 6,
+      "knob_a_delta": 24.13405430169753,
+      "knob_b_delta": 22.220329378858025,
+      "clock_delta": 17.62467086226852,
+      "difference_from_input": 17.69795283564815,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/srt02_vertical_ranks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 6,
+      "knob_a_delta": 19.08930121527778,
+      "knob_b_delta": 16.385657793209877,
+      "clock_delta": 16.71934196566358,
+      "difference_from_input": 17.889961902006174,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/srt03_diagonal_ranks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 6,
+      "knob_a_delta": 27.818745177469136,
+      "knob_b_delta": 21.27684944058642,
+      "clock_delta": 21.40624035493827,
+      "difference_from_input": 23.914267457561728,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/srt04_radial_ranks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 6,
+      "knob_a_delta": 51.09491946373457,
+      "knob_b_delta": 30.509922357253085,
+      "clock_delta": 30.966713686342587,
+      "difference_from_input": 31.75828269675926,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/srt05_chroma_ranks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 6,
+      "knob_a_delta": 24.20093074845679,
+      "knob_b_delta": 14.471944926697532,
+      "clock_delta": 17.508598572530865,
+      "difference_from_input": 16.434919945987655,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 14.885621624228396,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {
+    "sorted_permutations": 120
+  }
+}

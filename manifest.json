@@ -1,0 +1,113 @@
+{
+  "collection": "pixel-sorting",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Horizontal Ranks",
+      "description": "Горизонтальные ленты от тёмного к светлому.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Диапазон включённых яркостей",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 6,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt01_horizontal_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Vertical Ranks",
+      "description": "Вертикальные столбцы с упорядоченными яркостями.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Диапазон включённых яркостей",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 6,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt02_vertical_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Diagonal Ranks",
+      "description": "Наклонные ленты сортировки движутся по диагонали.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Диапазон включённых яркостей",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 6,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt03_diagonal_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Radial Ranks",
+      "description": "Радиальные лучи сортируют изображение от центра к краям.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Диапазон включённых яркостей",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 6,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt04_radial_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Chroma Ranks",
+      "description": "Полосы упорядочивают фрагменты по разнице красного и синего.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Диапазон включённых яркостей",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 6,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt05_chroma_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}
