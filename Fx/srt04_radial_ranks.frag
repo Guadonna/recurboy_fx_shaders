@@ -1,6 +1,5 @@
-// Radial Ranks — Радиальные лучи сортируют изображение от центра к краям.
-// A: Длина сегмента; B: Диапазон включённых яркостей
-// Budget: 6 texture reads.
+// Radial Ranks — Лучи сортировки на лёгкой квадратной радиальной метрике.
+// Budget: 4 reads. A: Длина сегмента; B: Включённые яркости.
 // Original RecurBoy GLSL ES 1.00 FX. One pass; native controls only.
 // u_tex1 must be the completed previous frame, not the current render target.
 #ifdef GL_ES
@@ -22,71 +21,58 @@ C vec2 mirrorUV(C vec2 p) { return 1.-abs(mod(p,2.)-1.); }
 vec3 video(C vec2 p) { return texture2D(u_tex0,safeUV(p)).rgb; }
 vec3 past(C vec2 p) { return texture2D(u_tex1,safeUV(p)).rgb; }
 float lum(vec3 c) { return dot(c,vec3(.299,.587,.114)); }
-float wave(float x) { return sin(TAU*fract(x)); }
-float tri(float x) { return 1.-4.*abs(fract(x)-.5); }
-mat2 rot(float x) { float s=sin(x),c=cos(x);return mat2(c,-s,s,c); }
-float hash21(vec2 p) { vec3 q=fract(vec3(p.xyx)*vec3(.1031,.1137,.1379));q+=dot(q,q.yzx+3.33);return fract((q.x+q.y)*q.z); }
-// atan(0,0) is undefined in GLSL; keep the central texel well-defined.
-float angleOf(C vec2 p) { return dot(p,p)>0.0 ? atan(p.y,p.x) : 0.0; }
-C vec2 polarFold(C vec2 uv,vec2 center,float slices,float twist,float zoom) {
- C vec2 p=uv-center;float r=length(p);float angle=angleOf(p)+twist;
- float sector=TAU/slices;angle=abs(mod(angle+sector*.5,sector)-sector*.5);
- return mirrorUV(.5+vec2(cos(angle),sin(angle))*r*zoom);
-}
-float rankKey(vec3 c) { return lum(c); }
-void order(inout vec3 a,inout vec3 b) { vec3 lo=mix(a,b,step(rankKey(b),rankKey(a)));vec3 hi=mix(b,a,step(rankKey(b),rankKey(a)));a=lo;b=hi; }
-
 void main() {
  C vec2 uv=safeUV(v_texcoord), px=1./max(u_resolution,vec2(1.));
-    
+
  vec3 src=video(uv);
-    
+
  float wet=clamp(u_x0,0.,1.),a=clamp(u_x1,0.,1.),b=clamp(u_x2,0.,1.);
-    
+
  float t=fract(ftime);
-    
+
  if(wet<.003) {gl_FragColor=vec4(src,1.);
     return;
     }
-vec3 v0,v1,v2,v3,v4;
+vec3 v0,v1,v2;
     vec2 p=uv-.5;
-    vec2 z=vec2(length(p),angleOf(p));
-    float span=.025+.55*a*a;
+    float r=max(max(abs(p.x),abs(p.y)),.001);
+    vec2 direction=p/r;
+    vec2 z=vec2(r,0.);
+    float span=.02+.6*a*a;
     float anchor=floor((z.x+t*span)/span)*span-t*span;
-    float index=floor(clamp((z.x-anchor)/span,0.,.999)*5.);
-    {float q=anchor+span*0.1;
-    vec2 zq=.5+q*vec2(cos(z.y),sin(z.y));
-    v0=video(mirrorUV(zq));
-    }{float q=anchor+span*0.3;
-    vec2 zq=.5+q*vec2(cos(z.y),sin(z.y));
-    v1=video(mirrorUV(zq));
+    float index=floor(clamp((z.x-anchor)/span,0.,.999)*3.);
+    {float q=anchor+span*0.16666666666666666;
+    vec2 zq=.5+q*direction;
+    v0=video(zq);
     }{float q=anchor+span*0.5;
-    vec2 zq=.5+q*vec2(cos(z.y),sin(z.y));
-    v2=video(mirrorUV(zq));
-    }{float q=anchor+span*0.7;
-    vec2 zq=.5+q*vec2(cos(z.y),sin(z.y));
-    v3=video(mirrorUV(zq));
-    }{float q=anchor+span*0.9;
-    vec2 zq=.5+q*vec2(cos(z.y),sin(z.y));
-    v4=video(mirrorUV(zq));
-    }order(v0,v1);
-    order(v1,v2);
-    order(v0,v1);
-    order(v2,v3);
-    order(v1,v2);
-    order(v0,v1);
-    order(v3,v4);
-    order(v2,v3);
-    order(v1,v2);
-    order(v0,v1);
-    vec3 selected=v0;
-    selected=mix(selected,v1,step(1.,index));
-    selected=mix(selected,v2,step(2.,index));
-    selected=mix(selected,v3,step(3.,index));
-    selected=mix(selected,v4,step(4.,index));
-    float gate=smoothstep(1.-b-.12,1.-b,lum(src));
+    vec2 zq=.5+q*direction;
+    v1=video(zq);
+    }{float q=anchor+span*0.8333333333333334;
+    vec2 zq=.5+q*direction;
+    v2=video(zq);
+    }// SORT3_BEGIN
+float k0=lum(v0),k1=lum(v1),k2=lum(v2);
+
+float swap01=step(k1,k0);
+
+vec3 low=mix(v0,v1,swap01),high=mix(v1,v0,swap01);
+
+float klo=mix(k0,k1,swap01),khi=mix(k1,k0,swap01);
+
+vec3 smallest=mix(low,v2,1.-step(klo,k2));
+
+vec3 largest=mix(high,v2,1.-step(k2,khi));
+
+vec3 middle=v0+v1+v2-smallest-largest;
+
+vec3 selected=mix(smallest,middle,step(1.,index));
+
+selected=mix(selected,largest,step(2.,index));
+
+// SORT3_END
+float gate=smoothstep(1.-b-.12,1.-b,lum(src));
     vec3 result=mix(src,selected,gate);
-    
+
  gl_FragColor=vec4(clamp(mix(src,result,wet),0.,1.),1.);
-    
+
 }

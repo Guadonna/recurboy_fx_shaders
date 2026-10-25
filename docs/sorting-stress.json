@@ -1,0 +1,95 @@
+{
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/srt01_horizontal_ranks.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt02_vertical_ranks.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt03_diagonal_ranks.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt04_radial_ranks.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt05_chroma_ranks.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt06_descending_rows.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt07_serpentine_rows.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt08_green_column_ranks.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt09_tile_ranks.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    },
+    {
+      "file": "Fx/srt10_bright_ridges.frag",
+      "resolution": [
+        720,
+        576
+      ],
+      "frames": 256,
+      "passed": true
+    }
+  ]
+}
