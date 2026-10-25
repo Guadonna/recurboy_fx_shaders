@@ -2,7 +2,6 @@ name: Feedback collection
 on:
   push:
     branches: [collections/feedback]
-    tags: ['feedback-v*']
   pull_request:
 permissions:
   contents: read
@@ -36,31 +35,3 @@ jobs:
         with:
           name: shader-validation
           path: artifacts/
-  release:
-    if: startsWith(github.ref, 'refs/tags/feedback-v')
-    needs: validate
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Match tag to manifest
-        env:
-          RELEASE_TAG: ${{ github.ref_name }}
-        run: |
-          python - <<'PY'
-          import json, os
-          assert os.environ['RELEASE_TAG'] == 'feedback-v' + json.load(open('manifest.json'))['version']
-          PY
-      - run: python tools/package.py
-      - name: Publish archive and checksum
-        env:
-          GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ github.ref_name }}
-        run: |
-          gh release create "$RELEASE_TAG" dist/recurboy-feedback-v*.zip dist/SHA256SUMS \
-            --verify-tag --prerelease --title "Feedback — 11 FX ($RELEASE_TAG)" \
-            --notes-file docs/RELEASE_NOTES.md
