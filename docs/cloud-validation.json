@@ -1,0 +1,127 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "platform_validation": "cloud GLES; not a Pi FPS or thermal qualification",
+  "effects": [
+    {
+      "file": "Fx/01_liquid_memory.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 10.366956922743055,
+      "temporal_difference": 17.45357937282986,
+      "output_std": 63.87661632838744
+    },
+    {
+      "file": "Fx/02_mycelium.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 61.85943603515625,
+      "temporal_difference": 13.174757215711805,
+      "output_std": 69.36129343938056
+    },
+    {
+      "file": "Fx/03_erosion.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 15.29721408420139,
+      "temporal_difference": 14.095323350694445,
+      "output_std": 58.608541276577554
+    },
+    {
+      "file": "Fx/04_reaction_diffusion.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 72.53493923611111,
+      "temporal_difference": 29.369981553819443,
+      "output_std": 73.30541309278209
+    },
+    {
+      "file": "Fx/05_temporal_refraction.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 1.6398451063368056,
+      "temporal_difference": 18.275044759114582,
+      "output_std": 68.52597190450349
+    },
+    {
+      "file": "Fx/06_magnetic_ink.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 16.954976399739582,
+      "temporal_difference": 14.717549641927084,
+      "output_std": 58.75479940215457
+    },
+    {
+      "file": "Fx/07_crystallization.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 20.54248046875,
+      "temporal_difference": 20.66452365451389,
+      "output_std": 66.54008032991551
+    },
+    {
+      "file": "Fx/08_elastic_membrane.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 3.2218492296006946,
+      "temporal_difference": 18.56568060980903,
+      "output_std": 69.31043028743834
+    },
+    {
+      "file": "Fx/09_digital_fossils.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 6.133402506510417,
+      "temporal_difference": 16.77685546875,
+      "output_std": 66.72400132820758
+    },
+    {
+      "file": "Fx/10_capillary_watercolor.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 9.344767252604166,
+      "temporal_difference": 14.289055718315971,
+      "output_std": 64.11696968275534
+    },
+    {
+      "file": "Fx/11_differential_growth.frag",
+      "passed": true,
+      "dry_max_error": 0,
+      "boundary_draws": 72,
+      "feedback_frames": 360,
+      "mean_difference": 95.22953965928819,
+      "temporal_difference": 122.41164143880208,
+      "output_std": 105.74181758077195
+    }
+  ],
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ]
+}
