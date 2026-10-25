@@ -1,10 +1,10 @@
 # RecurBoy Datamosh — 5 FX
 
-[Все подборки](https://github.com/Guadonna/recurboy_fx_shaders/tree/main) · [Скачать ZIP v0.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/datamosh-v0.1.0/recurboy-datamosh-v0.1.0.zip)
+[Все подборки](https://github.com/Guadonna/recurboy_fx_shaders/tree/main) · [Скачать ZIP v0.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.0.0/recurboy-datamosh-v0.1.0.zip)
 
 Пять разных эффектов, воспроизводящих вид повреждённых предсказанных кадров через RGB-feedback. Каждый получает текущее видео и предыдущий результат FX. Это визуальная имитация datamosh: сжатый видеопоток не редактируется, а «векторы движения» оцениваются приблизительно по изображению.
 
-Коллекция: `datamosh`, версия **0.1.0**, ветка **`collections/datamosh`**. Релизы этой подборки имеют собственные теги `datamosh-v…`, отдельно от Feedback FX.
+Коллекция: `datamosh`, версия **0.1.0**, ветка **`collections/datamosh`**. Архив подборки входит в общий релиз `collections-v1.0.0`.
 
 ## Установка
 
@@ -60,4 +60,4 @@ EGL_PLATFORM=surfaceless .venv/bin/python tools/validate_datamosh.py
 .venv/bin/python tools/package.py
 ```
 
-Артефакты рендера: `artifacts/datamosh/`. Архив и его SHA-256: `dist/datamosh/`. В ZIP устанавливаемые файлы лежат прямо в `Fx/`; Feedback FX в этот архив не входят. Тег `datamosh-v0.1.0` запускает проверки и публикацию отдельного предварительного релиза.
+Артефакты рендера: `artifacts/datamosh/`. Архив и его SHA-256: `dist/datamosh/`. В ZIP устанавливаемые файлы лежат прямо в `Fx/`; Feedback FX в этот архив не входят. CI проверяет ветку. Архив входит в общий релиз `collections-v1.0.0`; отдельные релизы подборок больше не публикуются автоматически.

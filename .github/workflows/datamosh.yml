@@ -2,7 +2,6 @@ name: Datamosh collection
 on:
   push:
     branches: ['collections/datamosh']
-    tags: ['datamosh-v*']
   pull_request:
     branches: ['collections/datamosh']
 permissions:
@@ -27,32 +26,3 @@ jobs:
         with:
           name: datamosh-validation
           path: artifacts/datamosh/
-  release:
-    if: startsWith(github.ref, 'refs/tags/datamosh-v')
-    needs: validate
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Verify collection version
-        env:
-          RELEASE_TAG: ${{ github.ref_name }}
-        run: |
-          python - <<'PY'
-          import json, os
-          manifest = json.load(open('manifest.json'))
-          assert os.environ['RELEASE_TAG'] == 'datamosh-v' + manifest['version']
-          PY
-      - run: python tools/package.py
-      - name: Publish collection archive
-        env:
-          GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ github.ref_name }}
-        run: |
-          gh release create "$RELEASE_TAG" dist/datamosh/*.zip dist/datamosh/SHA256SUMS \
-            --verify-tag --prerelease --title "Datamosh — 5 FX ($RELEASE_TAG)" \
-            --notes-file docs/RELEASE_NOTES.md
