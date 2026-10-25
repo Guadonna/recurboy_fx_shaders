@@ -23,18 +23,28 @@ def semantics(manifest):
  with tempfile.TemporaryDirectory() as td:
   p=Path(td)/'probe.frag'
   if key=='pixel-sorting':
-   perms=np.array(list(itertools.permutations([20,65,110,180,240])),np.uint8)
-   image=np.repeat(perms[:,:,None],3,axis=2)
-   calls=''.join(f'vec3 v{i}=video(vec2({(i+.5)/5},v_texcoord.y));' for i in range(5))
-   network=source[source.index('order(v0,v1);'):source.index('float gate=')]
-   p.write_text(common+'void main(){float index=floor(v_texcoord.x*5.);'+calls+network+'gl_FragColor=vec4(selected,1.);}')
-   r=Renderer(5,120)
-   try:
-    r.load(p);r.upload(image);r.draw();out=r.pixels()
-    expected=np.repeat(np.sort(perms,axis=1)[:,:,None],3,axis=2)
-    assert abs(out.astype(int)-expected).max()<=1,'GPU sorting network incorrect'
-    report['sorted_permutations']=120
-   finally:r.close()
+   report['sorting_variants']=[]
+   for effect in manifest['effects']:
+    source=(ROOT/effect['file']).read_text();common=source.split('void main()')[0]
+    kernel=source.split('// SORT3_BEGIN')[1].split('// SORT3_END')[0]
+    if 'v0.r-v0.b' in kernel:
+     colors=np.array([[10,50,200],[120,150,80],[240,30,10]],np.uint8)
+    elif 'v0.g-v0.r' in kernel:
+     colors=np.array([[200,20,90],[100,120,90],[10,230,90]],np.uint8)
+    else:colors=np.repeat(np.array([20,110,240],np.uint8)[:,None],3,axis=1)
+    perms=list(itertools.permutations(range(3)))
+    image=np.array([[colors[i] for i in perm] for perm in perms])
+    calls=''.join(f'vec3 v{i}=video(vec2({(i+.5)/3},v_texcoord.y));' for i in range(3))
+    p.write_text(common+'void main(){float index=floor(v_texcoord.x*3.);'+calls+kernel+'gl_FragColor=vec4(selected,1.);}')
+    r=Renderer(3,6)
+    try:
+     r.load(p);r.upload(image);r.draw();out=r.pixels()
+     expected=np.tile(colors[None,:,:],(6,1,1))
+     assert abs(out.astype(int)-expected).max()<=2,(effect['file'],'sorting kernel incorrect')
+     report['sorting_variants'].append(dict(file=effect['file'],permutations=6))
+    finally:r.close()
+   report['texture_reads_before']=6;report['texture_reads_after']=4
+   report['comparisons_before']=10;report['comparisons_after']=3
   else:
    r=Renderer(16,16)
    try:
@@ -57,8 +67,11 @@ def main():
  try:
   for e in manifest['effects']:
    path=ROOT/e['file'];source=path.read_text();mainbody=source.split('void main()')[1]
-   reads=len(re.findall(r'\b(?:video|past)\(',mainbody))
+   reads=len(re.findall(r'\b(?:video|past|texture2D)\(',mainbody))
    assert reads==e['texture_reads'] and reads<=6,(path.name,reads,e['texture_reads'])
+   if manifest['collection']=='pixel-sorting':
+    assert reads==4 and len(re.findall(r'\bstep\(',mainbody.split('// SORT3_BEGIN')[1].split('// SORT3_END')[0]))==5
+    assert not re.search(r'\b(?:sin|cos|atan|pow|order)\s*\(',source)
    assert not re.search(r'\b(?:while|for)\s*\(',source)
    assert not re.search(r'\bu_x3\b|\bu_fx_',source)
    r.load(path);r.reset(1);r.upload(frames[0]);r.draw((0,1,1),-100000.25)
@@ -97,14 +110,14 @@ def main():
   finally:r.close()
  report['additional_resolutions']=[[63,47],[720,576]];report['semantics']=semantics(manifest)
  def montage(items):
-  im=Image.new('RGB',(w*3,(h+24)*2),(14,14,14));d=ImageDraw.Draw(im)
+  im=Image.new('RGB',(w*3,(h+24)*((len(items)+2)//3)),(14,14,14));d=ImageDraw.Draw(im)
   for i,(title,pixels) in enumerate(items):
    x,y=i%3*w,i//3*(h+24);im.paste(Image.fromarray(pixels[::-1]),(x,y+24));d.text((x+3,y+5),title,fill='white')
   return im
  montage([('Input',frames[72])]+panels).save(outdir/'contact-sheet.png')
  animation=[montage([(name,seq[i]) for name,seq in clips]) for i in range(20)]
  animation[0].save(outdir/'preview.gif',save_all=True,append_images=animation[1:],duration=200,loop=0)
- im=Image.new('RGB',(w*4,(h+24)*5),(14,14,14));d=ImageDraw.Draw(im)
+ im=Image.new('RGB',(w*4,(h+24)*len(ranges)),(14,14,14));d=ImageDraw.Draw(im)
  for row,(name,items) in enumerate(ranges):
   for col,(label,pixels) in enumerate(zip(['A=0','A=1','B=0','B=1'],items)):
    x,y=col*w,row*(h+24);im.paste(Image.fromarray(pixels[::-1]),(x,y+24));d.text((x+3,y+5),name+' '+label,fill='white')

@@ -32,10 +32,10 @@
       "file": "Fx/phs03_radial_phase_twist.frag",
       "dry_max_error": 0,
       "texture_reads": 2,
-      "knob_a_delta": 55.03932773919753,
-      "knob_b_delta": 60.03835117669753,
-      "clock_delta": 54.175812596450626,
-      "difference_from_input": 59.83233265817901,
+      "knob_a_delta": 55.03763985339506,
+      "knob_b_delta": 60.04417438271605,
+      "clock_delta": 54.17276234567902,
+      "difference_from_input": 59.83285108024691,
       "feedback_frames": 120,
       "boundary_draws": 24,
       "gray_error": 0
@@ -62,9 +62,70 @@
       "difference_from_input": 28.132414641203702,
       "feedback_frames": 120,
       "boundary_draws": 24
+    },
+    {
+      "file": "Fx/phs06_triangle_phase_fold.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 23.39454330632716,
+      "knob_b_delta": 12.820336612654321,
+      "clock_delta": 21.60689380787037,
+      "difference_from_input": 24.84248408564815,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs07_checker_phase.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 17.552734375,
+      "knob_b_delta": 17.79370418595679,
+      "clock_delta": 25.08822940779321,
+      "difference_from_input": 26.859423225308642,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs08_memory_phase.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 19.153440875771604,
+      "knob_b_delta": 29.176613136574073,
+      "clock_delta": 16.831693672839503,
+      "difference_from_input": 21.719171971450617,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 64.00741464120371,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs09_saw_phase_carrier.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 45.863341531635804,
+      "knob_b_delta": 49.038809317129626,
+      "clock_delta": 45.186436631944446,
+      "difference_from_input": 35.59266493055556,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs10_opposed_phase_windows.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 27.544077932098766,
+      "knob_b_delta": 36.256739486882715,
+      "clock_delta": 26.246363811728394,
+      "difference_from_input": 27.659734278549383,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
     }
   ],
-  "min_pair_difference": 29.86085792824074,
+  "min_pair_difference": 25.034059124228396,
   "additional_resolutions": [
     [
       63,
