@@ -1,0 +1,113 @@
+{
+  "collection": "bitwise",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "XOR Lattice",
+      "description": "Цвета XOR-ятся с движущейся логической решёткой.",
+      "controls": [
+        "Wet / reset",
+        "Шаг решётки",
+        "Маска разрядов",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit01_xor_lattice.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "AND Aperture",
+      "description": "AND-маски вырезают разные разряды в чередующихся полосах.",
+      "controls": [
+        "Wet / reset",
+        "Плотность полос",
+        "Сохраняемые разряды",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit02_and_aperture.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "OR Memory",
+      "description": "Старый кадр логически добавляет светящиеся разряды.",
+      "controls": [
+        "Wet / reset",
+        "Сдвиг памяти",
+        "Сила битовой маски",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/bit03_or_memory.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Rotate Nibble",
+      "description": "Циклический сдвиг четырёх битов превращает яркости в контурные уровни.",
+      "controls": [
+        "Wet / reset",
+        "Число битовых сдвигов",
+        "Порог и смещение",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit04_rotate_nibble.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "XOR Neighbours",
+      "description": "Побитовое сравнение видео с соседней областью выделяет логические края.",
+      "controls": [
+        "Wet / reset",
+        "Расстояние сравнения",
+        "Маска сравнения",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit05_xor_neighbours.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}
