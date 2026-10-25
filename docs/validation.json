@@ -63,9 +63,70 @@
       "feedback_frames": 120,
       "boundary_draws": 24,
       "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn06_scan_buffer_slip.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 38.58034336419753,
+      "knob_b_delta": 37.25682388117284,
+      "clock_delta": 29.85562548225308,
+      "difference_from_input": 40.3443287037037,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn07_nibble_banks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 70.19673514660494,
+      "knob_b_delta": 36.687403549382715,
+      "clock_delta": 73.22076099537036,
+      "difference_from_input": 66.67595003858025,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn08_word_swaps.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 33.290870949074076,
+      "knob_b_delta": 78.25390625,
+      "clock_delta": 23.90617042824074,
+      "difference_from_input": 59.65940875771605,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn09_checksum_holes.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 50.82620804398148,
+      "knob_b_delta": 52.933654031635804,
+      "clock_delta": 30.640995129243827,
+      "difference_from_input": 38.25667920524691,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 41.077208719135804,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn10_page_scroll.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 30.66290509259259,
+      "knob_b_delta": 15.748215663580247,
+      "clock_delta": 14.570584972993828,
+      "difference_from_input": 12.771050347222221,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
     }
   ],
-  "min_pair_difference": 41.86171392746913,
+  "min_pair_difference": 24.038230613425927,
   "additional_resolutions": [
     [
       63,
