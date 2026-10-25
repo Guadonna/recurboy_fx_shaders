@@ -1,7 +1,7 @@
-name: Feedback collection
+name: FB Growth collection
 on:
   push:
-    branches: [collections/feedback]
+    branches: [collections/fb-growth]
   pull_request:
 permissions:
   contents: read

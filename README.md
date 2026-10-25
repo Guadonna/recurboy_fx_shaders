@@ -1,10 +1,10 @@
-# RecurBoy Feedback FX — 11 эффектов
+# RecurBoy FB Growth — 11 эффектов
 
-[Все подборки](https://github.com/Guadonna/recurboy_fx_shaders/tree/main) · Ветка `collections/feedback`
+[Все подборки](https://github.com/Guadonna/recurboy_fx_shaders/tree/main) · Ветка `collections/fb-growth`
 
-[Скачать ZIP v0.4.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.0.0/recurboy-feedback-v0.4.0.zip)
+[Скачать ZIP v0.4.1](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-fb-growth-v0.4.1.zip)
 
-**v0.4.0: reaction diffusion без displacement, с управлением размером частиц от 3 до 31 пикселя.** Однопроходные FX для [cyberboy666/recurBOY](https://github.com/cyberboy666/recurBOY), GLES 2.0 / GLSL ES 1.00. По-прежнему 3–7 чтений текстуры, без дополнительных буферов со стороны шейдеров. Версия предварительная: 25 FPS и температура на Raspberry Pi ещё не измерены.
+**v0.4.1: прежняя подборка переименована в FB Growth, шейдеры сохранены. reaction diffusion без displacement, с управлением размером частиц от 3 до 31 пикселя.** Однопроходные FX для [cyberboy666/recurBOY](https://github.com/cyberboy666/recurBOY), GLES 2.0 / GLSL ES 1.00. По-прежнему 3–7 чтений текстуры, без дополнительных буферов со стороны шейдеров. Версия предварительная: 25 FPS и температура на Raspberry Pi ещё не измерены.
 
 ## Установка и обновление
 
@@ -98,3 +98,5 @@ EGL_PLATFORM=surfaceless .venv/bin/python tools/validate_fronts.py
 Для воспроизведения сравнения передайте `--baseline /path/to/extracted-v0.3.0` в `validate_color_controls.py`. Обычная проверка и CI не требуют старой версии. Результаты пишутся в игнорируемую `artifacts/`; их копии в `docs/` относятся к релизной проверке.
 
 Упаковщик создаёт воспроизводимый ZIP с 11 шейдерами, инструкциями, примерами, термомонитором и SHA-256 в `dist/`. CI проверяет ветку. Архив входит в общий релиз `collections-v1.0.0`; отдельные релизы подборок больше не публикуются автоматически.
+
+Старая папка общего архива `feedback` теперь называется `fb-growth`. При обновлении переименуйте прежнюю папку в `fb-growth`, затем добавьте новую `feedback` с десятью классическими эффектами. Имена прежних 11 `.frag` сохранены.

@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "status": "hardware-unverified",
   "api": "GLSL ES 1.00",
   "effects": [
@@ -205,5 +205,5 @@
       "color_mode": "RGB carried by propagating excitation/recovery fronts; reset after palette changes"
     }
   ],
-  "collection": "feedback"
+  "collection": "fb-growth"
 }
