@@ -21,7 +21,7 @@ def check_budget(path):
     assert not re.search(r'\b(for|while|do|sampler2D|samplerCube)\b|\btexture\w*\s*\(', code), path
     assert not re.search(r'\b(pow|exp|log|log2|atan|tan)\s*\(', code), path
     transcendental = len(re.findall(r'\b(?:sin|cos)\s*\(', code))
-    assert transcendental <= 4, (path, transcendental)
+    assert transcendental <= 3, (path, transcendental)
     assert path.stat().st_size < 5000
     return {'texture_reads':0, 'loops':0, 'sin_cos_calls':transcendental, 'bytes':path.stat().st_size}
 

@@ -20,7 +20,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y libegl1-mesa-dev libgles2-mesa-dev
           python -m pip install -r requirements-dev.txt
-      - name: Test gates and real GLES rendering
+      - name: Test native PATTERN rendering and controls
         env:
           EGL_PLATFORM: surfaceless
         run: python tools/validate_pattern.py
@@ -37,7 +37,6 @@ jobs:
           path: |
             artifacts/*.json
             artifacts/*.jpg
-            artifacts/*.gif
       - uses: actions/upload-artifact@v4
         with:
           name: pattern-release-assets
