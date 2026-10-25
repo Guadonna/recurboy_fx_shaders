@@ -1,0 +1,113 @@
+{
+  "collection": "databending",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Address Shuffle",
+      "description": "Блоки получают адреса других участков изображения.",
+      "controls": [
+        "Wet / reset",
+        "Размер пакета",
+        "Доля перепутанных адресов",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn01_address_shuffle.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Wrong Stride",
+      "description": "Неверная длина строки складывает видео в косые пласты.",
+      "controls": [
+        "Wet / reset",
+        "Шаг адресации",
+        "Перекос строки",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn02_wrong_stride.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Channel Misalignment",
+      "description": "Цветовые каналы читаются с несовпадающих адресов.",
+      "controls": [
+        "Wet / reset",
+        "Высота пакетов",
+        "Разнос каналов",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": false,
+      "file": "Fx/dbn03_channel_misalignment.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Packet Repeater",
+      "description": "Повреждённые пакеты повторяют чужую область предыдущего кадра.",
+      "controls": [
+        "Wet / reset",
+        "Размер пакета",
+        "Вероятность повтора",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dbn04_packet_repeater.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Value Overflow",
+      "description": "Переполнение яркостей и скачки разрядов разрушают градиенты.",
+      "controls": [
+        "Wet / reset",
+        "Усиление значения",
+        "Разрядность и смещение",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn05_value_overflow.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}

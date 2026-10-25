@@ -1,0 +1,28 @@
+--- a/src/conjur.h
++++ b/src/conjur.h
+@@ -18,5 +18,6 @@
+     ofShader shader;
+     ofFbo fbo;
++    ofFbo feedbackWriteFbo; // separate read/write attachments
+     vector<float> shaderParams;
+     float speed;
+     float time;
+--- a/src/conjur.cpp
++++ b/src/conjur.cpp
+@@ -26,5 +26,16 @@
+ ofFbo conjur::apply(vector<ofTexture> textures){
+     float time = getTime();
++    // The caller's textures[1] retains the completed framebuffer.
++    // Select the other attachment before beginning the next render.
++    if(textures.size() > 1){
++        if(!feedbackWriteFbo.isAllocated()){
++            feedbackWriteFbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGB);
++            feedbackWriteFbo.begin();
++                ofClear(0, 0, 0, 0);
++            feedbackWriteFbo.end();
++        }
++        std::swap(fbo, feedbackWriteFbo);
++    }
+     if(isActive){
+         fbo.begin();
+             shader.begin();

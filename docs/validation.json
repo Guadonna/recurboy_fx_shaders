@@ -1,0 +1,80 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "databending",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/dbn01_address_shuffle.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 70.13925057870371,
+      "knob_b_delta": 70.70178674768519,
+      "clock_delta": 20.912662760416666,
+      "difference_from_input": 53.166895736882715,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn02_wrong_stride.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 68.48854648919753,
+      "knob_b_delta": 57.37784529320987,
+      "clock_delta": 43.59473017939814,
+      "difference_from_input": 55.18926022376543,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn03_channel_misalignment.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 27.154658564814813,
+      "knob_b_delta": 26.57447193287037,
+      "clock_delta": 19.2605167341821,
+      "difference_from_input": 19.213192033179013,
+      "feedback_frames": 120,
+      "boundary_draws": 24
+    },
+    {
+      "file": "Fx/dbn04_packet_repeater.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 37.608579282407405,
+      "knob_b_delta": 50.37010513117284,
+      "clock_delta": 29.487938850308645,
+      "difference_from_input": 35.824857735339506,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 59.38851514274691,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn05_value_overflow.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 77.49904755015432,
+      "knob_b_delta": 82.24066840277777,
+      "clock_delta": 57.47847463348766,
+      "difference_from_input": 90.58596161265432,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 41.86171392746913,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}
