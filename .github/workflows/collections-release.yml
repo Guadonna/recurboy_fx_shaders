@@ -16,8 +16,8 @@ jobs:
       contents: write
       actions: read
     env:
-      RELEASE_TAG: collections-v1.1.0
-      RELEASE_VERSION: 1.1.0
+      RELEASE_TAG: collections-v1.1.1
+      RELEASE_VERSION: 1.1.1
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
     steps:
@@ -83,6 +83,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Test device bundle structure
+        run: python -m unittest discover -s tests -p test_package_all.py -v
       - name: Build and verify all archives
         run: python tools/build_release.py "releases/$RELEASE_TAG.json"
       - name: Publish without overwriting existing versions
