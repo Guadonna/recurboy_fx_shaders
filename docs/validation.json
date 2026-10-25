@@ -1,0 +1,79 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "phase",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/phs01_sine_phase_warp.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 27.259367766203702,
+      "knob_b_delta": 28.63212528935185,
+      "clock_delta": 25.542737268518515,
+      "difference_from_input": 27.69604793595679,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs02_phase_pinch.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 51.046730324074076,
+      "knob_b_delta": 16.214180652006174,
+      "clock_delta": 5.57387032214506,
+      "difference_from_input": 9.460744598765432,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs03_radial_phase_twist.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 55.03932773919753,
+      "knob_b_delta": 60.03835117669753,
+      "clock_delta": 54.175812596450626,
+      "difference_from_input": 59.83233265817901,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs04_video_phase_carrier.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 59.97663483796296,
+      "knob_b_delta": 55.38969666280864,
+      "clock_delta": 58.34856891396605,
+      "difference_from_input": 55.97589940200617,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/phs05_rgb_phase_split.frag",
+      "dry_max_error": 0,
+      "texture_reads": 4,
+      "knob_a_delta": 26.514588155864196,
+      "knob_b_delta": 18.704475308641975,
+      "clock_delta": 25.10604504243827,
+      "difference_from_input": 28.132414641203702,
+      "feedback_frames": 120,
+      "boundary_draws": 24
+    }
+  ],
+  "min_pair_difference": 29.86085792824074,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}
