@@ -1,0 +1,104 @@
+{
+  "collection": "datamosh",
+  "name": "RecurBoy Datamosh",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "file": "Fx/dm01_block_vectors.frag",
+      "name": "Block Vectors",
+      "description": "Макроблоки и сорванные векторы движения",
+      "controls": [
+        "Wet / reset",
+        "Размер блока",
+        "Ошибка векторов / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 6,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "file": "Fx/dm02_chroma_bleed.frag",
+      "name": "Chroma Bleed",
+      "description": "Цветовые блоки отстают от яркости",
+      "controls": [
+        "Wet / reset",
+        "Размер хромаблоков",
+        "Разнос цвета / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 4,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "file": "Fx/dm03_motion_drag.frag",
+      "name": "Motion Drag",
+      "description": "Движение вытягивает старое изображение",
+      "controls": [
+        "Wet / reset",
+        "Длина протекания",
+        "Сцепление / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 5,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "file": "Fx/dm04_slice_loss.frag",
+      "name": "Slice Loss",
+      "description": "Потеря полос и сдвиг строк декодера",
+      "controls": [
+        "Wet / reset",
+        "Высота полос",
+        "Срыв / сдвиг / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 3,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "file": "Fx/dm05_keyframe_starvation.frag",
+      "name": "Keyframe Starvation",
+      "description": "Фрагменты кадра застревают в разных моментах",
+      "controls": [
+        "Wet / reset",
+        "Размер удерживаемых плиток",
+        "Длительность удержания",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 2,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    }
+  ]
+}

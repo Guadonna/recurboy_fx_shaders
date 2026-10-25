@@ -1,0 +1,64 @@
+name: Datamosh collection
+on:
+  push:
+    branches: ['collections/datamosh']
+    tags: ['datamosh-v*']
+  pull_request:
+    paths:
+      - 'collections/datamosh/**'
+      - 'tools/validate_datamosh.py'
+      - 'tools/validate.py'
+      - 'tools/package_collection.py'
+      - 'tests/test_collections.py'
+      - '.github/workflows/datamosh.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y libegl1-mesa-dev libgl1-mesa-dri
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python tools/validate_datamosh.py
+        env:
+          PYOPENGL_PLATFORM: egl
+          EGL_PLATFORM: surfaceless
+          LIBGL_ALWAYS_SOFTWARE: '1'
+      - run: python -m unittest discover -s tests -p 'test_collections.py' -v
+      - uses: actions/upload-artifact@v4
+        with:
+          name: datamosh-validation
+          path: artifacts/datamosh/
+  release:
+    if: startsWith(github.ref, 'refs/tags/datamosh-v')
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify collection version
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python - <<'PY'
+          import json, os
+          manifest = json.load(open('collections/datamosh/manifest.json'))
+          assert os.environ['RELEASE_TAG'] == 'datamosh-v' + manifest['version']
+          PY
+      - run: python tools/package_collection.py datamosh
+      - name: Publish collection archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" dist/datamosh/*.zip dist/datamosh/SHA256SUMS \
+            --verify-tag --prerelease --title "Datamosh — 5 FX ($RELEASE_TAG)" \
+            --notes-file collections/datamosh/docs/RELEASE_NOTES.md

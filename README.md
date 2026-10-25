@@ -1,3 +1,16 @@
+# Подборки FX для RecurBoy
+
+В этом репозитории хранятся отдельные коллекции шейдеров с собственными версиями и архивами.
+
+| Подборка | Шейдеров | Исходники | Ветка / теги |
+|---|---:|---|---|
+| Organic FX | 11 | [`Fx/`](Fx/) | `main`, `v…` |
+| Datamosh | 5 | [`collections/datamosh/`](collections/datamosh/) | `collections/datamosh`, `datamosh-v…` |
+
+[Новая подборка Datamosh: установка, ручки и анимация](collections/datamosh/README.md). В её архиве только пять datamosh-эффектов. Ниже — руководство Organic FX.
+
+---
+
 # RecurBoy Organic FX — 11 эффектов
 
 **v0.3.0: фронты роста от объектов видео, перенос их цвета и движущийся displacement в reaction diffusion.** Однопроходные FX для [cyberboy666/recurBOY](https://github.com/cyberboy666/recurBOY), GLES 2.0 / GLSL ES 1.00. По-прежнему 3–7 чтений текстуры, без дополнительных буферов со стороны шейдеров. Версия предварительная: 25 FPS и температура на Raspberry Pi ещё не измерены.
