@@ -1,0 +1,113 @@
+{
+  "collection": "kaleidoscope",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Radial Glass",
+      "description": "Классический вращающийся калейдоскоп.",
+      "controls": [
+        "Wet / reset",
+        "Число секторов 3–24",
+        "Масштаб",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/kal01_radial_glass.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Mirror Tiles",
+      "description": "Сетка вращающихся зеркальных комнат.",
+      "controls": [
+        "Wet / reset",
+        "Число плиток",
+        "Угол отражения",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/kal02_mirror_tiles.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Spiral Petals",
+      "description": "Сектора закручиваются сильнее по мере удаления от центра.",
+      "controls": [
+        "Wet / reset",
+        "Число лепестков",
+        "Закрутка",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/kal03_spiral_petals.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Twin Mandalas",
+      "description": "Два смещённых центра симметрии перекрываются мягкой границей.",
+      "controls": [
+        "Wet / reset",
+        "Расстояние между центрами",
+        "Число отражений",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/kal04_twin_mandalas.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Prism Rings",
+      "description": "Зеркальные сектора повторяются концентрическими кольцами.",
+      "controls": [
+        "Wet / reset",
+        "Плотность колец",
+        "Количество граней",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/kal05_prism_rings.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}

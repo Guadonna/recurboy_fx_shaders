@@ -1,0 +1,80 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "kaleidoscope",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/kal01_radial_glass.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 53.74076485339506,
+      "knob_b_delta": 63.17240547839506,
+      "clock_delta": 30.526997733410496,
+      "difference_from_input": 73.91460503472223,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal02_mirror_tiles.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 69.42679398148148,
+      "knob_b_delta": 80.81045042438272,
+      "clock_delta": 56.078534915123456,
+      "difference_from_input": 71.0202305169753,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal03_spiral_petals.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 35.09028983410494,
+      "knob_b_delta": 25.843376253858025,
+      "clock_delta": 21.850356867283953,
+      "difference_from_input": 61.905996817129626,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal04_twin_mandalas.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 36.91779996141975,
+      "knob_b_delta": 28.878845968364196,
+      "clock_delta": 5.036502941743827,
+      "difference_from_input": 57.10886863425926,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal05_prism_rings.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 28.220100308641975,
+      "knob_b_delta": 18.92894000771605,
+      "clock_delta": 16.58483916859568,
+      "difference_from_input": 60.29593460648148,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 30.808207947530864,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}
