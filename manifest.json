@@ -1,6 +1,6 @@
 {
   "collection": "recursive",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "hardware-unverified",
   "api": "GLSL ES 1.00",
   "effects": [
@@ -108,6 +108,112 @@
         0.75,
         0.65
       ]
+    },
+    {
+      "name": "Corner Echoes",
+      "description": "Копии памяти стягиваются к углу кадра.",
+      "controls": [
+        "Wet / reset",
+        "Угол / смещение",
+        "Глубина",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/rcs06_corner_echoes.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Opposing Tunnels",
+      "description": "Две половины изображения рекурсивно движутся в противоположных масштабах.",
+      "controls": [
+        "Wet / reset",
+        "Раскрытие тоннелей",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/rcs07_opposing_tunnels.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Strip Inception",
+      "description": "Каждая горизонтальная полоса содержит уменьшенную версию памяти.",
+      "controls": [
+        "Wet / reset",
+        "Количество полос",
+        "Глубина",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/rcs08_strip_inception.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Orbit Frames",
+      "description": "Рамка памяти вращается и смещается вокруг текущего кадра.",
+      "controls": [
+        "Wet / reset",
+        "Шаг поворота",
+        "Плотность вложений",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/rcs09_orbit_frames.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Foldback Memory",
+      "description": "Рекурсивная память выворачивается по V-образному сгибу.",
+      "controls": [
+        "Wet / reset",
+        "Положение сгиба",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/rcs10_foldback_memory.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
     }
-  ]
+  ],
+  "name": "Recursive Transformations"
 }
