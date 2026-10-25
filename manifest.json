@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "hardware-unverified",
   "api": "GLSL ES 1.00",
   "effects": [
@@ -63,9 +63,9 @@
       "name": "Реакция–диффузия",
       "controls": [
         "Wet / reset",
-        "Масштаб пятен / полос",
-        "Дальнее торможение / контраст",
-        "Host time speed"
+        "Шаг диффузии",
+        "Восстановление / частота фронтов",
+        "Дисплейсмент (требует патч хоста)"
       ],
       "texture_reads": 6,
       "passes": 1,
@@ -75,7 +75,8 @@
         0.7,
         0.65
       ],
-      "color_mode": "source RGB ratios, scalar intensity feedback; black areas neutral"
+      "color_mode": "RGB carried by propagating excitation/recovery fronts; reset after palette changes",
+      "host_extension": "docs/fx-fourth-knob.patch; stock fallback: automatic 30% displacement, knob 3 controls time speed"
     },
     {
       "file": "Fx/05_temporal_refraction.frag",
@@ -190,8 +191,8 @@
       "name": "Differential growth",
       "controls": [
         "Wet / reset",
-        "Размер складок",
-        "Возбуждение / отталкивание",
+        "Размер фронта / деформация видео",
+        "Восстановление / частота роста",
         "Host time speed"
       ],
       "texture_reads": 7,
@@ -202,7 +203,7 @@
         0.7,
         0.65
       ],
-      "color_mode": "source RGB ratios, scalar intensity feedback; black areas neutral"
+      "color_mode": "RGB carried by propagating excitation/recovery fronts; reset after palette changes"
     }
   ]
 }

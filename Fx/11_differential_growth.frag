@@ -1,6 +1,6 @@
 // RecurBoy Organic FX - original GLSL ES 1.00, one pass, RGB8 feedback.
 // Differential growth
-// Input 1: Размер складок; input 2: Возбуждение / отталкивание.
+// Input 1: Размер фронта / деформация видео; input 2: Восстановление / частота роста.
 // Budget: 7 texture reads per pixel at wet > 0.
 // Input 0: wet amount (0 = dry/reset); input 1/2: effect controls below.
 // u_tex1 must contain a completed previous frame, never the render target.
@@ -27,13 +27,11 @@ FX_COORD vec2 safeUV(FX_COORD vec2 p) {
 }
 vec3 past(FX_COORD vec2 p) { return texture2D(u_tex1, safeUV(p)).rgb; }
 float lum(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
-// The maximum channel stores intensity; RGB ratios carry the source hue.
 float peak(vec3 c) { return max(c.r, max(c.g, c.b)); }
-vec3 paint(float intensity, vec3 color) {
-    float v = peak(color);
-    // Black has no hue: a neutral front remains possible in black regions.
-    vec3 tint = v > 0.003 ? color / v : vec3(1.0);
-    return tint * intensity;
+// RGB stores the visible excitation/recovery phase and its transported hue.
+// A fading refractory tail cannot reignite until it has recovered.
+vec3 carry(float phase, vec3 pigment) {
+    return pigment * (phase / max(peak(pigment), 0.003922));
 }
 void main() {
     FX_COORD vec2 uv = safeUV(v_texcoord);
@@ -43,27 +41,29 @@ void main() {
     float a = clamp(u_x1, 0.0, 1.0);
     float b = clamp(u_x2, 0.0, 1.0);
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
-
-    // Excitable visible fronts; spatial inhibition leaves RGB free for video hue.
-    vec2 d = px * (0.75 + 12.0 * a * a);
-    float c = peak(past(uv));
-    // A curved local growth direction avoids a fixed horizontal stripe lattice.
-    vec2 field = (uv - vec2(0.5, 0.5)) * vec2(u_resolution.x / u_resolution.y, 1.0);
-    vec2 tangent = vec2(-field.y, field.x) + vec2(0.08, -0.03)
-                 + vec2(c - 0.5, peak(src) - 0.5) * 0.24;
-    tangent /= max(length(tangent), 0.08);
-    vec2 along = tangent * d;
-    float n = peak(past(uv + along));
-    float s = peak(past(uv - along));
-    vec2 farStep = vec2(-tangent.y, tangent.x) * d * (2.0 + 3.0 * b);
-    float e = peak(past(uv + farStep));
-    float w = peak(past(uv - farStep));
-    float edge = abs(peak(src) - peak(texture2D(u_tex0, safeUV(uv + d)).rgb));
-    float nearMean = (n + s) * 0.5;
-    float inhibitor = (e + w) * 0.5;
-    float reaction = c * (1.0 - c) * (c - (inhibitor + 0.02) / 0.75);
-    float life = clamp(c + 0.28 * (nearMean - c) + (0.6 + 1.1 * b) * reaction
-                      + 0.12 * (nearMean - inhibitor) + edge * (0.12 + 0.45 * b), 0.0, 1.0);
-    vec3 result = paint(life, src);
+    // Video-driven excitable fronts, with a refractory tail like v0.1.
+    // There is no screen-centred vector field and no per-pixel palette mask.
+    vec2 d = px * (1.0 + 2.5 * a * a);
+    vec3 old = past(uv);
+    vec3 north = past(uv + vec2(0.0, d.y));
+    vec3 south = past(uv - vec2(0.0, d.y));
+    vec3 east = past(uv + vec2(d.x, 0.0));
+    vec3 west = past(uv - vec2(d.x, 0.0));
+    float phase = peak(old);
+    vec4 neighbours = vec4(peak(north), peak(south), peak(east), peak(west));
+    vec2 normal = vec2(neighbours.z - neighbours.w, neighbours.x - neighbours.y);
+    vec3 displaced = texture2D(u_tex0, safeUV(uv + normal * px * (1.0 + 24.0 * a * a))).rgb;
+    float seed = smoothstep(0.08, 0.45, abs(peak(src) - peak(displaced)))
+               + 0.3 * smoothstep(0.25, 0.85, peak(src));
+    vec4 activity = smoothstep(vec4(0.60), vec4(0.95), neighbours);
+    float neighbourDrive = dot(activity, vec4(0.25));
+    float ready = 1.0 - step(0.035, phase);
+    float nextPhase = max(phase - (0.018 + 0.06 * b), 0.0);
+    float fire = max(step(0.12, neighbourDrive), clamp(seed, 0.0, 1.0));
+    nextPhase = max(nextPhase, ready * fire);
+    vec3 transported = (north * activity.x + south * activity.y
+                      + east * activity.z + west * activity.w) * 0.25;
+    vec3 pigment = old * 0.35 + transported + mix(src, displaced, 0.75) * seed;
+    vec3 result = carry(nextPhase, pigment);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

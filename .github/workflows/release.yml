@@ -26,6 +26,16 @@ jobs:
           PYOPENGL_PLATFORM: egl
           EGL_PLATFORM: surfaceless
           LIBGL_ALWAYS_SOFTWARE: '1'
+      - run: python tools/validate_fronts.py
+        env:
+          PYOPENGL_PLATFORM: egl
+          EGL_PLATFORM: surfaceless
+          LIBGL_ALWAYS_SOFTWARE: '1'
+      - name: Test patched upstream control plumbing
+        run: |
+          git clone https://github.com/cyberboy666/ofxVideoArtTools.git /tmp/fx-addon
+          git -C /tmp/fx-addon checkout 00dc93725073b1cf5bfc5d4a56e8d3256a995d81
+          python tools/validate_host_controls.py --addon /tmp/fx-addon
       - run: python -m unittest discover -s tests -v
       - uses: actions/upload-artifact@v4
         with:

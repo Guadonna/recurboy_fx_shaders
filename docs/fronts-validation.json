@@ -1,0 +1,31 @@
+{
+  "11_differential_growth": {
+    "transported_pixels": 3196,
+    "transported_chroma_error": 0.020915032679738543,
+    "translation_mean_error": 0.0,
+    "black_input_max": 0
+  },
+  "04_reaction_diffusion": {
+    "transported_pixels": 512,
+    "transported_chroma_error": 0.019107217355027115,
+    "translation_mean_error": 0.0,
+    "black_input_max": 0,
+    "eight_sector_pixels": [
+      61,
+      67,
+      61,
+      67,
+      61,
+      67,
+      61,
+      67
+    ],
+    "rotation_mean_error": 0.0003255208333333333
+  },
+  "fourth_knob": {
+    "zero_centre_independent": true,
+    "amount_mean_delta": 59.892985026041664,
+    "moving_centre_mean_delta": 40.924031575520836,
+    "stock_fallback_ignores_unavailable_knob": true
+  }
+}

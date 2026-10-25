@@ -97,7 +97,8 @@ class Renderer:
             raise RuntimeError(GL.glGetProgramInfoLog(self.program).decode())
         GL.glUseProgram(self.program)
         self.uniforms = {s: GL.glGetUniformLocation(self.program, s) for s in
-            ['u_tex0','u_tex1','u_resolution','u_x0','u_x1','u_x2','ftime','modelViewProjectionMatrix']}
+            ['u_tex0','u_tex1','u_resolution','u_x0','u_x1','u_x2','u_x3','u_time','ftime',
+            'u_fx_knob3_available','u_fx_drift','modelViewProjectionMatrix']}
         GL.glUniform1i(self.uniforms['u_tex0'], 0)
         GL.glUniform1i(self.uniforms['u_tex1'], 1)
         GL.glUniform2f(self.uniforms['u_resolution'], self.width, self.height)
@@ -121,7 +122,7 @@ class Renderer:
         GL.glTexSubImage2D(GL.GL_TEXTURE_2D, 0, 0, 0, self.width, self.height,
                           GL.GL_RGB, GL.GL_UNSIGNED_BYTE, np.ascontiguousarray(source))
 
-    def draw(self, knobs=(1, .55, .7), seconds=0):
+    def draw(self, knobs=(1, .55, .7), seconds=0, host_controls=False, drift=None):
         target = 1 - self.previous
         GL.glBindFramebuffer(GL.GL_FRAMEBUFFER, int(self.fbos[target]))
         GL.glViewport(0, 0, self.width, self.height)
@@ -132,6 +133,11 @@ class Renderer:
         for name, value in zip(['u_x0','u_x1','u_x2'], knobs):
             GL.glUniform1f(self.uniforms[name], value)
         GL.glUniform1f(self.uniforms['ftime'], seconds - int(seconds))
+        GL.glUniform1f(self.uniforms['u_time'], seconds)
+        GL.glUniform1f(self.uniforms['u_x3'], knobs[3] if len(knobs)>3 else 0.0)
+        GL.glUniform1f(self.uniforms['u_fx_knob3_available'], float(host_controls))
+        centre = drift if drift is not None else (.5+.44*np.sin(seconds*.07), .5+.44*np.sin(seconds*.093+1.3))
+        GL.glUniform2f(self.uniforms['u_fx_drift'], *centre)
         GL.glDrawArrays(GL.GL_TRIANGLE_STRIP, 0, 4)
         self.previous = target
 

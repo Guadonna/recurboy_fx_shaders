@@ -42,6 +42,7 @@ def main():
     frames=[fixture(width,height,i) for i in range(120)]
     grays=[gray(f) for f in frames]
     renderer=Renderer(width,height)
+    baseline_version=json.loads((args.baseline/'manifest.json').read_text())['version'] if args.baseline else None
     report={'purpose':'Rendered image regressions, not Pi performance measurements','effects':[]}
     sheets=[]
     comparisons=[]
@@ -64,7 +65,7 @@ def main():
             assert mono_error<=1, f'{path.name}: monochrome input became colored'
             record=dict(file=item['file'],knob_1_mean_delta=delta_a,knob_2_mean_delta=delta_b,
                         monochrome_channel_error=mono_error)
-            if path.name.startswith(GROWTH):
+            if path.name.startswith("02_"):
                 # Hue of the current image, even when feedback held another palette.
                 hue_errors=[]
                 for wet in [0.35,1]:
@@ -87,6 +88,7 @@ def main():
                 assert state_error<=1, f'{path.name}: growth depends on RGB channel choice'
                 record.update(source_chroma_error=max(hue_errors),
                               palette_transition_passed=True,color_independent_state_error=state_error)
+            if path.name.startswith(GROWTH):
                 # Actual renders for a six-panel animated RGB/mono preview.
                 clips=[]
                 for inputs in [frames,grays]:
@@ -101,7 +103,7 @@ def main():
                 before=run(renderer,frames,knobs)
                 before_diff=float(abs(before.astype(float)-frames[-1]).mean())
                 after_diff=float(abs(default.astype(float)-frames[-1]).mean())
-                record.update(v010_difference_from_input=before_diff,v020_difference_from_input=after_diff)
+                record.update(baseline_version=baseline_version,baseline_difference_from_input=before_diff,current_difference_from_input=after_diff)
                 comparisons.append((path.stem,[frames[-1],before,default]))
             sheets.append((path.stem,[results[0],results[1],default,results[2],results[3],monochrome]))
             report['effects'].append(record)
@@ -120,7 +122,7 @@ def main():
         image.save(args.output/name)
     sheet(sheets,['A=0','A=1','Default .55 / .70','B=0','B=1','Monochrome'],'control-ranges.png')
     if comparisons:
-        sheet(comparisons,['Input','v0.1.0 / same knobs','v0.2.0 / same knobs'],'before-after.png')
+        sheet(comparisons,['Input',f'v{baseline_version} / same knobs',f'v{manifest["version"]} / same knobs'],'before-after.png')
     gif=[]
     for i in range(30):
         image=Image.new('RGB',(width*3,(height+24)*2),(12,12,12))
@@ -133,6 +135,6 @@ def main():
         gif.append(image)
     gif[0].save(args.output/'growth-colors.gif',save_all=True,append_images=gif[1:],duration=133,loop=0)
     (args.output/'color-controls.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('Color, monochrome, palette changes and both knob ranges passed for all 11 effects.')
+    print('Monochrome and both knob ranges passed for all 11 effects; mycelium palette tests passed.')
 
 if __name__=='__main__': main()
