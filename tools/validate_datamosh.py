@@ -6,9 +6,9 @@ import json
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
-from validate import ROOT, Renderer, fixture
+from gles import ROOT, Renderer, fixture
 
-COLLECTION=ROOT/'collections/datamosh'
+COLLECTION=ROOT
 
 def movie(w,h,i):
     frame=fixture(w,h,i)

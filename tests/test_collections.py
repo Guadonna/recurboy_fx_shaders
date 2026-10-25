@@ -8,11 +8,11 @@ import unittest
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE=ROOT/'collections/datamosh'
+BASE=ROOT
 
 class DatamoshPackageTests(unittest.TestCase):
     def test_standalone_archive_and_integrity(self):
-        spec=importlib.util.spec_from_file_location('package_collection',ROOT/'tools/package_collection.py')
+        spec=importlib.util.spec_from_file_location('package_collection',ROOT/'tools/package.py')
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
         data=module.build('datamosh').read_bytes()
         self.assertEqual(data,module.build('datamosh').read_bytes())

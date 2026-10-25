@@ -2,17 +2,13 @@
 """Compile and exercise real GLES shaders with isolated RGB8 feedback buffers.
 Software Mesa validates behavior/compatibility, never Raspberry Pi performance.
 """
-import argparse
 import ctypes
-import itertools
-import json
 import os
 from pathlib import Path
 os.environ.setdefault('PYOPENGL_PLATFORM', 'egl')
 os.environ.setdefault('EGL_PLATFORM', 'surfaceless')
 from OpenGL import EGL, GL
 import numpy as np
-from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 VERTEX = '''attribute vec4 position;
@@ -164,81 +160,3 @@ def fixture(w, h, frame=0):
     rgb[(abs(x-.25)<.02) | (abs(y-.7)<.02)] = [.1,.9,1]
     return np.uint8(np.clip(rgb*255, 0, 255))
 
-
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument('--output', type=Path, default=ROOT/'artifacts')
-    p.add_argument('--frames', type=int, default=180)
-    args = p.parse_args()
-    if args.frames < 60:
-        p.error('--frames must be at least 60 to exercise feedback evolution')
-    args.output.mkdir(parents=True, exist_ok=True)
-    manifest = json.loads((ROOT/'manifest.json').read_text())
-    renderer = Renderer(256,192)
-    report = dict(renderer.info, platform_validation='cloud GLES; not a Pi FPS or thermal qualification', effects=[])
-    panels = []
-    try:
-        for item in manifest['effects']:
-            renderer.load(ROOT/item['file'])
-            source = fixture(256,192)
-            renderer.upload(source)
-            renderer.reset(1)
-            renderer.draw((0, .5, .5))
-            dry = renderer.pixels()
-            error = int(abs(dry.astype(int)-source).max())
-            assert error <= 1, f"{item['file']}: dry path/orientation error {error}"
-            # Defined reset across black/white histories; parameter and signed time limits.
-            for background in [0,1]:
-                renderer.reset(background)
-                for knobs in itertools.product([0,.5,1], [0,1], [0,1]):
-                    for t in [-100000.25, 0, 100000.75]:
-                        renderer.draw(knobs,t)
-                        renderer.pixels()
-            renderer.reset()
-            middle = None
-            for frame in range(args.frames):
-                renderer.upload(fixture(256,192,frame))
-                renderer.draw(knobs=item["default_knobs"][:3], seconds=-frame/30)
-                if frame == args.frames//2:
-                    middle = renderer.pixels()
-            output = renderer.pixels()
-            difference = float(abs(output.astype(float)-fixture(256,192,args.frames-1)).mean())
-            evolution = float(abs(output.astype(float)-middle).mean())
-            assert difference > .5, f"{item['file']}: unexpectedly passthrough"
-            assert evolution > .05, f"{item['file']}: frozen output"
-            assert output.std() > 2, f"{item['file']}: collapsed output"
-            Image.fromarray(output[::-1]).save(args.output/(Path(item['file']).stem+'.png'))
-            panel=Image.new('RGB',(256,216))
-            panel.paste(Image.fromarray(output[::-1]),(0,24))
-            ImageDraw.Draw(panel).text((4,6),Path(item['file']).stem,fill='white')
-            panels.append(panel)
-            report['effects'].append(dict(file=item['file'], passed=True, dry_max_error=error,
-                boundary_draws=72, feedback_frames=args.frames, mean_difference=difference,
-                temporal_difference=evolution, output_std=float(output.std())))
-            print('PASS',item['file'],flush=True)
-        # Non-square, odd and SD frame sizes catch texel/border assumptions.
-    finally:
-        renderer.close()
-    for w,h in [(63,47),(720,576)]:
-        renderer=Renderer(w,h)
-        try:
-            for item in manifest['effects']:
-                renderer.load(ROOT/item['file'])
-                source=fixture(w,h)
-                renderer.upload(source)
-                renderer.draw((0,1,1))
-                assert abs(renderer.pixels().astype(int)-source).max()<=1
-                renderer.draw((1,1,1))
-                renderer.pixels()
-        finally:
-            renderer.close()
-    report['additional_resolutions']=[[63,47],[720,576]]
-    sheet=Image.new('RGB',(256*3,216*4),(18,18,18))
-    for i,panel in enumerate(panels):
-        sheet.paste(panel,((i%3)*256,(i//3)*216))
-    sheet.save(args.output/'contact-sheet.png')
-    (args.output/'validation.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('All 11 GLES programs compiled, linked and rendered successfully.')
-
-if __name__=='__main__':
-    main()

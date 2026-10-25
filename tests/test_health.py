@@ -18,33 +18,6 @@ def module(name):
     spec.loader.exec_module(value)
     return value
 
-class PackageTests(unittest.TestCase):
-    def test_release_reproducible_and_complete(self):
-        package=module('package')
-        first=package.build().read_bytes()
-        second=package.build().read_bytes()
-        self.assertEqual(first, second)
-        with zipfile.ZipFile(io.BytesIO(first)) as archive:
-            manifest=json.loads(archive.read('manifest.json'))
-            shaders=[x for x in archive.namelist() if x.endswith('.frag')]
-            self.assertEqual(sorted(shaders), sorted(x['file'] for x in manifest['effects']))
-            self.assertEqual(len(shaders),11)
-            for line in archive.read('SHA256SUMS').decode().splitlines():
-                digest,name=line.split('  ',1)
-                self.assertEqual(hashlib.sha256(archive.read(name)).hexdigest(),digest)
-            self.assertTrue(all(not x.startswith('/') and '..' not in Path(x).parts for x in archive.namelist()))
-
-    def test_texture_budgets_and_single_pass_contract(self):
-        manifest=json.loads((ROOT/'manifest.json').read_text())
-        for effect in manifest['effects']:
-            source=(ROOT/effect['file']).read_text()
-            main=source.split('void main()',1)[1]
-            calls=len(re.findall(r'\b(?:texture2D|past)\s*\(',main))
-            self.assertEqual(calls,effect['texture_reads'],effect['file'])
-            self.assertLessEqual(calls,7)
-            self.assertNotRegex(source,r'\b(?:for|while)\s*\(')
-            self.assertNotIn('#include',source)
-
 class HealthTests(unittest.TestCase):
     def setUp(self):
         self.health=module('pi_health')

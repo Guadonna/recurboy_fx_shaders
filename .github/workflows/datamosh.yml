@@ -4,13 +4,7 @@ on:
     branches: ['collections/datamosh']
     tags: ['datamosh-v*']
   pull_request:
-    paths:
-      - 'collections/datamosh/**'
-      - 'tools/validate_datamosh.py'
-      - 'tools/validate.py'
-      - 'tools/package_collection.py'
-      - 'tests/test_collections.py'
-      - '.github/workflows/datamosh.yml'
+    branches: ['collections/datamosh']
 permissions:
   contents: read
 jobs:
@@ -28,7 +22,7 @@ jobs:
           PYOPENGL_PLATFORM: egl
           EGL_PLATFORM: surfaceless
           LIBGL_ALWAYS_SOFTWARE: '1'
-      - run: python -m unittest discover -s tests -p 'test_collections.py' -v
+      - run: python -m unittest discover -s tests -v
       - uses: actions/upload-artifact@v4
         with:
           name: datamosh-validation
@@ -50,10 +44,10 @@ jobs:
         run: |
           python - <<'PY'
           import json, os
-          manifest = json.load(open('collections/datamosh/manifest.json'))
+          manifest = json.load(open('manifest.json'))
           assert os.environ['RELEASE_TAG'] == 'datamosh-v' + manifest['version']
           PY
-      - run: python tools/package_collection.py datamosh
+      - run: python tools/package.py
       - name: Publish collection archive
         env:
           GH_TOKEN: ${{ github.token }}
@@ -61,4 +55,4 @@ jobs:
         run: |
           gh release create "$RELEASE_TAG" dist/datamosh/*.zip dist/datamosh/SHA256SUMS \
             --verify-tag --prerelease --title "Datamosh — 5 FX ($RELEASE_TAG)" \
-            --notes-file collections/datamosh/docs/RELEASE_NOTES.md
+            --notes-file docs/RELEASE_NOTES.md
