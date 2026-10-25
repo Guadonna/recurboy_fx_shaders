@@ -1,0 +1,72 @@
+name: Publish unified collections
+on:
+  push:
+    branches: [collections/feedback]
+    paths: ['.github/workflows/collections-release.yml']
+permissions:
+  contents: read
+concurrency:
+  group: unified-collection-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: collections-v1.0.0
+      RELEASE_VERSION: 1.0.0
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: be4df66
+          path: build-feedback
+      - uses: actions/checkout@v4
+        with:
+          ref: f603fec
+          path: build-datamosh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build separate and combined archives
+        run: |
+          set -euo pipefail
+          python build-feedback/tools/package.py
+          python build-datamosh/tools/package.py
+          mkdir -p release-assets
+          cp build-feedback/dist/*.zip release-assets/
+          cp build-datamosh/dist/datamosh/*.zip release-assets/
+          python tools/package_all.py --version "$RELEASE_VERSION" --output "release-assets/recurboy-all-collections-v${RELEASE_VERSION}.zip" release-assets/*.zip
+          cd release-assets
+          sha256sum *.zip > SHA256SUMS
+          sha256sum --check SHA256SUMS
+      - name: Verify all archive contents
+        run: |
+          python - <<'PY'
+          import hashlib, json, zipfile
+          from pathlib import Path
+          archives = list(Path('release-assets').glob('*.zip'))
+          assert len(archives) == 3
+          for path in archives:
+              with zipfile.ZipFile(path) as z:
+                  m = json.loads(z.read('manifest.json'))
+                  effects = [e for c in m['collections'] for e in c['effects']] if 'collections' in m else m['effects']
+                  assert {e['file'] for e in effects} == {n for n in z.namelist() if n.endswith('.frag')}
+                  assert all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in z.namelist())
+                  for line in z.read('SHA256SUMS').decode().splitlines():
+                      h,n = line.split('  ',1)
+                      assert hashlib.sha256(z.read(n)).hexdigest() == h
+          PY
+      - name: Publish new version without overwriting published releases
+        run: |
+          set -euo pipefail
+          if state=$(gh release view "$RELEASE_TAG" --json isDraft --jq .isDraft); then
+            test "$state" = true || { echo 'Refusing to overwrite a published release'; exit 1; }
+          else
+            gh release create "$RELEASE_TAG" --verify-tag --draft --prerelease --title "RecurBoy FX Collections $RELEASE_VERSION" --notes-file "releases/$RELEASE_TAG.md"
+          fi
+          gh release upload "$RELEASE_TAG" release-assets/*.zip release-assets/SHA256SUMS
+          gh release edit "$RELEASE_TAG" --draft=false --prerelease --title "RecurBoy FX Collections $RELEASE_VERSION — 16 shaders" --notes-file "releases/$RELEASE_TAG.md"
