@@ -1,6 +1,6 @@
 {
   "collection": "bitwise",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "hardware-unverified",
   "api": "GLSL ES 1.00",
   "effects": [
@@ -108,6 +108,112 @@
         0.75,
         0.65
       ]
+    },
+    {
+      "name": "XOR Threshold",
+      "description": "Разряды инвертируются там, где яркость пересекает движущийся порог.",
+      "controls": [
+        "Wet / reset",
+        "Порог",
+        "Битовая маска",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit06_xor_threshold.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "AND Neighbours",
+      "description": "AND с соседней областью вырезает несовпадающие биты.",
+      "controls": [
+        "Wet / reset",
+        "Шаг сравнения",
+        "Маска",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit07_and_neighbours.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "OR Stripes",
+      "description": "Полосы добавляют выбранные световые разряды без истории кадров.",
+      "controls": [
+        "Wet / reset",
+        "Плотность полос",
+        "Добавляемые биты",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit08_or_stripes.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Reverse Bits",
+      "description": "Порядок четырёх разрядов разворачивается внутри каждого канала.",
+      "controls": [
+        "Wet / reset",
+        "Частота областей",
+        "Плотность разворота",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit09_reverse_bits.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Bitplane Weave",
+      "description": "Разные полосы показывают разные битовые плоскости изображения.",
+      "controls": [
+        "Wet / reset",
+        "Частота плетения",
+        "Смещение плоскости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/bit10_bitplane_weave.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
     }
-  ]
+  ],
+  "name": "Bitwise Processing"
 }
