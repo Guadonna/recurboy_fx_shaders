@@ -1,8 +1,8 @@
-# RecurBoy FX Collections
+# RecurBoy Shader Collections
 
 Подборки FX-шейдеров для [RecurBoy](https://github.com/cyberboy666/recurBOY): обработка видео, обратная связь, рост, цифровые искажения и модуляция сигнала. Файлы `.frag` устанавливаются в RecurBoy.
 
-**13 подборок · 131 эффект.** В `main` находится только каталог; исходники, инструкции, примеры и проверки каждой подборки — в отдельной ветке.
+**FX: 13 подборок · 131 эффект. PATTERN: 1 тестовый генератор.** В `main` находится только каталог; исходники, инструкции, примеры и проверки каждой подборки — в отдельной ветке.
 
 **[Скачать All Collections 1.2.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-all-collections-v1.2.0.zip)**
 
@@ -36,8 +36,20 @@
 
 [Релиз 1.2.0, изменения и контрольные суммы](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/collections-v1.2.0). Выпуск предварительный: проверки GLES и архивов пройдены; FPS и температура на Raspberry Pi не измерены.
 
+## Генераторы PATTERN
+
+Генераторы рисуют собственное изображение и устанавливаются в `Shaders/`. Их исходники и выпуски ведутся отдельно от FX.
+
+| Подборка | Паттернов | Описание | Исходники | Комплект |
+|---|---:|---|---|---|
+| **CV Matrix** | 1 | Чёрно-белая матрица 4×4: окружности, треугольники, пятиугольники, окружности. CV 1 выбирает ряд, CV 2 — столбец, CV 3 — по фигуре в каждом ряду; фигуры гаснут со спадом CV. | [patterns/cv-matrix](https://github.com/Guadonna/recurboy_fx_shaders/tree/patterns/cv-matrix) | [ZIP 0.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.1.0/recurboy-pattern-cv-matrix-v0.1.0.zip) |
+
+**CV Matrix требует приложенного программного патча и пересборки RecurBoy.** На штатном хосте один `.frag` останется чёрным: PATTERN не передаёт память событий CV. Физическая доработка не нужна. Выпуск предварительный; полная ARM-сборка и испытания на устройстве ещё не выполнены. Порог 0,05 В реализован с точностью АЦП, подробности в инструкции.
+
+[Релиз Patterns 0.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/patterns-v0.1.0) содержит комплект с патчем, общий архив паттернов `подборка/*.frag` и внешний SHA256SUMS. Паттерны не входят в FX All Collections.
+
 ## Новые подборки и релизы
 
-Каждый новый тип получает ветку `collections/<название>`, README и ZIP. В `main` обновляется только каталог. Релизы публикуются версиями `collections-vX.Y.Z`: ZIP каждой подборки, общий ZIP `тип/*.frag`, внешний SHA256SUMS и описание изменений. Опубликованные версии не перезаписываются.
+Каждый новый тип FX получает ветку `collections/<название>`, а паттернов — `patterns/<название>`, README и ZIP. В `main` обновляется только каталог. Релизы публикуются версиями `collections-vX.Y.Z`: ZIP каждой подборки, общий ZIP `тип/*.frag`, внешний SHA256SUMS и описание изменений. Опубликованные версии не перезаписываются.
 
 Автоматизация общего выпуска теперь находится в `collections/fb-growth`: `.github/workflows/collections-release.yml`, `tools/build_release.py`, `tools/package_all.py`. Для выпуска обновляются версия, точные ревизии и успешные CI-прогоны в `releases/<тег>.json`, release notes и checkout-ревизии workflow. После создания нового тега каталога push изменения workflow собирает и проверяет архивы и публикует релиз.
