@@ -26,8 +26,10 @@ float wave(float x) { return sin(TAU*fract(x)); }
 float tri(float x) { return 1.-4.*abs(fract(x)-.5); }
 mat2 rot(float x) { float s=sin(x),c=cos(x);return mat2(c,-s,s,c); }
 float hash21(vec2 p) { vec3 q=fract(vec3(p.xyx)*vec3(.1031,.1137,.1379));q+=dot(q,q.yzx+3.33);return fract((q.x+q.y)*q.z); }
+// atan(0,0) is undefined in GLSL; keep the central texel well-defined.
+float angleOf(C vec2 p) { return dot(p,p)>0.0 ? atan(p.y,p.x) : 0.0; }
 C vec2 polarFold(C vec2 uv,vec2 center,float slices,float twist,float zoom) {
- C vec2 p=uv-center;float r=length(p);float angle=atan(p.y,p.x)+twist;
+ C vec2 p=uv-center;float r=length(p);float angle=angleOf(p)+twist;
  float sector=TAU/slices;angle=abs(mod(angle+sector*.5,sector)-sector*.5);
  return mirrorUV(.5+vec2(cos(angle),sin(angle))*r*zoom);
 }
