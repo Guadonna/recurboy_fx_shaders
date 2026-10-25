@@ -1,0 +1,113 @@
+{
+  "collection": "wave",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Sine Swim",
+      "description": "Горизонтальные синусоидальные волны растягивают изображение.",
+      "controls": [
+        "Wet / reset",
+        "Частота волн",
+        "Амплитуда",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav01_sine_swim.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Sawtooth Tears",
+      "description": "Пилообразная модуляция рвёт видео на косые пласты.",
+      "controls": [
+        "Wet / reset",
+        "Частота пилы",
+        "Глубина сдвига",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav02_sawtooth_tears.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Triangle Shutter",
+      "description": "Треугольная волна открывает и закрывает полосы яркости.",
+      "controls": [
+        "Wet / reset",
+        "Плотность полос",
+        "Контраст затвора",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav03_triangle_shutter.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Circular Ripples",
+      "description": "Круговые волны смещения расходятся от центра.",
+      "controls": [
+        "Wet / reset",
+        "Плотность колец",
+        "Высота волны",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav04_circular_ripples.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Cross Modulator",
+      "description": "Две пересекающиеся волны образуют движущуюся сетку яркости.",
+      "controls": [
+        "Wet / reset",
+        "Частота сетки",
+        "Глубина модуляции",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav05_cross_modulator.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}
