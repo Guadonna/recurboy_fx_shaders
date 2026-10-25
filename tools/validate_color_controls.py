@@ -120,7 +120,7 @@ def main():
                 draw.text((x+3,y+2),title,fill='white')
                 draw.text((x+3,y+17),labels[c],fill='white')
         image.save(args.output/name)
-    sheet(sheets,['A=0','A=1','Default .55 / .70','B=0','B=1','Monochrome'],'control-ranges.png')
+    sheet(sheets,['A=0','A=1','Default (manifest)','B=0','B=1','Monochrome'],'control-ranges.png')
     if comparisons:
         sheet(comparisons,['Input',f'v{baseline_version} / same knobs',f'v{manifest["version"]} / same knobs'],'before-after.png')
     gif=[]

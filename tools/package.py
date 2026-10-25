@@ -14,7 +14,7 @@ def build():
     assert len(list(ROOT.glob('Fx/*.frag'))) == 11
     out = ROOT/'dist'
     out.mkdir(exist_ok=True)
-    archive = out / ('recurboy-fx-shaders-v' + manifest['version'] + '.zip')
+    archive = out / ('recurboy-feedback-v' + manifest['version'] + '.zip')
     sums = []
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for path in files:

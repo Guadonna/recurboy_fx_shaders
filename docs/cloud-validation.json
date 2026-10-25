@@ -39,9 +39,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 68.36945258246527,
-      "temporal_difference": 42.676425509982636,
-      "output_std": 53.5068075472432
+      "mean_difference": 70.72295464409723,
+      "temporal_difference": 14.145087348090279,
+      "output_std": 53.60973305515696
     },
     {
       "file": "Fx/05_temporal_refraction.frag",
