@@ -1,0 +1,57 @@
+diff --git a/software/ofRecurBoy/src/ofApp.cpp b/software/ofRecurBoy/src/ofApp.cpp
+index 41a58cb..e63469d 100644
+--- a/software/ofRecurBoy/src/ofApp.cpp
++++ b/software/ofRecurBoy/src/ofApp.cpp
+@@ -1,4 +1,5 @@
+ #include "ofApp.h"
++#include <chrono>
+ 
+ //--------------------------------------------------------------
+ void ofApp::setup(){
+@@ -75,6 +76,8 @@ void ofApp::setup(){
+     
+     recurPlayer.setup("ofxomxplayer");
+ 
++    cvMatrix.seed(static_cast<std::uint32_t>(
++        std::chrono::steady_clock::now().time_since_epoch().count()));
+     shaderPlayer.setup();
+     fxPlayer.setup();
+ 
+@@ -86,6 +89,9 @@ void ofApp::setup(){
+ //--------------------------------------------------------------
+ void ofApp::update(){
+     readActions();
++    // Physical CV is independent of the current menu, knobs and CV_UPPER scaling.
++    cvMatrix.update(userInput.patternCvAdc);
++    shaderPlayer.patternCvRows = cvMatrix.rows();
+ 
+     if(runningSource == "VIDEO" && videoPage.isPlaying && !isSampleImage){
+         recurPlayer.update();
+@@ -500,6 +506,7 @@ void ofApp::enter(){
+     } 
+     else if(currentPage == "PATTERN"){
+         runningSource = "PATTERN";
++        cvMatrix.reset();
+         shaderPlayer.loadShaderFiles("default.vert", menu_item);
+     }   
+     else if(currentPage == "EXTERNAL"){
+diff --git a/software/ofRecurBoy/src/ofApp.h b/software/ofRecurBoy/src/ofApp.h
+index 919d271..329acf0 100644
+--- a/software/ofRecurBoy/src/ofApp.h
++++ b/software/ofRecurBoy/src/ofApp.h
+@@ -1,6 +1,7 @@
+ #pragma once
+ 
+ #include "ofMain.h"
++#include "CvMatrix.h"
+ #include "incur.h"
+ #include "ofxOsc.h"
+ #include "recur.h"
+@@ -26,6 +27,7 @@ class ofApp : public ofBaseApp{
+     ofFbo fxFbo;
+     incur userInput;
+     recur recurPlayer;
++    CvMatrix cvMatrix;
+     conjur shaderPlayer;
+     conjur fxPlayer;
+     captur videoInput;

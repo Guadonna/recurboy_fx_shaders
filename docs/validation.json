@@ -1,0 +1,14 @@
+{
+  "cpu": "100 seeds, 30000 rising edges, hold/fall/union/reset: passed",
+  "gles_cases": 78,
+  "resolutions": [
+    "320x240",
+    "720x576",
+    "720x480"
+  ],
+  "renderer": {
+    "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+    "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1"
+  },
+  "raspberry_pi_fps_temperature": "not measured"
+}

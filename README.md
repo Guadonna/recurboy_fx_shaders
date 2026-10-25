@@ -1,43 +1,60 @@
-# RecurBoy FX Collections
+# RecurBoy Patterns — CV Matrix
 
-Подборки FX-шейдеров для [RecurBoy](https://github.com/cyberboy666/recurBOY): обработка видео, обратная связь, рост, цифровые искажения и модуляция сигнала. Файлы `.frag` устанавливаются в RecurBoy.
+Один тестовый генератор PATTERN: чёрно-белая матрица 4×4. Сверху вниз — окружности, треугольники, пятиугольники, окружности. Фигуры белые, фон чёрный; без CV экран полностью чёрный. Остальные четыре паттерна пока не создавались.
 
-**13 подборок · 131 эффект.** В `main` находится только каталог; исходники, инструкции, примеры и проверки каждой подборки — в отдельной ветке.
+**Нужен приложенный программный патч и пересборка приложения RecurBoy.** Штатный PATTERN-хост не передаёт историю CV, события фронтов или предыдущий кадр. Один `.frag` не может запомнить случайный выбор между импульсами. На штатном хосте этот файл останется чёрным. Пайка не нужна; готового образа прошивки в архиве нет.
 
-**[Скачать All Collections 1.2.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-all-collections-v1.2.0.zip)**
+[Скачать тестовый комплект 0.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.1.0/recurboy-pattern-cv-matrix-v0.1.0.zip) · [Релиз](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/patterns-v0.1.0) · [Каталог FX](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)
 
-В общем ZIP находятся только шейдеры в папках `тип/*.frag`, без вложенных `Fx/`, документации и служебных файлов. Отдельные ZIP с инструкциями доступны ниже.
+## Управление
 
-## Подборки
+| Вход | На фронте около 0,05 В | Пока CV высокий | При спаде |
+|---|---|---|---|
+| CV 1 | Выбирает случайный ряд | Показывает четыре фигуры ряда | Гасит вклад CV 1 |
+| CV 2 | Выбирает случайный столбец | Показывает четыре фигуры столбца | Гасит вклад CV 2 |
+| CV 3 | Выбирает одну случайную фигуру в каждом ряду | Показывает выбранные четыре фигуры | Гасит вклад CV 3 |
 
-| Подборка | FX | Описание | Руководство и исходники | Архив |
-|---|---:|---|---|---|
-| **FB Growth** | 11 | Прежние 11 органических эффектов: рост, диффузия, растекание и деформации. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/fb-growth) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-fb-growth-v0.4.1.zip) |
-| **Classic Feedback** | 10 | Классическая видеообратная связь: масштаб, поворот, смещение, зеркала, яркостные ключи и цветные эхо. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/feedback) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-feedback-v0.1.0.zip) |
-| **Datamosh** | 10 | Ошибки переноса движения и разрушающаяся память кадров. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/datamosh) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-datamosh-v0.2.0.zip) |
-| **Pixel Sorting** | 10 | Упорядочивание цветных выборок в вытянутые полосы по яркости или цвету. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/pixel-sorting) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-pixel-sorting-v0.2.0.zip) |
-| **Displacement Mapping** | 10 | Смещение изображения по яркости, шуму, цвету и памяти предыдущего кадра. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/displacement) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-displacement-v0.2.0.zip) |
-| **Kaleidoscope** | 10 | Радиальные зеркала, плиточные отражения и спиральные симметрии. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/kaleidoscope) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-kaleidoscope-v0.2.0.zip) |
-| **Recursive Transformations** | 10 | Вложенные преобразования видео, зеркальные залы и рекурсивные следы. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/recursive) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-recursive-v0.2.0.zip) |
-| **Databending** | 10 | Имитация повреждённых адресов, строк, пакетов и значений цветовых данных. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/databending) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-databending-v0.2.0.zip) |
-| **Bitwise Processing** | 10 | Логические операции над квантованными цветами: XOR, AND, OR и циклические сдвиги. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/bitwise) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-bitwise-v0.2.0.zip) |
-| **Compression Artifacts** | 10 | Блочная квантизация, ошибки цветности, звон границ и остатки предсказания. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/compression) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-compression-v0.2.0.zip) |
-| **Wave Modulation** | 10 | Синусоидальные, пилообразные, треугольные и пересекающиеся волны изменяют координаты и яркость. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/wave) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-wave-v0.2.0.zip) |
-| **Phase Distortion** | 10 | Нелинейное изменение фазы носителя, радиальных волн и фаз цветовых каналов. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/phase) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-phase-v0.2.0.zip) |
-| **Signal Interference** | 10 | Биения, срыв синхронизации, чересстрочные ошибки и отражённые сигналы. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/interference) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.2.0/recurboy-interference-v0.2.0.zip) |
+На новом фронте ряд/столбец не повторяется сразу; у CV 3 меняется выбранный столбец в каждом ряду. Изменение амплитуды огибающей выше порога ничего не тасует. Одновременные CV объединяют фигуры: фигура остаётся видимой, пока её включает хотя бы один вход. Ручки и CV 4 на этот паттерн не влияют.
 
-## Что изменилось в 1.2.0
+Порог — номинальные **0,05 В**. При опоре MCP3008 в 5 В код 10 соответствует примерно 0,0489 В, код 11 — 0,0538 В. Активным считается код **11 и выше**. Патч читает исходные отсчёты до округления и `ADC_GRAIN`; настройка `CV_UPPER` не меняет порог. Реальный порог зависит от опорного напряжения, шума и точности АЦП.
 
-**Pixel Sorting:** все прежние варианты оптимизированы и дополнены пятью новыми. Сортировка трёх выборок вместо пяти: 4 чтения текстур вместо 6, 3 сравнения вместо 10, без тригонометрии и inout-сети. На облачном GLES каждый вариант прошёл 256 кадров при 720×576; устранение зависания на конкретной Pi ещё требует проверки на устройстве.
+Загрузка паттерна сбрасывает состояние. Уже высокий CV считается первым импульсом на следующем обновлении. При всех низких CV всегда чёрный экран.
 
-**FB Growth** — переименованная первая подборка из 11 эффектов, включая Differential Growth и Reaction Diffusion. Её шейдеры сохранены. **Classic Feedback** — новая подборка из 10 вариантов масштабирования, поворота, смещения, зеркал, яркостных ключей и цветного эха. Остальные подборки расширены с 5 до 10 эффектов.
+## Установка и первая проверка
 
-При обновлении переименуйте прежнюю папку `feedback` на устройстве в `fb-growth`, затем добавьте новую `feedback`. Pixel Sorting заменяется одноимёнными файлами. После выбора обновлённого эффекта подержите Wet=0 несколько кадров.
+1. Применить патчи и пересобрать приложение по [host/README.md](host/README.md). Это исходники для тестирования, а не готовая прошивка.
+2. После установки собранного приложения положить `Shaders/pt01_cv_matrix.frag` в `/Shaders` в корне USB или `~/Shaders` устройства. Выбрать его в меню **PATTERN** и запустить воспроизведение.
+3. Установить `CV_BUTTON=false`, `ADC_SEC_DELAY=0`; для первой проверки выключить FX. Патч рассчитан на штатную разводку: физические CV 1–3 = каналы АЦП 0–2.
+4. Сначала подавать по одному медленному гейту: например, 0↔1 В, высокий и низкий уровни по 0,2 с. Проверить смену ряда, столбца и четырёх отдельных фигур, затем сочетания входов.
 
-[Релиз 1.2.0, изменения и контрольные суммы](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/collections-v1.2.0). Выпуск предварительный: проверки GLES и архивов пройдены; FPS и температура на Raspberry Pi не измерены.
+АЦП опрашивается в цикле приложения. Очень короткий импульс может попасть между кадрами; при 25–30 FPS высокий и низкий уровни лучше держать минимум 80–100 мс. Это не детектор импульсов звуковой частоты. На паузе кадр тоже остановлен.
 
-## Новые подборки и релизы
+## Примеры
 
-Каждый новый тип получает ветку `collections/<название>`, README и ZIP. В `main` обновляется только каталог. Релизы публикуются версиями `collections-vX.Y.Z`: ZIP каждой подборки, общий ZIP `тип/*.frag`, внешний SHA256SUMS и описание изменений. Опубликованные версии не перезаписываются.
+Геометрия всех 16 ячеек для проверки формы. При запуске они выключены.
 
-Автоматизация общего выпуска теперь находится в `collections/fb-growth`: `.github/workflows/collections-release.yml`, `tools/build_release.py`, `tools/package_all.py`. Для выпуска обновляются версия, точные ревизии и успешные CI-прогоны в `releases/<тег>.json`, release notes и checkout-ревизии workflow. После создания нового тега каталога push изменения workflow собирает и проверяет архивы и публикует релиз.
+![Геометрия матрицы, все ячейки включены тестом](docs/geometry.png)
+
+Последовательность: нет сигнала → CV 1 → удержание → выключение → новый CV 1 → CV 2 → CV 3 → все входы → выключение. Это рендер тестовых сигналов, а не запись с устройства.
+
+![Последовательность тестовых CV](docs/cv-sequence.gif)
+
+## Проверки
+
+Пройдены C++11-тесты детектора: 100 начальных состояний генератора, 30 000 фронтов, удержание огибающей, спад, отсутствие немедленных повторов, объединение входов и сброс. GLSL ES 1.00 проверен на Mesa EGL в 320×240, 720×576 и 720×480: 78 сценариев, все отдельные ячейки, чёрное начальное состояние, стабильность во времени и равенство RGB-каналов. Применимость обоих патчей проверена на закреплённых ревизиях upstream.
+
+Шейдер рисует за один проход, без чтений текстур, циклов, тригонометрии и кадровой истории. Выбор фигур рассчитывается на CPU только на фронтах. Полная ARM-сборка приложения, физические CV, ориентация на видеовыходе, FPS и температура Raspberry Pi **ещё не проверены**. Порог 25 FPS на устройстве этим тестом не подтверждается.
+
+```sh
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-dev.txt
+EGL_PLATFORM=surfaceless .venv/bin/python tools/validate_pattern.py
+python3 tools/check_host_patch.py
+python3 tools/package.py
+```
+
+Нужны C++11-компилятор, EGL/GLES Mesa и Python. Результаты тестов находятся в `artifacts/`, архивы — в `dist/`.
+
+## Выпуски
+
+Эта ветка хранит генераторы PATTERN отдельно от FX. Релизы `patterns-vX.Y.Z`: комплект каждой подборки с инструкциями/патчем, общий ZIP с папками `подборка/*.frag` и внешний `SHA256SUMS`. Текущая подборка содержит только один шейдер. FX-релизы `collections-vX.Y.Z` ведутся отдельно. Опубликованные архивы не перезаписываются.
