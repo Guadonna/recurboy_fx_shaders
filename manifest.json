@@ -1,6 +1,6 @@
 {
   "collection": "wave",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "hardware-unverified",
   "api": "GLSL ES 1.00",
   "effects": [
@@ -108,6 +108,112 @@
         0.75,
         0.65
       ]
+    },
+    {
+      "name": "Vertical Wobble",
+      "description": "Вертикальная волна колеблет отдельные столбцы.",
+      "controls": [
+        "Wet / reset",
+        "Частота",
+        "Амплитуда",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav06_vertical_wobble.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Square Chopper",
+      "description": "Прямоугольный сигнал превращает изображение в резкие световые полосы.",
+      "controls": [
+        "Wet / reset",
+        "Частота",
+        "Глубина затвора",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav07_square_chopper.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Breathing Zoom",
+      "description": "Синусоидальная огибающая ритмично меняет масштаб видео.",
+      "controls": [
+        "Wet / reset",
+        "Центр масштаба",
+        "Размах дыхания",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav08_breathing_zoom.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Diagonal Current",
+      "description": "Волны идут под диагональным углом и смещают обе координаты.",
+      "controls": [
+        "Wet / reset",
+        "Частота",
+        "Сила потока",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav09_diagonal_current.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Harmonic Bend",
+      "description": "Основная волна и её третья гармоника создают острые изгибы.",
+      "controls": [
+        "Wet / reset",
+        "Частота",
+        "Сила гармоники",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/wav10_harmonic_bend.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
     }
-  ]
+  ],
+  "name": "Wave Modulation"
 }

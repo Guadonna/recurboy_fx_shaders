@@ -63,9 +63,69 @@
       "feedback_frames": 120,
       "boundary_draws": 24,
       "gray_error": 0
+    },
+    {
+      "file": "Fx/wav06_vertical_wobble.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 33.683268229166664,
+      "knob_b_delta": 34.75081983024691,
+      "clock_delta": 31.502599344135803,
+      "difference_from_input": 32.6499927662037,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav07_square_chopper.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 73.09373794367283,
+      "knob_b_delta": 91.49667245370371,
+      "clock_delta": 70.75636091820988,
+      "difference_from_input": 73.08658854166667,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav08_breathing_zoom.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 74.01009114583333,
+      "knob_b_delta": 71.84242380401234,
+      "clock_delta": 38.6255787037037,
+      "difference_from_input": 52.45671778549383,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav09_diagonal_current.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 41.26305700231482,
+      "knob_b_delta": 43.14445891203704,
+      "clock_delta": 38.94301938657408,
+      "difference_from_input": 42.38598331404321,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav10_harmonic_bend.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 29.839482060185187,
+      "knob_b_delta": 24.780381944444443,
+      "clock_delta": 27.225968123070988,
+      "difference_from_input": 30.049647955246915,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
     }
   ],
-  "min_pair_difference": 34.223029996141975,
+  "min_pair_difference": 30.218171296296298,
   "additional_resolutions": [
     [
       63,
