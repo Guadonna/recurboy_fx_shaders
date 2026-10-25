@@ -1,0 +1,113 @@
+{
+  "collection": "interference",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Beat Mesh",
+      "description": "Близкие частоты образуют крупные движущиеся биения.",
+      "controls": [
+        "Wet / reset",
+        "Частота несущей",
+        "Расстройка частот",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/sig01_beat_mesh.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Horizontal Sync",
+      "description": "Строки скачут в стороны при потере горизонтальной синхронизации.",
+      "controls": [
+        "Wet / reset",
+        "Число групп строк",
+        "Срыв синхронизации",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/sig02_horizontal_sync.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Field Desync",
+      "description": "Чётные и нечётные полосы читаются с противоположными временными сдвигами.",
+      "controls": [
+        "Wet / reset",
+        "Толщина поля",
+        "Расхождение полей",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/sig03_field_desync.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "RF Ghosts",
+      "description": "Два отражения сигнала создают дрожащие телевизионные двойники.",
+      "controls": [
+        "Wet / reset",
+        "Задержка отражений",
+        "Сила отражений",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/sig04_rf_ghosts.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Chroma Crosstalk",
+      "description": "Несинхронный цветовой носитель создаёт цветные помехи на контурах.",
+      "controls": [
+        "Wet / reset",
+        "Частота носителя",
+        "Связь яркости и цвета",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": false,
+      "file": "Fx/sig05_chroma_crosstalk.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}

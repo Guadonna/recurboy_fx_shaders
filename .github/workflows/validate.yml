@@ -1,0 +1,28 @@
+name: Validate Signal Interference
+on:
+  push:
+    branches: [collections/interference]
+  pull_request:
+    branches: [collections/interference]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y libegl1-mesa-dev libgl1-mesa-dri
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python tools/validate_collection.py
+        env:
+          EGL_PLATFORM: surfaceless
+          LIBGL_ALWAYS_SOFTWARE: '1'
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: interference-validation
+          path: artifacts/
