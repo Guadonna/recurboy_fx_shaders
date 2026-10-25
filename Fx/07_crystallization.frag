@@ -36,14 +36,19 @@ void main() {
     float b = clamp(u_x2, 0.0, 1.0);
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
-    vec2 cell = px * (3.0 + 21.0 * a);
-    vec2 q = (floor(uv / cell) + 0.5) * cell;
+    // Rotate the lattice to make diamond facets rather than square pixels.
+    float size = 2.0 + 110.0 * a * a;
+    vec2 p = uv / px;
+    vec2 grid = vec2(p.x + p.y, p.y - p.x) * 0.707107 / size;
+    vec2 center = (floor(grid) + 0.5) * size;
+    vec2 q = vec2(center.x - center.y, center.x + center.y) * 0.707107 * px;
     vec3 crystal = texture2D(u_tex0, safeUV(q)).rgb;
     vec3 old = past(uv);
-    vec2 facet = abs(fract(uv / cell) - 0.5);
-    float light = 0.82 + 0.36 * max(facet.x, facet.y);
-    crystal = floor(crystal * 7.0 + 0.5) / 7.0 * light;
-    float disruption = smoothstep(0.08, 0.45, length(src - old));
-    vec3 result = mix(crystal, old, (0.55 + 0.4 * b) * (1.0 - disruption));
+    vec2 facet = fract(grid);
+    float light = 0.35 + 0.65 * step(facet.x, facet.y) + 0.35 * abs(facet.x - facet.y);
+    float levels = 12.0 - 10.0 * b;
+    crystal = floor(crystal * levels + 0.5) / levels * light;
+    float disruption = smoothstep(0.15, 0.8, length(src - old));
+    vec3 result = mix(crystal, old, 0.97 * b * (1.0 - disruption));
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

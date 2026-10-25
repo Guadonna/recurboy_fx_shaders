@@ -37,10 +37,14 @@ void main() {
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
     vec3 old = past(uv);
-    float motion = smoothstep(0.06, 0.35, length(src - old));
-    vec3 layer = past(uv + vec2(0.0, px.y * (0.5 + 3.5 * a)));
-    vec3 strata = floor(layer * 12.0 + 0.5) / 12.0;
-    vec3 preserved = mix(old, strata, 0.12 + 0.2 * a);
-    vec3 result = mix(src, preserved, (0.75 + 0.22 * b) * (1.0 - 0.65 * motion));
+    float motion = smoothstep(0.08, 0.65, length(src - old));
+    vec2 q = (uv - 0.5) * (1.0 - 0.12 * a) + 0.5;
+    q.y += px.y * (0.25 + 40.0 * a * a);
+    vec3 layer = past(q);
+    float levels = 18.0 - 15.0 * b;
+    vec3 strata = floor(layer * levels + 0.5) / levels;
+    vec3 preserved = mix(old, strata, 0.15 + 0.80 * a);
+    float memory = (0.30 + 0.695 * b) * (1.0 - 0.25 * motion);
+    vec3 result = mix(src, preserved, memory);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

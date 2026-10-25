@@ -36,12 +36,14 @@ void main() {
     float b = clamp(u_x2, 0.0, 1.0);
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
-    vec2 flow = vec2(sin(uv.y * 12.0 + ftime * 6.283), 1.4);
-    vec2 stepUV = flow * px * (0.4 + 2.6 * a);
-    vec3 old = past(uv - stepUV);
-    vec3 blur = (old * 2.0 + past(uv - stepUV + vec2(px.x, 0.0))
-                            + past(uv - stepUV - vec2(px.x, 0.0))) * 0.25;
-    float motion = clamp(length(src - old) * 1.5, 0.0, 1.0);
-    vec3 result = mix(src, blur * 0.994, (0.72 + 0.24 * b) * (1.0 - 0.5 * motion));
+    vec2 flow = vec2(sin(uv.y * 15.0 + ftime * 6.283),
+                     1.2 + 0.65 * cos(uv.x * 11.0 - ftime * 6.283));
+    vec2 drift = flow * px * (0.3 + 36.0 * a * a);
+    vec2 q = (uv - 0.5) * (1.0 - 0.055 * a) + 0.5 - drift;
+    vec2 smear = vec2(px.x * (0.5 + 6.0 * a), 0.0);
+    vec3 old = past(q);
+    vec3 fluid = (old * 2.0 + past(q + smear) + past(q - smear)) * 0.25;
+    float memory = 0.32 + 0.668 * b;
+    vec3 result = mix(src, fluid * 0.998, memory);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

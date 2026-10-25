@@ -36,12 +36,13 @@ void main() {
     float b = clamp(u_x2, 0.0, 1.0);
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
-    // Spatially varying recursive memory; no unavailable frame-history array.
     vec3 old = past(uv);
     float height = lum(old);
     vec2 wave = vec2(sin(uv.y * 18.0 + ftime * 6.283), cos(uv.x * 14.0 - ftime * 6.283));
-    vec3 refracted = past(uv + wave * px * (1.0 + 5.0 * a) * (height - 0.5));
-    float memory = (0.45 + 0.5 * b) * (0.35 + 0.65 * height);
+    vec2 q = (uv - 0.5) * (1.0 - 0.18 * a) + 0.5;
+    q += wave * px * (0.5 + 110.0 * a * a) * (height - 0.35);
+    vec3 refracted = past(q);
+    float memory = (0.30 + 0.695 * b) * (0.7 + 0.3 * height);
     vec3 result = mix(src, refracted, memory);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

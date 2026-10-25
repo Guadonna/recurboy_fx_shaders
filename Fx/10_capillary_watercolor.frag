@@ -36,15 +36,15 @@ void main() {
     float b = clamp(u_x2, 0.0, 1.0);
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
-    vec2 d = px * (1.0 + 2.0 * a);
+    vec2 d = px * (0.75 + 25.0 * a * a);
     vec3 old = past(uv);
     vec3 n = past(uv + vec2(0.0, d.y));
     vec3 s = past(uv - vec2(0.0, d.y));
     vec3 e = past(uv + vec2(d.x, 0.0));
     vec3 w = past(uv - vec2(d.x, 0.0));
     vec3 spread = (n + s + e + w) * 0.25;
-    float rim = clamp(length(spread - old) * 2.0, 0.0, 1.0);
-    vec3 pigment = mix(old, spread, 0.22 + 0.35 * a) * (1.0 - rim * b * 0.25);
-    vec3 result = mix(pigment, src, 0.09 + 0.08 * (1.0 - b));
+    float rim = clamp(length(spread - old) * 3.0, 0.0, 1.0);
+    vec3 pigment = mix(old, spread, 0.12 + 0.85 * a) * (1.0 - rim * b * 0.85);
+    vec3 result = mix(src, pigment, 0.35 + 0.61 * b);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

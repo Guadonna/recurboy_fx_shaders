@@ -39,12 +39,12 @@ void main() {
     vec3 sx = texture2D(u_tex0, safeUV(uv + vec2(px.x * 2.0, 0.0))).rgb;
     vec3 sy = texture2D(u_tex0, safeUV(uv + vec2(0.0, px.y * 2.0))).rgb;
     vec2 grad = vec2(lum(sx) - lum(src), lum(sy) - lum(src));
-    vec2 tangent = vec2(-grad.y, grad.x);
-    tangent /= max(length(tangent), 0.08);
-    vec2 field = vec2(cos(a * 6.283), sin(a * 6.283));
-    vec2 d = (field * 0.4 + tangent) * px * (1.0 + 3.0 * b);
-    vec3 ink = (past(uv + d) + past(uv - d)) * 0.5;
-    vec3 result = mix(src, ink * 0.99, 0.7 + 0.23 * b);
-    result *= 0.98 + 0.04 * smoothstep(0.08, 0.4, length(grad));
+    vec2 tangent = vec2(-grad.y, grad.x) / max(length(grad), 0.05);
+    vec2 field = vec2(cos(a * 5.5), sin(a * 5.5));
+    vec2 d = (field + tangent * 0.8) * px * (0.5 + 64.0 * b * b);
+    vec3 ink = past(uv + d) * 0.75 + past(uv - d) * 0.25;
+    // Contrast the fresh pigment, not the feedback: repeated gain would bleach it.
+    vec3 pigment = smoothstep(vec3(0.12), vec3(0.88), src);
+    vec3 result = mix(pigment, ink * 0.995, 0.35 + 0.63 * b);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

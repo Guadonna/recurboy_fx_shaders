@@ -1,12 +1,16 @@
-# v0.1.0 — Organic FX, hardware-unverified prerelease
+# v0.2.0 — сильные деформации и цвета вашего видео
 
-11 standalone GLSL ES 1.00 FX shaders for RecurBoy: liquid memory, mycelium, erosion, Gray–Scott reaction diffusion, recursive temporal refraction, magnetic ink, crystallization, elastic membrane, digital fossils, capillary watercolor, and image-space differential growth.
+Все 11 FX получили более широкий диапазон управления. Крупные вихри, длинные шлейфы, разрыв рельефа, ромбические кристаллы, сильное растяжение и контрастные фронты роста. Новая отправная точка: ручки 0/1/2 = **1.0 / 0.55 / 0.70**.
 
-- One pass, 3–7 texture reads per pixel, bounded parameters, RGB8 feedback, dry/reset control.
-- Russian installation/control guide, performance acceptance procedure and optional CPU thermal monitor.
-- Optional ping-pong framebuffer patch for the inspected upstream addon; application check passed, ARM build untested.
-- Cloud Mesa compile/link/render checks cover all 11 effects, feedback evolution, control extremes and multiple resolutions. These are not Pi hardware tests.
+Мицелий, реакция–диффузия и differential growth теперь берут оттенок и насыщенность из текущего видео. ЧБ остаётся ЧБ, в том числе сразу после цветного источника. Яркость задаёт растущий узор; на полностью чёрном участке фронт нейтрален.
 
-**25 FPS and temperature limits have not been verified on Raspberry Pi.** Differential growth and several material effects are visual approximations. Requires defined previous-frame feedback for reliable operation; inspect the compatibility guide before relying on the stock single-FBO path.
+Для этого двухкомпонентное хранение состояния в R/G заменено одним полем интенсивности с пространственным торможением. Reaction diffusion больше не является точной Gray–Scott. Differential growth — растровая стилизация, без сетки вершин.
 
-Extract `Fx/` to the USB drive root, or copy its `.frag` files into `~/Fx/`. No Python runtime is needed for the effects. SHA256SUMS verifies the release ZIP; the ZIP also includes per-file checksums.
+- Сохранены один проход и прежние 3–7 чтений текстуры на пиксель.
+- GLES compile/link/render, ЧБ, соответствие оттенков, смена палитры, крайние положения ручек и упаковка проверяются автоматически.
+- В архиве — изображения до/после и анимация RGB/ЧБ на синтетическом входе.
+- Замените прежние файлы в `Fx/`, сбросьте Wet в ноль на несколько кадров, затем выберите новые положения ручек. Формат uniform и имена файлов прежние.
+
+**Предварительный релиз: 25 FPS и температура на Raspberry Pi не измерены.** Новые формулы проверены в облачном Mesa. Прежний необязательный термомонитор и патч чередующихся framebuffer включены; патч на Pi не собран.
+
+SHA256SUMS проверяет ZIP; внутри есть контрольные суммы отдельных файлов.

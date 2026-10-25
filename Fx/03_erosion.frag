@@ -37,15 +37,15 @@ void main() {
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
     vec3 old = past(uv);
-    vec2 d = px * (1.0 + 2.0 * a);
+    vec2 d = px * (0.5 + 42.0 * a * a);
     vec3 up = past(uv + vec2(0.0, d.y));
     vec3 left = past(uv + vec2(-d.x, d.y));
     vec3 right = past(uv + vec2(d.x, d.y));
-    vec3 sediment = mix(left, right, smoothstep(-0.2, 0.2, lum(left) - lum(right)));
-    vec3 rain = mix(up, sediment, 0.55);
+    vec3 sediment = mix(left, right, smoothstep(-0.15, 0.15, lum(left) - lum(right)));
+    vec3 rain = mix(up, sediment, 0.65);
     float slope = lum(rain) - lum(old);
-    vec3 result = mix(old, rain, 0.15 + 0.35 * a);
-    result += vec3(slope * (0.15 + 0.3 * b));
-    result = mix(result * 0.99, src, 0.06 + 0.12 * (1.0 - b));
+    vec3 carved = mix(old, rain, 0.2 + 0.65 * a);
+    carved *= clamp(1.0 + slope * (0.2 + 5.0 * b), 0.05, 2.0);
+    vec3 result = mix(src, carved, 0.35 + 0.62 * b);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

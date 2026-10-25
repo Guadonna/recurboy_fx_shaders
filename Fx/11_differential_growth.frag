@@ -1,6 +1,6 @@
 // RecurBoy Organic FX - original GLSL ES 1.00, one pass, RGB8 feedback.
 // Differential growth
-// Input 1: Шаг роста / складки; input 2: Рост ↔ отталкивание.
+// Input 1: Размер складок; input 2: Возбуждение / отталкивание.
 // Budget: 7 texture reads per pixel at wet > 0.
 // Input 0: wet amount (0 = dry/reset); input 1/2: effect controls below.
 // u_tex1 must contain a completed previous frame, never the render target.
@@ -27,6 +27,14 @@ FX_COORD vec2 safeUV(FX_COORD vec2 p) {
 }
 vec3 past(FX_COORD vec2 p) { return texture2D(u_tex1, safeUV(p)).rgb; }
 float lum(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
+// The maximum channel stores intensity; RGB ratios carry the source hue.
+float peak(vec3 c) { return max(c.r, max(c.g, c.b)); }
+vec3 paint(float intensity, vec3 color) {
+    float v = peak(color);
+    // Black has no hue: a neutral front remains possible in black regions.
+    vec3 tint = v > 0.003 ? color / v : vec3(1.0);
+    return tint * intensity;
+}
 void main() {
     FX_COORD vec2 uv = safeUV(v_texcoord);
     FX_COORD vec2 px = 1.0 / max(u_resolution, vec2(1.0));
@@ -36,22 +44,26 @@ void main() {
     float b = clamp(u_x2, 0.0, 1.0);
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
-    // Excitable contour growth: red = activator, green = inhibitor.
-    // Neighbour activation propagates a front; slower inhibition separates folds.
-    vec2 d = px * (1.0 + 1.5 * a);
-    vec2 state = past(uv).rg;
-    vec2 sum = past(uv + vec2(0.0, d.y)).rg + past(uv - vec2(0.0, d.y)).rg
-             + past(uv + vec2(d.x, 0.0)).rg + past(uv - vec2(d.x, 0.0)).rg;
-    vec2 lap = sum - 4.0 * state;
-    float seed = abs(lum(src) - lum(texture2D(u_tex0, safeUV(uv + d)).rgb));
-    float activator = state.r;
-    float inhibitor = state.g;
-    float reaction = activator * (1.0 - activator) *
-                     (activator - (inhibitor + 0.02) / 0.75);
-    activator = clamp(activator + 0.18 * lap.r + (0.55 + 0.45 * b) * reaction
-                      + seed * 0.18, 0.0, 1.0);
-    inhibitor = clamp(inhibitor + 0.06 * lap.g + (0.025 + 0.015 * b) *
-                      (state.r - inhibitor), 0.0, 1.0);
-    vec3 result = vec3(activator, inhibitor, activator * 0.8);
+    // Excitable visible fronts; spatial inhibition leaves RGB free for video hue.
+    vec2 d = px * (0.75 + 12.0 * a * a);
+    float c = peak(past(uv));
+    // A curved local growth direction avoids a fixed horizontal stripe lattice.
+    vec2 field = (uv - vec2(0.5, 0.5)) * vec2(u_resolution.x / u_resolution.y, 1.0);
+    vec2 tangent = vec2(-field.y, field.x) + vec2(0.08, -0.03)
+                 + vec2(c - 0.5, peak(src) - 0.5) * 0.24;
+    tangent /= max(length(tangent), 0.08);
+    vec2 along = tangent * d;
+    float n = peak(past(uv + along));
+    float s = peak(past(uv - along));
+    vec2 farStep = vec2(-tangent.y, tangent.x) * d * (2.0 + 3.0 * b);
+    float e = peak(past(uv + farStep));
+    float w = peak(past(uv - farStep));
+    float edge = abs(peak(src) - peak(texture2D(u_tex0, safeUV(uv + d)).rgb));
+    float nearMean = (n + s) * 0.5;
+    float inhibitor = (e + w) * 0.5;
+    float reaction = c * (1.0 - c) * (c - (inhibitor + 0.02) / 0.75);
+    float life = clamp(c + 0.28 * (nearMean - c) + (0.6 + 1.1 * b) * reaction
+                      + 0.12 * (nearMean - inhibitor) + edge * (0.12 + 0.45 * b), 0.0, 1.0);
+    vec3 result = paint(life, src);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }

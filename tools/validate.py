@@ -121,7 +121,7 @@ class Renderer:
         GL.glTexSubImage2D(GL.GL_TEXTURE_2D, 0, 0, 0, self.width, self.height,
                           GL.GL_RGB, GL.GL_UNSIGNED_BYTE, np.ascontiguousarray(source))
 
-    def draw(self, knobs=(1, .35, .4), seconds=0):
+    def draw(self, knobs=(1, .55, .7), seconds=0):
         target = 1 - self.previous
         GL.glBindFramebuffer(GL.GL_FRAMEBUFFER, int(self.fbos[target]))
         GL.glViewport(0, 0, self.width, self.height)
@@ -192,7 +192,7 @@ def main():
             middle = None
             for frame in range(args.frames):
                 renderer.upload(fixture(256,192,frame))
-                renderer.draw(seconds=-frame/30)
+                renderer.draw(knobs=item["default_knobs"][:3], seconds=-frame/30)
                 if frame == args.frames//2:
                     middle = renderer.pixels()
             output = renderer.pixels()

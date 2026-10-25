@@ -9,9 +9,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 10.366956922743055,
-      "temporal_difference": 17.45357937282986,
-      "output_std": 63.87661632838744
+      "mean_difference": 32.968234592013886,
+      "temporal_difference": 16.58978949652778,
+      "output_std": 49.263994923829756
     },
     {
       "file": "Fx/02_mycelium.frag",
@@ -19,9 +19,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 61.85943603515625,
-      "temporal_difference": 13.174757215711805,
-      "output_std": 69.36129343938056
+      "mean_difference": 66.82737223307292,
+      "temporal_difference": 49.253207736545136,
+      "output_std": 93.31240244259759
     },
     {
       "file": "Fx/03_erosion.frag",
@@ -29,9 +29,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 15.29721408420139,
-      "temporal_difference": 14.095323350694445,
-      "output_std": 58.608541276577554
+      "mean_difference": 64.79377577039931,
+      "temporal_difference": 92.81280517578125,
+      "output_std": 68.73787257542538
     },
     {
       "file": "Fx/04_reaction_diffusion.frag",
@@ -39,9 +39,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 72.53493923611111,
-      "temporal_difference": 29.369981553819443,
-      "output_std": 73.30541309278209
+      "mean_difference": 80.32666693793402,
+      "temporal_difference": 16.13391791449653,
+      "output_std": 100.57568483471891
     },
     {
       "file": "Fx/05_temporal_refraction.frag",
@@ -49,9 +49,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 1.6398451063368056,
-      "temporal_difference": 18.275044759114582,
-      "output_std": 68.52597190450349
+      "mean_difference": 25.4161376953125,
+      "temporal_difference": 25.989122178819443,
+      "output_std": 54.30165448821871
     },
     {
       "file": "Fx/06_magnetic_ink.frag",
@@ -59,9 +59,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 16.954976399739582,
-      "temporal_difference": 14.717549641927084,
-      "output_std": 58.75479940215457
+      "mean_difference": 38.5740966796875,
+      "temporal_difference": 13.179931640625,
+      "output_std": 67.11819212844436
     },
     {
       "file": "Fx/07_crystallization.frag",
@@ -69,9 +69,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 20.54248046875,
-      "temporal_difference": 20.66452365451389,
-      "output_std": 66.54008032991551
+      "mean_difference": 54.19702826605903,
+      "temporal_difference": 16.56387668185764,
+      "output_std": 68.17835063256749
     },
     {
       "file": "Fx/08_elastic_membrane.frag",
@@ -79,9 +79,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 3.2218492296006946,
-      "temporal_difference": 18.56568060980903,
-      "output_std": 69.31043028743834
+      "mean_difference": 23.30164252387153,
+      "temporal_difference": 24.81368679470486,
+      "output_std": 63.02762906716884
     },
     {
       "file": "Fx/09_digital_fossils.frag",
@@ -89,9 +89,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 6.133402506510417,
-      "temporal_difference": 16.77685546875,
-      "output_std": 66.72400132820758
+      "mean_difference": 27.619588216145832,
+      "temporal_difference": 17.340413411458332,
+      "output_std": 50.14589209640697
     },
     {
       "file": "Fx/10_capillary_watercolor.frag",
@@ -99,9 +99,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 9.344767252604166,
-      "temporal_difference": 14.289055718315971,
-      "output_std": 64.11696968275534
+      "mean_difference": 32.972073025173614,
+      "temporal_difference": 13.220072428385416,
+      "output_std": 44.632363918069586
     },
     {
       "file": "Fx/11_differential_growth.frag",
@@ -109,9 +109,9 @@
       "dry_max_error": 0,
       "boundary_draws": 72,
       "feedback_frames": 360,
-      "mean_difference": 95.22953965928819,
-      "temporal_difference": 122.41164143880208,
-      "output_std": 105.74181758077195
+      "mean_difference": 85.55667453342014,
+      "temporal_difference": 17.49176703559028,
+      "output_std": 98.10220418355492
     }
   ],
   "additional_resolutions": [

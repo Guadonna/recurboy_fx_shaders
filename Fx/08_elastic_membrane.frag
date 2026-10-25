@@ -36,15 +36,15 @@ void main() {
     float b = clamp(u_x2, 0.0, 1.0);
     if (wet < 0.003) { gl_FragColor = vec4(src, 1.0); return; }
 
-    // Image-space elastic echo, not a two-state physical wave solver.
     vec3 old = past(uv);
     float h = lum(old);
-    vec2 slope = vec2(lum(past(uv + vec2(px.x * 2.0, 0.0))) - h,
-                      lum(past(uv + vec2(0.0, px.y * 2.0))) - h);
+    vec2 slope = vec2(lum(past(uv + vec2(px.x * 3.0, 0.0))) - h,
+                      lum(past(uv + vec2(0.0, px.y * 3.0))) - h);
     float impulse = lum(src) - h;
-    vec2 wobble = vec2(sin(ftime * 6.283), cos(ftime * 6.283));
-    vec2 displacement = (slope * 2.0 + wobble * impulse) * px * (1.0 + 7.0 * a);
+    vec2 wobble = vec2(sin(ftime * 6.283 + uv.y * 9.0), cos(ftime * 6.283 - uv.x * 9.0));
+    vec2 displacement = (slope * 2.5 + wobble * (0.12 + impulse * 1.8))
+                       * px * (0.5 + 150.0 * a * a);
     vec3 stretched = texture2D(u_tex0, safeUV(uv + displacement)).rgb;
-    vec3 result = mix(stretched, old, 0.35 + 0.5 * b);
+    vec3 result = mix(stretched, old, 0.05 + 0.92 * b);
     gl_FragColor = vec4(clamp(mix(src, result, wet), 0.0, 1.0), 1.0);
 }
