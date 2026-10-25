@@ -1,40 +1,40 @@
 # RecurBoy FX Collections
 
-Репозиторий подборок FX-шейдеров для [RecurBoy](https://github.com/cyberboy666/recurBOY): обработка видео, обратная связь, органический рост и цифровые искажения. Эффекты поставляются как `.frag` для установки в RecurBoy.
+Подборки FX-шейдеров для [RecurBoy](https://github.com/cyberboy666/recurBOY): обработка видео, органический рост, обратная связь и цифровые искажения. Файлы `.frag` устанавливаются в RecurBoy.
 
-Главная ветка **`main`** содержит только этот каталог. Исходники, инструкции, примеры и проверки каждой подборки находятся в её собственной ветке.
+**12 подборок · 66 эффектов.** Главная ветка `main` содержит только этот каталог; код, инструкции, примеры и проверки находятся в отдельных ветках.
 
-**[Скачать все 16 эффектов одним ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.0.1/recurboy-all-collections-v1.0.1.zip)** — отдельные папки `feedback/Fx/` и `datamosh/Fx/`, каждая подборка со своими инструкциями. Отдельные архивы доступны ниже.
+**[Скачать все подборки одним ZIP — Collections 1.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-all-collections-v1.1.0.zip)**
+
+В общем архиве каждая подборка хранится целиком в своей папке по типу эффекта: `feedback/Fx/`, `datamosh/Fx/`, `displacement/Fx/` и т.д. Инструкции и документация остаются рядом с её шейдерами. Отдельные ZIP доступны в таблице.
 
 ## Подборки
 
-| Подборка | Эффектов | Описание | Ветка | Архив |
+| Подборка | FX | Описание | Исходники и руководство | Архив |
 |---|---:|---|---|---|
-| **Feedback / Organic FX** | 11 | Накопление и преобразование предыдущих кадров, растекание, рост, деформация и цветные следы | [collections/feedback](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/feedback) | [ZIP v0.4.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.0.1/recurboy-feedback-v0.4.0.zip) |
-| **Datamosh** | 5 | Ошибочные векторы движения, распад макроблоков, отставание цвета и застывшие фрагменты кадров | [collections/datamosh](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/datamosh) | [ZIP v0.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.0.1/recurboy-datamosh-v0.1.0.zip) |
+| **Feedback / Organic FX** | 11 | Органический рост, растекание, деформации и память кадров. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/feedback) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-feedback-v0.4.0.zip) |
+| **Datamosh** | 5 | Макроблоки, вязкие следы, цветовые задержки и застывшие фрагменты. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/datamosh) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-datamosh-v0.1.0.zip) |
+| **Displacement Mapping** | 5 | Смещение изображения по яркости, шуму, цвету и памяти предыдущего кадра. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/displacement) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-displacement-v0.1.0.zip) |
+| **Kaleidoscope** | 5 | Радиальные зеркала, плиточные отражения и спиральные симметрии. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/kaleidoscope) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-kaleidoscope-v0.1.0.zip) |
+| **Pixel Sorting** | 5 | Упорядочивание цветных выборок в вытянутые полосы по яркости или цвету. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/pixel-sorting) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-pixel-sorting-v0.1.0.zip) |
+| **Recursive Transformations** | 5 | Вложенные преобразования видео, зеркальные залы и рекурсивные следы. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/recursive) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-recursive-v0.1.0.zip) |
+| **Databending** | 5 | Имитация повреждённых адресов, строк, пакетов и значений цветовых данных. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/databending) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-databending-v0.1.0.zip) |
+| **Bitwise Processing** | 5 | Логические операции над квантованными цветами: XOR, AND, OR и циклические сдвиги. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/bitwise) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-bitwise-v0.1.0.zip) |
+| **Compression Artifacts** | 5 | Блочная квантизация, ошибки цветности, звон границ и остатки предсказания. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/compression) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-compression-v0.1.0.zip) |
+| **Wave Modulation** | 5 | Синусоидальные, пилообразные, треугольные и пересекающиеся волны изменяют координаты и яркость. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/wave) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-wave-v0.1.0.zip) |
+| **Phase Distortion** | 5 | Нелинейное изменение фазы носителя, радиальных волн и фаз цветовых каналов. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/phase) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-phase-v0.1.0.zip) |
+| **Signal Interference** | 5 | Биения, срыв синхронизации, чересстрочные ошибки и отражённые сигналы. | [ветка](https://github.com/Guadonna/recurboy_fx_shaders/tree/collections/interference) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/collections-v1.1.0/recurboy-interference-v0.1.0.zip) |
 
-### Feedback / Organic FX
+В Feedback входят прежние 11 эффектов, включая Differential Growth и Reaction Diffusion без displacement, с регулировкой масштаба частиц. Datamosh содержит Block Vectors, Chroma Bleed, Motion Drag, Slice Loss и Keyframe Starvation. В каждой из десяти новых подборок — пять отдельных вариантов; их механизмы и ручки описаны в README соответствующей ветки.
 
-Первая подборка из 11 эффектов: **Liquid Memory, Mycelium, Erosion, Reaction Diffusion, Temporal Refraction, Magnetic Ink, Crystallization, Elastic Membrane, Digital Fossils, Capillary Watercolor и Differential Growth**.
+Pixel Sorting использует локальную сортировку пяти выборок с растяжением в полосы. Bitwise Processing — точные четырёхбитные операции, реализованные арифметически для GLES 2.0. Compression Artifacts и Databending визуально имитируют повреждения данных. Ограничения описаны в подборках.
 
-Эффекты используют предыдущее изображение как память: создают вязкие шлейфы, волны роста, кристаллы, размывы и многослойные деформации. В v0.4.0 из Reaction Diffusion удалён displacement и восстановлено управление размером частиц второй ручкой. Differential Growth сохраняет распространение цвета исходного видео.
+[Релиз 1.1.0, список изменений и контрольные суммы](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/collections-v1.1.0). Выпуск предварительный: GLES-рендер и автоматические проверки пройдены; 25 FPS и температура на Raspberry Pi требуют аппаратных измерений.
 
-[Описание, ручки и установка](https://github.com/Guadonna/recurboy_fx_shaders/blob/collections/feedback/README.md) · [Релиз Feedback v0.4.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/collections-v1.0.1)
+## Новые подборки и релизы
 
-### Datamosh
+Каждый новый тип эффектов получает ветку `collections/<название>`, собственный README и ZIP. В `main` обновляется только каталог; код подборок сюда не объединяется.
 
-Пять разных способов разрушения движения: **Block Vectors** смещает макроблоки, **Chroma Bleed** задерживает цвет, **Motion Drag** вытягивает прошлый кадр, **Slice Loss** срывает горизонтальные полосы, **Keyframe Starvation** удерживает плитки из разных моментов видео.
+Релизы публикуются версиями `collections-vX.Y.Z`: ZIP каждой актуальной подборки, общий ZIP с раздельными папками, SHA256SUMS и описание изменений. Следующий выпуск получает новый тег; опубликованные версии не перезаписываются.
 
-Эффекты имитируют вид datamosh через обратную связь. Особенно заметны на движении и резкой смене сцены. Файлы с префиксами `dm01…dm05` можно установить рядом с первой подборкой.
-
-[Описание, ручки и установка](https://github.com/Guadonna/recurboy_fx_shaders/blob/collections/datamosh/README.md) · [Релиз Datamosh v0.1.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/collections-v1.0.1)
-
-## Новые подборки
-
-Каждый новый тип эффектов получает отдельную ветку **`collections/<название>`**, собственный README и релизный ZIP. В `main` обновляется только этот каталог: описание подборки и ссылки на её ветку и релиз. Код разных подборок в главную ветку не объединяется.
-
-[Общий релиз и контрольные суммы](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/collections-v1.0.1). Текущие выпуски предварительные: шейдеры проверены программным GLES-рендером; 25 FPS и температура на Raspberry Pi ещё требуют измерения на устройстве.
-
-Релизы публикуются общими версиями `collections-vX.Y.Z`: отдельный ZIP каждой подборки, дополнительный ZIP со всеми подборками в отдельных папках по типу эффекта, общая SHA-256 и описание изменений с точными ревизиями веток. Последующие обновления получают новый тег и release notes; опубликованные версии не перезаписываются. Перед публикацией должны пройти проверки соответствующих веток. После выпуска обновляются ссылки этого каталога.
-
-Автоматизация общего выпуска хранится в `collections/feedback`: `.github/workflows/collections-release.yml` и `tools/package_all.py`. Для нового релиза обновляются версия, точные ревизии подборок и release notes, создаётся новый тег каталога; push изменения workflow собирает и публикует архивы. Workflow отказывается перезаписывать уже опубликованный релиз.
+Автоматизация хранится в `collections/feedback`: `.github/workflows/collections-release.yml`, `tools/build_release.py` и `tools/package_all.py`. Для выпуска обновляются версия, точные ревизии и успешные CI-прогоны в `releases/<тег>.json`, release notes и checkout-ревизии workflow. Затем создаётся новый тег каталога; push изменения workflow собирает и проверяет все архивы и публикует релиз.
