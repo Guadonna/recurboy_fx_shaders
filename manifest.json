@@ -1,209 +1,219 @@
 {
-  "version": "0.4.0",
+  "collection": "feedback",
+  "name": "Classic Feedback",
+  "version": "0.1.0",
   "status": "hardware-unverified",
   "api": "GLSL ES 1.00",
   "effects": [
     {
-      "file": "Fx/01_liquid_memory.frag",
-      "name": "Жидкая память",
+      "name": "Zoom In",
+      "description": "Предыдущий кадр плавно увеличивается, оставляя расширяющиеся следы.",
       "controls": [
         "Wet / reset",
-        "Вязкость / размер потока",
+        "Шаг увеличения",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb01_zoom_in.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Zoom Out",
+      "description": "Предыдущий кадр сжимается к центру, образуя вложенные контуры.",
+      "controls": [
+        "Wet / reset",
+        "Шаг уменьшения",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb02_zoom_out.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Rotation Echo",
+      "description": "Небольшой поворот каждого прошлого кадра создаёт спиральную память.",
+      "controls": [
+        "Wet / reset",
+        "Шаг поворота",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb03_rotation_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Horizontal Trails",
+      "description": "Память уходит влево или вправо, оставляя горизонтальные шлейфы.",
+      "controls": [
+        "Wet / reset",
+        "Направление и шаг",
         "Длина следа",
-        "Host time speed"
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb04_horizontal_trails.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Vertical Trails",
+      "description": "Память уходит вверх или вниз, оставляя вертикальные шлейфы.",
+      "controls": [
+        "Wet / reset",
+        "Направление и шаг",
+        "Длина следа",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb05_vertical_trails.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Mirror Echo",
+      "description": "Зеркальное отражение предыдущего кадра накапливает симметричные двойники.",
+      "controls": [
+        "Wet / reset",
+        "Сдвиг зеркала",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb06_mirror_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Luma Key Echo",
+      "description": "Яркие участки обновляют память, тёмные сохраняют старый кадр.",
+      "controls": [
+        "Wet / reset",
+        "Порог яркости",
+        "Удержание",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb07_luma_key_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Difference Echo",
+      "description": "Разность с прошлым кадром порождает пульсирующие контуры движения.",
+      "controls": [
+        "Wet / reset",
+        "Сдвиг сравнения",
+        "Глубина разности",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb08_difference_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "RGB Echo",
+      "description": "Три цветовых канала прошлого кадра оставляют разнесённые эхо.",
+      "controls": [
+        "Wet / reset",
+        "Разнос каналов",
+        "Память",
+        "Скорость / направление часов"
       ],
       "texture_reads": 4,
+      "feedback": true,
+      "grayscale": false,
+      "file": "Fx/fb09_rgb_echo.frag",
       "passes": 1,
       "default_knobs": [
-        1.0,
+        1,
         0.55,
-        0.7,
+        0.9,
         0.65
       ]
     },
     {
-      "file": "Fx/02_mycelium.frag",
-      "name": "Мицелий",
+      "name": "Frame Echo",
+      "description": "Рамка кадра удерживает вложенные копии, оставляя центр читаемым.",
       "controls": [
         "Wet / reset",
-        "Шаг ветвления",
-        "Питание / рост",
-        "Host time speed"
+        "Размер окна",
+        "Память рамки",
+        "Скорость / направление часов"
       ],
-      "texture_reads": 7,
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb10_frame_echo.frag",
       "passes": 1,
       "default_knobs": [
-        1.0,
+        1,
         0.55,
-        0.7,
-        0.65
-      ],
-      "color_mode": "source RGB ratios, scalar intensity feedback; black areas neutral"
-    },
-    {
-      "file": "Fx/03_erosion.frag",
-      "name": "Эрозия",
-      "controls": [
-        "Wet / reset",
-        "Сила размыва",
-        "Осаждение",
-        "Host time speed"
-      ],
-      "texture_reads": 5,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
+        0.9,
         0.65
       ]
-    },
-    {
-      "file": "Fx/04_reaction_diffusion.frag",
-      "name": "Реакция–диффузия",
-      "controls": [
-        "Wet / reset",
-        "Размер частиц: 3–31 px",
-        "Восстановление / частота фронтов",
-        "Не используется"
-      ],
-      "texture_reads": 7,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.2,
-        0.7,
-        0.65
-      ],
-      "color_mode": "RGB carried by propagating excitation/recovery fronts; reset after palette changes"
-    },
-    {
-      "file": "Fx/05_temporal_refraction.frag",
-      "name": "Временное преломление",
-      "controls": [
-        "Wet / reset",
-        "Искажение",
-        "Память",
-        "Host time speed"
-      ],
-      "texture_reads": 3,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
-    },
-    {
-      "file": "Fx/06_magnetic_ink.frag",
-      "name": "Магнитные чернила",
-      "controls": [
-        "Wet / reset",
-        "Направление поля",
-        "Длина штрихов",
-        "Host time speed"
-      ],
-      "texture_reads": 5,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
-    },
-    {
-      "file": "Fx/07_crystallization.frag",
-      "name": "Кристаллизация",
-      "controls": [
-        "Wet / reset",
-        "Размер граней",
-        "Удержание",
-        "Host time speed"
-      ],
-      "texture_reads": 3,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
-    },
-    {
-      "file": "Fx/08_elastic_membrane.frag",
-      "name": "Эластичная мембрана",
-      "controls": [
-        "Wet / reset",
-        "Упругость",
-        "Затухание",
-        "Host time speed"
-      ],
-      "texture_reads": 5,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
-    },
-    {
-      "file": "Fx/09_digital_fossils.frag",
-      "name": "Цифровые окаменелости",
-      "controls": [
-        "Wet / reset",
-        "Смещение слоёв",
-        "Глубина памяти",
-        "Host time speed"
-      ],
-      "texture_reads": 3,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
-    },
-    {
-      "file": "Fx/10_capillary_watercolor.frag",
-      "name": "Капиллярная акварель",
-      "controls": [
-        "Wet / reset",
-        "Растекание",
-        "Пигмент по краям",
-        "Host time speed"
-      ],
-      "texture_reads": 6,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
-    },
-    {
-      "file": "Fx/11_differential_growth.frag",
-      "name": "Differential growth",
-      "controls": [
-        "Wet / reset",
-        "Размер фронта / деформация видео",
-        "Восстановление / частота роста",
-        "Host time speed"
-      ],
-      "texture_reads": 7,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ],
-      "color_mode": "RGB carried by propagating excitation/recovery fronts; reset after palette changes"
     }
-  ],
-  "collection": "feedback"
+  ]
 }
