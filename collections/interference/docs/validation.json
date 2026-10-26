@@ -1,0 +1,141 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "interference",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/sig01_beat_mesh.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 75.89360291280865,
+      "knob_b_delta": 66.69672309027777,
+      "clock_delta": 47.12684944058641,
+      "difference_from_input": 56.03761574074074,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig02_horizontal_sync.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 27.214506172839506,
+      "knob_b_delta": 28.230324074074073,
+      "clock_delta": 24.14924647955247,
+      "difference_from_input": 28.684184510030864,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig03_field_desync.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 24.272099247685187,
+      "knob_b_delta": 47.813295717592595,
+      "clock_delta": 24.15278018904321,
+      "difference_from_input": 39.2603443287037,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 29.14818431712963,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig04_rf_ghosts.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 24.365752797067902,
+      "knob_b_delta": 24.918595679012345,
+      "clock_delta": 7.764457947530865,
+      "difference_from_input": 21.384717399691358,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig05_chroma_crosstalk.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 8.45677806712963,
+      "knob_b_delta": 9.133210358796296,
+      "clock_delta": 8.793940489969135,
+      "difference_from_input": 8.560245466820987,
+      "feedback_frames": 120,
+      "boundary_draws": 24
+    },
+    {
+      "file": "Fx/sig06_mains_hum.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 58.13283661265432,
+      "knob_b_delta": 58.52070071373457,
+      "clock_delta": 57.76743465470679,
+      "difference_from_input": 49.37421633873457,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig07_tracking_bar.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 18.284288194444443,
+      "knob_b_delta": 12.943757233796296,
+      "clock_delta": 18.554639274691358,
+      "difference_from_input": 13.274016203703704,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig08_multipath_comb.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 33.59164014274691,
+      "knob_b_delta": 40.60901331018518,
+      "clock_delta": 1.3879050925925926,
+      "difference_from_input": 30.777500482253085,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig09_line_phase_noise.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 24.396074459876544,
+      "knob_b_delta": 25.285023630401234,
+      "clock_delta": 18.178407118055553,
+      "difference_from_input": 25.822832272376544,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/sig10_burst_hold.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 33.35640914351852,
+      "knob_b_delta": 35.56500771604938,
+      "clock_delta": 23.31618320794753,
+      "difference_from_input": 28.727695794753085,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 46.500373746141975,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 19.418294270833332,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}

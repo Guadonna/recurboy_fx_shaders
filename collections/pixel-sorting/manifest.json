@@ -1,0 +1,219 @@
+{
+  "collection": "pixel-sorting",
+  "version": "0.2.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Horizontal Ranks",
+      "description": "Горизонтальные ранги яркости.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt01_horizontal_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Vertical Ranks",
+      "description": "Вертикальные ранги яркости.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt02_vertical_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Diagonal Ranks",
+      "description": "Диагональные ленты без вычисления тригонометрии.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt03_diagonal_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Radial Ranks",
+      "description": "Лучи сортировки на лёгкой квадратной радиальной метрике.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt04_radial_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Chroma Ranks",
+      "description": "Лёгкая сортировка по разнице красного и синего.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt05_chroma_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Descending Rows",
+      "description": "Яркость убывает вдоль горизонтальных полос.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt06_descending_rows.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Serpentine Rows",
+      "description": "Направление рангов чередуется в соседних полосах.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt07_serpentine_rows.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Green Column Ranks",
+      "description": "Вертикальная сортировка по разнице зелёного и красного.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt08_green_column_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Tile Ranks",
+      "description": "Клетки переставляют три яркостных ранга внутри локальных рядов.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt09_tile_ranks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Bright Ridges",
+      "description": "Самый светлый ранг образует центральные гребни полос.",
+      "controls": [
+        "Wet / reset",
+        "Длина сегмента",
+        "Включённые яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/srt10_bright_ridges.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ],
+  "name": "Pixel Sorting"
+}

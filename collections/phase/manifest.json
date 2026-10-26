@@ -1,0 +1,219 @@
+{
+  "collection": "phase",
+  "version": "0.2.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Sine Phase Warp",
+      "description": "Вторая синусоида деформирует фазу основной волны смещения.",
+      "controls": [
+        "Wet / reset",
+        "Частота носителя",
+        "Фазовый индекс",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs01_sine_phase_warp.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Phase Pinch",
+      "description": "Нелинейная скорость фазы сжимает и растягивает каждую вертикальную полосу.",
+      "controls": [
+        "Wet / reset",
+        "Число периодов",
+        "Перегиб фазы",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs02_phase_pinch.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Radial Phase Twist",
+      "description": "Радиальные колебания модулируют угол изображения.",
+      "controls": [
+        "Wet / reset",
+        "Частота колец",
+        "Глубина поворота",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs03_radial_phase_twist.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Video Phase Carrier",
+      "description": "Яркость самого видео сдвигает фазу полосатого носителя.",
+      "controls": [
+        "Wet / reset",
+        "Частота полос",
+        "Влияние видео на фазу",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs04_video_phase_carrier.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "RGB Phase Split",
+      "description": "Разные фазы цветовых каналов формируют волнистое цветовое расслоение.",
+      "controls": [
+        "Wet / reset",
+        "Частота носителя",
+        "Разница фаз",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": false,
+      "grayscale": false,
+      "file": "Fx/phs05_rgb_phase_split.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Triangle Phase Fold",
+      "description": "Треугольный носитель перегибает фазу горизонтального смещения.",
+      "controls": [
+        "Wet / reset",
+        "Частота",
+        "Индекс фазовой модуляции",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs06_triangle_phase_fold.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Checker Phase",
+      "description": "Соседние клетки получают разные фазы одной волны.",
+      "controls": [
+        "Wet / reset",
+        "Размер клеток",
+        "Разница фаз",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs07_checker_phase.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Memory Phase",
+      "description": "Яркость прошлого кадра меняет фазу волн памяти.",
+      "controls": [
+        "Wet / reset",
+        "Частота носителя",
+        "Глубина памяти",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/phs08_memory_phase.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Saw Phase Carrier",
+      "description": "Яркость сдвигает фазу пилообразных световых полос.",
+      "controls": [
+        "Wet / reset",
+        "Частота",
+        "Влияние видео",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs09_saw_phase_carrier.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Opposed Phase Windows",
+      "description": "Две половины кадра используют противоположную фазу смещения.",
+      "controls": [
+        "Wet / reset",
+        "Частота",
+        "Разница фаз",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/phs10_opposed_phase_windows.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ],
+  "name": "Phase Distortion"
+}

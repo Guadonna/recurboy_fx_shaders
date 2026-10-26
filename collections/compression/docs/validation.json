@@ -1,0 +1,142 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "compression",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/cmp01_block_quantizer.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 37.73852237654321,
+      "knob_b_delta": 66.27888695987654,
+      "clock_delta": 5.932303722993828,
+      "difference_from_input": 34.19460117669753,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp02_chroma_blocks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 40.68942901234568,
+      "knob_b_delta": 53.98546006944444,
+      "clock_delta": 23.60629822530864,
+      "difference_from_input": 61.01199604552469,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp03_ringing_edges.frag",
+      "dry_max_error": 0,
+      "texture_reads": 5,
+      "knob_a_delta": 31.85914592978395,
+      "knob_b_delta": 42.298068576388886,
+      "clock_delta": 1.9572084780092596,
+      "difference_from_input": 30.440321180555557,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp04_mosquito_edges.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 15.325279706790123,
+      "knob_b_delta": 13.250940393518519,
+      "clock_delta": 11.920293209876544,
+      "difference_from_input": 14.71557918595679,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp05_residual_blocks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 30.468098958333332,
+      "knob_b_delta": 3.714180652006173,
+      "clock_delta": 6.515000482253086,
+      "difference_from_input": 23.471559124228396,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 51.24541859567901,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp06_dc_band_loss.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 1.8759162808641976,
+      "knob_b_delta": 43.1978443287037,
+      "clock_delta": 22.67790436921296,
+      "difference_from_input": 35.615993923611114,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp07_checker_residual.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 19.336335358796298,
+      "knob_b_delta": 5.037169656635802,
+      "clock_delta": 7.349027054398148,
+      "difference_from_input": 9.831151138117283,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 43.8203125,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp08_edge_steps.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 4.0348789544753085,
+      "knob_b_delta": 28.41753472222222,
+      "clock_delta": 1.037601273148148,
+      "difference_from_input": 10.289870273919753,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp09_staggered_blocks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 51.25640190972222,
+      "knob_b_delta": 20.73707561728395,
+      "clock_delta": 12.680925684799382,
+      "difference_from_input": 36.93817515432099,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/cmp10_chroma_dropout.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 15.26879581404321,
+      "knob_b_delta": 45.01664978780864,
+      "clock_delta": 13.428231095679013,
+      "difference_from_input": 37.33787856867284,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 15.292703510802468,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}

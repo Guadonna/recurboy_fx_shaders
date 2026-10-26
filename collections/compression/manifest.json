@@ -1,0 +1,219 @@
+{
+  "collection": "compression",
+  "version": "0.2.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Block Quantizer",
+      "description": "Усреднённые макроблоки теряют уровни яркости.",
+      "controls": [
+        "Wet / reset",
+        "Размер макроблока",
+        "Потеря уровней",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp01_block_quantizer.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Chroma Blocks",
+      "description": "Крупные блоки цветности скользят под яркостной структурой.",
+      "controls": [
+        "Wet / reset",
+        "Размер цветовых блоков",
+        "Смещение цветности",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp02_chroma_blocks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Ringing Edges",
+      "description": "Знакопеременные боковые лепестки создают ореолы вокруг резких границ.",
+      "controls": [
+        "Wet / reset",
+        "Ширина звона",
+        "Усиление и квантизация",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 5,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp03_ringing_edges.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Mosquito Edges",
+      "description": "Мерцающий шум концентрируется около границ объектов.",
+      "controls": [
+        "Wet / reset",
+        "Масштаб шума",
+        "Интенсивность ошибок",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp04_mosquito_edges.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Residual Blocks",
+      "description": "Квантованные разности обновляют блоки памяти рывками.",
+      "controls": [
+        "Wet / reset",
+        "Размер блоков",
+        "Потеря точности разности",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/cmp05_residual_blocks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "DC Band Loss",
+      "description": "Полосы теряют среднюю яркость и делятся на грубые уровни.",
+      "controls": [
+        "Wet / reset",
+        "Высота полос",
+        "Потеря яркости",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp06_dc_band_loss.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Checker Residual",
+      "description": "Чётные блоки обновляют разность кадра, нечётные удерживают старые данные.",
+      "controls": [
+        "Wet / reset",
+        "Размер блоков",
+        "Точность остатков",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/cmp07_checker_residual.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Edge Steps",
+      "description": "Ступени квантования усиливаются около контуров.",
+      "controls": [
+        "Wet / reset",
+        "Ширина контура",
+        "Потеря уровней",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp08_edge_steps.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Staggered Blocks",
+      "description": "Строки макроблоков декодируются с разным смещением.",
+      "controls": [
+        "Wet / reset",
+        "Размер макроблока",
+        "Рассогласование",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp09_staggered_blocks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Chroma Dropout",
+      "description": "В отдельных блоках пропадает цветность, сохраняя яркость.",
+      "controls": [
+        "Wet / reset",
+        "Размер блока",
+        "Частота выпадений",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/cmp10_chroma_dropout.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ],
+  "name": "Compression Artifacts"
+}

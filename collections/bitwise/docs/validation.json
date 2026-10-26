@@ -1,0 +1,145 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "bitwise",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/bit01_xor_lattice.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 89.19384162808642,
+      "knob_b_delta": 44.77789834104938,
+      "clock_delta": 83.78513454861113,
+      "difference_from_input": 85.94229841820987,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit02_and_aperture.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 47.384548611111114,
+      "knob_b_delta": 36.452522183641975,
+      "clock_delta": 45.10156732253087,
+      "difference_from_input": 61.78433641975309,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit03_or_memory.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 42.35714457947531,
+      "knob_b_delta": 118.49436969521605,
+      "clock_delta": 17.249412856867284,
+      "difference_from_input": 75.16195264274691,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 47.60426311728395,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit04_rotate_nibble.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 57.85992959104938,
+      "knob_b_delta": 40.16840277777778,
+      "clock_delta": 40.73240499614198,
+      "difference_from_input": 122.13138985339506,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit05_xor_neighbours.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 14.79076244212963,
+      "knob_b_delta": 108.60106819058642,
+      "clock_delta": 4.92843002507716,
+      "difference_from_input": 130.83726369598764,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit06_xor_threshold.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 130.35505883487653,
+      "knob_b_delta": 36.15164448302469,
+      "clock_delta": 14.415239197530862,
+      "difference_from_input": 31.80296344521605,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit07_and_neighbours.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 26.478672357253085,
+      "knob_b_delta": 31.13407841435185,
+      "clock_delta": 4.862782118055556,
+      "difference_from_input": 38.874397183641975,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit08_or_stripes.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 57.56684027777778,
+      "knob_b_delta": 44.22902199074074,
+      "clock_delta": 52.92276837384259,
+      "difference_from_input": 68.10786795910494,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit09_reverse_bits.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 21.649462287808642,
+      "knob_b_delta": 63.81702112268518,
+      "clock_delta": 22.52622974537037,
+      "difference_from_input": 48.570999710648145,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/bit10_bitplane_weave.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 112.22041377314815,
+      "knob_b_delta": 133.79322193287038,
+      "clock_delta": 98.75254991319444,
+      "difference_from_input": 108.7387996720679,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 51.001229745370374,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {
+    "xor_pairs_verified": 256,
+    "and_pairs_verified": 256,
+    "or_pairs_verified": 256
+  }
+}

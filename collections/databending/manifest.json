@@ -1,0 +1,219 @@
+{
+  "collection": "databending",
+  "version": "0.2.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Address Shuffle",
+      "description": "Блоки получают адреса других участков изображения.",
+      "controls": [
+        "Wet / reset",
+        "Размер пакета",
+        "Доля перепутанных адресов",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn01_address_shuffle.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Wrong Stride",
+      "description": "Неверная длина строки складывает видео в косые пласты.",
+      "controls": [
+        "Wet / reset",
+        "Шаг адресации",
+        "Перекос строки",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn02_wrong_stride.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Channel Misalignment",
+      "description": "Цветовые каналы читаются с несовпадающих адресов.",
+      "controls": [
+        "Wet / reset",
+        "Высота пакетов",
+        "Разнос каналов",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": false,
+      "grayscale": false,
+      "file": "Fx/dbn03_channel_misalignment.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Packet Repeater",
+      "description": "Повреждённые пакеты повторяют чужую область предыдущего кадра.",
+      "controls": [
+        "Wet / reset",
+        "Размер пакета",
+        "Вероятность повтора",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dbn04_packet_repeater.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Value Overflow",
+      "description": "Переполнение яркостей и скачки разрядов разрушают градиенты.",
+      "controls": [
+        "Wet / reset",
+        "Усиление значения",
+        "Разрядность и смещение",
+        "Скорость и направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn05_value_overflow.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Scan Buffer Slip",
+      "description": "Куски строк читаются со сдвигом по вертикали.",
+      "controls": [
+        "Wet / reset",
+        "Длина куска",
+        "Сбой адреса",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn06_scan_buffer_slip.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Nibble Banks",
+      "description": "Чередующиеся банки значений по-разному переполняют цветовые каналы.",
+      "controls": [
+        "Wet / reset",
+        "Число банков",
+        "Смещение значений",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn07_nibble_banks.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Word Swaps",
+      "description": "Повреждённые слова меняют порядок RGB-каналов в блоках.",
+      "controls": [
+        "Wet / reset",
+        "Размер слов",
+        "Плотность перестановок",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 1,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn08_word_swaps.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Checksum Holes",
+      "description": "Повреждённые пакеты выпадают в чёрный или сохраняют старые данные.",
+      "controls": [
+        "Wet / reset",
+        "Размер пакетов",
+        "Частота выпадений",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dbn09_checksum_holes.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Page Scroll",
+      "description": "Разные страницы цифрового изображения прокручиваются независимо.",
+      "controls": [
+        "Wet / reset",
+        "Количество страниц",
+        "Сдвиг страницы",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": false,
+      "grayscale": true,
+      "file": "Fx/dbn10_page_scroll.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ],
+  "name": "Databending"
+}

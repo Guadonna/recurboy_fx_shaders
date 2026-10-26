@@ -1,0 +1,219 @@
+{
+  "collection": "feedback",
+  "name": "Classic Feedback",
+  "version": "0.1.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "name": "Zoom In",
+      "description": "Предыдущий кадр плавно увеличивается, оставляя расширяющиеся следы.",
+      "controls": [
+        "Wet / reset",
+        "Шаг увеличения",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb01_zoom_in.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Zoom Out",
+      "description": "Предыдущий кадр сжимается к центру, образуя вложенные контуры.",
+      "controls": [
+        "Wet / reset",
+        "Шаг уменьшения",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb02_zoom_out.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Rotation Echo",
+      "description": "Небольшой поворот каждого прошлого кадра создаёт спиральную память.",
+      "controls": [
+        "Wet / reset",
+        "Шаг поворота",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb03_rotation_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Horizontal Trails",
+      "description": "Память уходит влево или вправо, оставляя горизонтальные шлейфы.",
+      "controls": [
+        "Wet / reset",
+        "Направление и шаг",
+        "Длина следа",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb04_horizontal_trails.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Vertical Trails",
+      "description": "Память уходит вверх или вниз, оставляя вертикальные шлейфы.",
+      "controls": [
+        "Wet / reset",
+        "Направление и шаг",
+        "Длина следа",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb05_vertical_trails.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Mirror Echo",
+      "description": "Зеркальное отражение предыдущего кадра накапливает симметричные двойники.",
+      "controls": [
+        "Wet / reset",
+        "Сдвиг зеркала",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb06_mirror_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Luma Key Echo",
+      "description": "Яркие участки обновляют память, тёмные сохраняют старый кадр.",
+      "controls": [
+        "Wet / reset",
+        "Порог яркости",
+        "Удержание",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb07_luma_key_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Difference Echo",
+      "description": "Разность с прошлым кадром порождает пульсирующие контуры движения.",
+      "controls": [
+        "Wet / reset",
+        "Сдвиг сравнения",
+        "Глубина разности",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb08_difference_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "RGB Echo",
+      "description": "Три цветовых канала прошлого кадра оставляют разнесённые эхо.",
+      "controls": [
+        "Wet / reset",
+        "Разнос каналов",
+        "Память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 4,
+      "feedback": true,
+      "grayscale": false,
+      "file": "Fx/fb09_rgb_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    },
+    {
+      "name": "Frame Echo",
+      "description": "Рамка кадра удерживает вложенные копии, оставляя центр читаемым.",
+      "controls": [
+        "Wet / reset",
+        "Размер окна",
+        "Память рамки",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/fb10_frame_echo.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ]
+    }
+  ]
+}

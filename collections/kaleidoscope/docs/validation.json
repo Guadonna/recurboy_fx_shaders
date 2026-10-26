@@ -1,0 +1,141 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "kaleidoscope",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/kal01_radial_glass.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 53.77592110339506,
+      "knob_b_delta": 63.16571421682099,
+      "clock_delta": 30.514397665895064,
+      "difference_from_input": 73.90979456018519,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal02_mirror_tiles.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 69.42679398148148,
+      "knob_b_delta": 80.81045042438272,
+      "clock_delta": 56.078534915123456,
+      "difference_from_input": 71.0202305169753,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal03_spiral_petals.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 35.144121334876544,
+      "knob_b_delta": 25.749915605709877,
+      "clock_delta": 21.80704089506173,
+      "difference_from_input": 61.91280864197531,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal04_twin_mandalas.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 36.901740933641975,
+      "knob_b_delta": 28.889515817901234,
+      "clock_delta": 5.036351032021605,
+      "difference_from_input": 57.109314718364196,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal05_prism_rings.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 28.218448591820987,
+      "knob_b_delta": 18.95073784722222,
+      "clock_delta": 16.5837890625,
+      "difference_from_input": 60.29565731095679,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal06_quadrant_spinner.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 73.8777488425926,
+      "knob_b_delta": 76.52748842592592,
+      "clock_delta": 62.15499614197531,
+      "difference_from_input": 70.02551118827161,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal07_triangular_grid.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 51.739390432098766,
+      "knob_b_delta": 86.90816695601852,
+      "clock_delta": 62.69847125771604,
+      "difference_from_input": 74.65905912422839,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal08_wandering_eye.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 44.74271797839506,
+      "knob_b_delta": 35.2021484375,
+      "clock_delta": 26.940260898919753,
+      "difference_from_input": 59.37249228395062,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal09_mirror_memory.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 9.945903260030864,
+      "knob_b_delta": 53.86648823302469,
+      "clock_delta": 1.325148292824074,
+      "difference_from_input": 40.721776138117285,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 78.30934124228395,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/kal10_diamond_chambers.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 70.19263599537037,
+      "knob_b_delta": 73.68487172067901,
+      "clock_delta": 50.98121624228394,
+      "difference_from_input": 69.71799045138889,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 25.279899691358025,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}

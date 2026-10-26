@@ -1,0 +1,141 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "databending",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/dbn01_address_shuffle.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 70.13925057870371,
+      "knob_b_delta": 70.70178674768519,
+      "clock_delta": 20.912662760416666,
+      "difference_from_input": 53.166895736882715,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn02_wrong_stride.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 68.48854648919753,
+      "knob_b_delta": 57.37784529320987,
+      "clock_delta": 43.59473017939814,
+      "difference_from_input": 55.18926022376543,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn03_channel_misalignment.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 27.154658564814813,
+      "knob_b_delta": 26.57447193287037,
+      "clock_delta": 19.2605167341821,
+      "difference_from_input": 19.213192033179013,
+      "feedback_frames": 120,
+      "boundary_draws": 24
+    },
+    {
+      "file": "Fx/dbn04_packet_repeater.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 37.608579282407405,
+      "knob_b_delta": 50.37010513117284,
+      "clock_delta": 29.487938850308645,
+      "difference_from_input": 35.824857735339506,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 59.38851514274691,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn05_value_overflow.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 77.49904755015432,
+      "knob_b_delta": 82.24066840277777,
+      "clock_delta": 57.47847463348766,
+      "difference_from_input": 90.58596161265432,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn06_scan_buffer_slip.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 38.58034336419753,
+      "knob_b_delta": 37.25682388117284,
+      "clock_delta": 29.85562548225308,
+      "difference_from_input": 40.3443287037037,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn07_nibble_banks.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 70.19673514660494,
+      "knob_b_delta": 36.687403549382715,
+      "clock_delta": 73.22076099537036,
+      "difference_from_input": 66.67595003858025,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn08_word_swaps.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 33.290870949074076,
+      "knob_b_delta": 78.25390625,
+      "clock_delta": 23.90617042824074,
+      "difference_from_input": 59.65940875771605,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn09_checksum_holes.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 50.82620804398148,
+      "knob_b_delta": 52.933654031635804,
+      "clock_delta": 30.640995129243827,
+      "difference_from_input": 38.25667920524691,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 41.077208719135804,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dbn10_page_scroll.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 30.66290509259259,
+      "knob_b_delta": 15.748215663580247,
+      "clock_delta": 14.570584972993828,
+      "difference_from_input": 12.771050347222221,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 24.038230613425927,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}

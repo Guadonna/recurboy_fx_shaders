@@ -1,0 +1,140 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "wave",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/wav01_sine_swim.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 28.02535445601852,
+      "knob_b_delta": 33.50309847608025,
+      "clock_delta": 25.88943745177469,
+      "difference_from_input": 27.018036265432098,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav02_sawtooth_tears.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 34.823567708333336,
+      "knob_b_delta": 35.87168451003087,
+      "clock_delta": 32.632912567515426,
+      "difference_from_input": 33.148256655092595,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav03_triangle_shutter.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 75.40944492669753,
+      "knob_b_delta": 70.8171055169753,
+      "clock_delta": 75.80438609182099,
+      "difference_from_input": 61.68786168981482,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav04_circular_ripples.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 27.900559413580247,
+      "knob_b_delta": 31.179349922839506,
+      "clock_delta": 27.036460744598763,
+      "difference_from_input": 29.85133342978395,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav05_cross_modulator.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 75.41540075231481,
+      "knob_b_delta": 56.141384548611114,
+      "clock_delta": 47.02677107445987,
+      "difference_from_input": 58.39116753472222,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav06_vertical_wobble.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 33.683268229166664,
+      "knob_b_delta": 34.75081983024691,
+      "clock_delta": 31.502599344135803,
+      "difference_from_input": 32.6499927662037,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav07_square_chopper.frag",
+      "dry_max_error": 0,
+      "texture_reads": 1,
+      "knob_a_delta": 73.09373794367283,
+      "knob_b_delta": 91.49667245370371,
+      "clock_delta": 70.75636091820988,
+      "difference_from_input": 73.08658854166667,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav08_breathing_zoom.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 74.01009114583333,
+      "knob_b_delta": 71.84242380401234,
+      "clock_delta": 38.6255787037037,
+      "difference_from_input": 52.45671778549383,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav09_diagonal_current.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 41.26305700231482,
+      "knob_b_delta": 43.14445891203704,
+      "clock_delta": 38.94301938657408,
+      "difference_from_input": 42.38598331404321,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/wav10_harmonic_bend.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 29.839482060185187,
+      "knob_b_delta": 24.780381944444443,
+      "clock_delta": 27.225968123070988,
+      "difference_from_input": 30.049647955246915,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 30.218171296296298,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}

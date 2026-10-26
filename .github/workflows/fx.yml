@@ -1,0 +1,67 @@
+name: Validate and release FX
+on:
+  push:
+    branches: [fx]
+    tags: ['fx-v*']
+  pull_request:
+    branches: [fx]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validation dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libegl1-mesa-dev libgl1-mesa-dri
+          python -m pip install -r requirements-dev.txt
+      - name: Check all categories in the unified layout
+        env:
+          EGL_PLATFORM: surfaceless
+          PYOPENGL_PLATFORM: egl
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: python tools/validate_all.py
+      - name: Build and verify category and common archives
+        run: python tools/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fx-validation
+          path: artifacts/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fx-release-assets
+          path: dist/fx-v1.3.0/
+  release:
+    if: startsWith(github.ref, 'refs/tags/fx-v')
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: fx-release-assets
+          path: dist
+      - name: Publish a new FX version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          version=$(python3 -c 'import sys; sys.path.insert(0, "tools"); from package import VERSION; print(VERSION)')
+          test "$RELEASE_TAG" = "fx-v$version"
+          if state=$(gh release view "$RELEASE_TAG" --json isDraft --jq .isDraft); then
+            test "$state" = true || { echo 'Refusing to overwrite a published release'; exit 1; }
+          else
+            gh release create "$RELEASE_TAG" --verify-tag --draft --prerelease --title "RecurBoy FX $version — 13 categories" --notes-file releases/notes.md
+          fi
+          gh release upload "$RELEASE_TAG" dist/*.zip dist/SHA256SUMS
+          gh release edit "$RELEASE_TAG" --draft=false --prerelease --latest=false --notes-file releases/notes.md

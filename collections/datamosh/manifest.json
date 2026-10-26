@@ -1,0 +1,219 @@
+{
+  "collection": "datamosh",
+  "name": "Datamosh",
+  "version": "0.2.0",
+  "status": "hardware-unverified",
+  "api": "GLSL ES 1.00",
+  "effects": [
+    {
+      "file": "Fx/dm01_block_vectors.frag",
+      "name": "Block Vectors",
+      "description": "Макроблоки и сорванные векторы движения",
+      "controls": [
+        "Wet / reset",
+        "Размер блока",
+        "Ошибка векторов / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 6,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ],
+      "feedback": true,
+      "grayscale": true
+    },
+    {
+      "file": "Fx/dm02_chroma_bleed.frag",
+      "name": "Chroma Bleed",
+      "description": "Цветовые блоки отстают от яркости",
+      "controls": [
+        "Wet / reset",
+        "Размер хромаблоков",
+        "Разнос цвета / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 4,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ],
+      "feedback": true,
+      "grayscale": true
+    },
+    {
+      "file": "Fx/dm03_motion_drag.frag",
+      "name": "Motion Drag",
+      "description": "Движение вытягивает старое изображение",
+      "controls": [
+        "Wet / reset",
+        "Длина протекания",
+        "Сцепление / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 5,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ],
+      "feedback": true,
+      "grayscale": true
+    },
+    {
+      "file": "Fx/dm04_slice_loss.frag",
+      "name": "Slice Loss",
+      "description": "Потеря полос и сдвиг строк декодера",
+      "controls": [
+        "Wet / reset",
+        "Высота полос",
+        "Срыв / сдвиг / память",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 3,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ],
+      "feedback": true,
+      "grayscale": true
+    },
+    {
+      "file": "Fx/dm05_keyframe_starvation.frag",
+      "name": "Keyframe Starvation",
+      "description": "Фрагменты кадра застревают в разных моментах",
+      "controls": [
+        "Wet / reset",
+        "Размер удерживаемых плиток",
+        "Длительность удержания",
+        "Скорость / направление повреждений"
+      ],
+      "texture_reads": 2,
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.9,
+        0.65
+      ],
+      "feedback": true,
+      "grayscale": true
+    },
+    {
+      "name": "Cross Block Shear",
+      "description": "Макроблоки памяти сдвигаются попеременно по двум осям.",
+      "controls": [
+        "Wet / reset",
+        "Размер блока",
+        "Сдвиг и память",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dm06_cross_block_shear.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Column Melt",
+      "description": "Участки старого кадра стекают по столбцам с разной скоростью.",
+      "controls": [
+        "Wet / reset",
+        "Ширина столбца",
+        "Текучесть",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dm07_column_melt.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Motion Eraser",
+      "description": "Изменившиеся области стираются, раскрывая смещённый старый кадр.",
+      "controls": [
+        "Wet / reset",
+        "Порог изменения",
+        "Смещение памяти",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 3,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dm08_motion_eraser.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Temporal Checker",
+      "description": "Шахматные блоки удерживают разные моменты времени.",
+      "controls": [
+        "Wet / reset",
+        "Размер сетки",
+        "Длительность удержания",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dm09_temporal_checker.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    },
+    {
+      "name": "Chroma Avalanche",
+      "description": "Цветность старого кадра растекается под текущей яркостью.",
+      "controls": [
+        "Wet / reset",
+        "Шаг переноса",
+        "Удержание цветности",
+        "Скорость / направление часов"
+      ],
+      "texture_reads": 2,
+      "feedback": true,
+      "grayscale": true,
+      "file": "Fx/dm10_chroma_avalanche.frag",
+      "passes": 1,
+      "default_knobs": [
+        1,
+        0.55,
+        0.75,
+        0.65
+      ]
+    }
+  ]
+}

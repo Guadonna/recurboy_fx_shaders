@@ -1,0 +1,211 @@
+{
+  "fb-growth": {
+    "previous_branch": "collections/fb-growth",
+    "commit": "4936a294582f9139387843b0ba96386709183e86",
+    "shaders": {
+      "Fx/01_liquid_memory.frag": "6616d7ca622633ccde794f44f2be4ec9d77f2bac50e191459cfb8e01f08c6b36",
+      "Fx/02_mycelium.frag": "b9e41d3ca4ff6f6491b5365699cb85f8f99a2d32539e9cd7648d793c39593d35",
+      "Fx/03_erosion.frag": "64012c7a43b4a72be7570f61274a3e6d1359912efd7e1f4300461b7870738b05",
+      "Fx/04_reaction_diffusion.frag": "7c428f960606bce035eebd44210398d6a71ab3faeeb308c1cad45c11e8d85741",
+      "Fx/05_temporal_refraction.frag": "87044de8470d639e552a3467a33711f7fc7ce5fb664643ff966591af4d48f617",
+      "Fx/06_magnetic_ink.frag": "b93da5e513cf91e9eeb59d993dab0fb4f1fbac7595697a8c68be711c4b1dadee",
+      "Fx/07_crystallization.frag": "73c568bb684b53cada65fb7640a01ad093c474e704f4be2786ccbb1884222601",
+      "Fx/08_elastic_membrane.frag": "131a70c0026f2365f133fbb4c944d8dd29189dbd8ab2f83310e1e9327800cbcb",
+      "Fx/09_digital_fossils.frag": "863b376e440b3aee4195fd908355f11f983fd6aba48273e98981520b4fa49d3c",
+      "Fx/10_capillary_watercolor.frag": "58de96d8a0f97f462e7be186c086bf68702b91f25fda0c33b8ff1be409d1cf97",
+      "Fx/11_differential_growth.frag": "1c9f2b14d54882ea5fd5f9d3a8441aa837a933295e6f5a5588ff09155ec45c2f"
+    }
+  },
+  "feedback": {
+    "previous_branch": "collections/feedback",
+    "commit": "9f3ed4b07575ab4bb08866cd79307e4e22917583",
+    "shaders": {
+      "Fx/fb01_zoom_in.frag": "d2490438131b1e8036ab27862d2315b3c4b9b553ea8d8f571f9c24517e997172",
+      "Fx/fb02_zoom_out.frag": "bda791fe24d513959cc1e544dad6a28fa902bd272a788c63e4be2df5bf0abe41",
+      "Fx/fb03_rotation_echo.frag": "2c6a8388b28a19398d31cb8c90fc6bb0889835b05ad825e736ac787546557208",
+      "Fx/fb04_horizontal_trails.frag": "342ccfada9079aad48b9f614c9676105b32a90146946edb2d4944c5c75a1816f",
+      "Fx/fb05_vertical_trails.frag": "9793a638adf232cfe866fded99f8d626334ba99bc1777d45ff5982148fa5eb1c",
+      "Fx/fb06_mirror_echo.frag": "43c592390d992bcb1778fbd392c58c1cf7278a08c7b202e620e406aad25584fb",
+      "Fx/fb07_luma_key_echo.frag": "eeeff7830fd1998cb55f6b02d7b4e8516f85663fa8d39c9f7640bc5da1b810b2",
+      "Fx/fb08_difference_echo.frag": "e714e72f2ba8a757a5f1fb942eb4db0a72f2473417d5f08c24f89610a1213b67",
+      "Fx/fb09_rgb_echo.frag": "1ed38b43a67765ff60a76492788d27026ed50330766ea2ef1e59c89a36324018",
+      "Fx/fb10_frame_echo.frag": "f0826dc965a1ad1b0dd93a45e6cda681827b2f5f904b0fd5ecc410df26e0ef97"
+    }
+  },
+  "datamosh": {
+    "previous_branch": "collections/datamosh",
+    "commit": "587becdf1105a1f2c9de92b9f9af45ebd2fe44a8",
+    "shaders": {
+      "Fx/dm01_block_vectors.frag": "4d902ee9c60623c9c9db55efc9da511fcc58af7f686ad1fdbf17cfd1dff24f45",
+      "Fx/dm02_chroma_bleed.frag": "3275ac04b4ea1a31f256e97a6730758b49cd8c6643e29f9efa524e64172ff236",
+      "Fx/dm03_motion_drag.frag": "4609ad3caf6f86bf785ad74e6dcbcc769a40554d17e74d5361c38b2188152c7a",
+      "Fx/dm04_slice_loss.frag": "1f9c16905d68aa7d4acc44ebbbb6b6d9293951d4e8b6478ad2c573d898b35673",
+      "Fx/dm05_keyframe_starvation.frag": "6ea83fe19c50d6136bce60b8b09e9e83738d51e4f8850a1f017f2306ec72d6eb",
+      "Fx/dm06_cross_block_shear.frag": "c9b56265c33308e8b538c66b00fb1f492849d73d48a38f196c3338a7b576bf67",
+      "Fx/dm07_column_melt.frag": "9413e617e1c41afad0f6debc91afd5eb6c478e888df97cba7ab605f541bdc45a",
+      "Fx/dm08_motion_eraser.frag": "e6e262d2abc0eac068e51d5586cd876c23fbffda30c72c1d72b3450365901bde",
+      "Fx/dm09_temporal_checker.frag": "549efd146a79653d29a5ad1a368c9af92ca8d227311bf5c483194b2e08a87ed4",
+      "Fx/dm10_chroma_avalanche.frag": "f4f3faffcb6cc0089eea3565512f6b66d33bb09b80e5563981be270f58865b6f"
+    }
+  },
+  "pixel-sorting": {
+    "previous_branch": "collections/pixel-sorting",
+    "commit": "bfac7e30f96613bd67df8bc3f3efd80b51d3841b",
+    "shaders": {
+      "Fx/srt01_horizontal_ranks.frag": "a42a1adf6179e7f9106d632956f902aa0fcbe392fdba984c0ba0611d54fd41dc",
+      "Fx/srt02_vertical_ranks.frag": "c5d23289b4a657de3a3e0615e5b88e95e60319f87ccbb50e90716b5fd078503c",
+      "Fx/srt03_diagonal_ranks.frag": "8cf08436aae982b8a290ab49b8559b93ade276ad039033fe8ada78b4b5b91c3d",
+      "Fx/srt04_radial_ranks.frag": "0720c2fc37b4e8abd8350432a316872c879f611083e8cb2bf4bb8e34fba821b3",
+      "Fx/srt05_chroma_ranks.frag": "f0f8e14676402e924a21b68874a9f723f47a943b96e9a718cb29973adad6001b",
+      "Fx/srt06_descending_rows.frag": "a9de5c6d03b5b8ef29afeb621e0661162ef1f56a05bc96d66c1c9cdd7c296729",
+      "Fx/srt07_serpentine_rows.frag": "bde59c236dd0b02236983acad7e1c2ce7cf304c3e2e3e6bc67d24eff31bf8d8f",
+      "Fx/srt08_green_column_ranks.frag": "836eff3214e73cbf388b8e2147be300f1ec630f04ffeb1d8fa8e444d4e66787e",
+      "Fx/srt09_tile_ranks.frag": "2ac2bdeaf98b31010b94d69047f379edf3133633a1ef84c32105192de20544a2",
+      "Fx/srt10_bright_ridges.frag": "44d1775440a1590ec96d895469c62bb011f79d061f02a765074d6e6febf8c653"
+    }
+  },
+  "displacement": {
+    "previous_branch": "collections/displacement",
+    "commit": "c76af2511ab57716dc8e291fddc6b31d7e006e08",
+    "shaders": {
+      "Fx/dsp01_luma_relief.frag": "d823cf38c74f58e4963919b1ed94d4a9de766effcb6e86b3ceeb97c18f9476c2",
+      "Fx/dsp02_noise_tiles.frag": "faf61096ad839893592c93afec482fc5f6aee3091875590af34c1ef247aef9a6",
+      "Fx/dsp03_rgb_vector_map.frag": "a02585ad2ce90bad03919d22e0ee31468a96dbd4d2857642120159daa541a11f",
+      "Fx/dsp04_wandering_lens.frag": "58c99e210f0e59e058a09c75bd19c1f07bdb7f28d41f2e69224ad68d4324dbe1",
+      "Fx/dsp05_memory_displacer.frag": "6cef945d23aa541db28b664f1953f7b780c3020b1f1d02d8bc306dbb1f7343ed",
+      "Fx/dsp06_edge_squeeze.frag": "5e3ae0b34e5d7bb1e6519a8fc2ec6a6f9762e82645b92c4e472416a4f93d5e38",
+      "Fx/dsp07_scan_twist.frag": "b0cfa02da8428608168d9a3bde65ab9c1e9db186060859d9a859b5c561121e73",
+      "Fx/dsp08_cell_lenses.frag": "9f671c52dc0fb50786d9090e3def329d1e0e8e6b33aee9554cb37195cb81b239",
+      "Fx/dsp09_temporal_relief.frag": "222cc27d90eaf2a3c1446ae8f2ff24ba09542385fd7269927adbf699649a3415",
+      "Fx/dsp10_crossed_maps.frag": "f79cf7ea20c4ed54a89494b73cb72538f65d26d772a8a706e90bf2142ddb0986"
+    }
+  },
+  "kaleidoscope": {
+    "previous_branch": "collections/kaleidoscope",
+    "commit": "336585e834e5d8c421dd0181706b86531ea31aba",
+    "shaders": {
+      "Fx/kal01_radial_glass.frag": "48f38ae6f12826e4ef8e8913b6d54d8c2bb91fa18c4bfe9f0dd6514cf604904c",
+      "Fx/kal02_mirror_tiles.frag": "9dd17ca4f3de355baf17d5577dc7f9033cac4b166309884afb875025f7bc8ad7",
+      "Fx/kal03_spiral_petals.frag": "01a7ec042495b15a7d5813be57af57b4e3c912b7b2969eda2a964b42b20c1ef8",
+      "Fx/kal04_twin_mandalas.frag": "606da108563f6947688b4b969d7ca5443ab0853b94862e8a05e6292ce1d996fd",
+      "Fx/kal05_prism_rings.frag": "fa3eebf6da84c608f536d22b545a9fe1015cffbcc83df3fccc574cb8be06b25f",
+      "Fx/kal06_quadrant_spinner.frag": "81e3a63fc66962d294165bb9fc6d61d751da9a177959903b7a7b0af07404c79b",
+      "Fx/kal07_triangular_grid.frag": "c729d37ef0adfca288beffbb8b8c7eb4d3f6b4c7a101c8838a682d87ba37833b",
+      "Fx/kal08_wandering_eye.frag": "bb96c111394c6655f19e0ec59649dc9160a18c81b2e8909e39024d5780a01474",
+      "Fx/kal09_mirror_memory.frag": "87d98b9059196e52fde00a4986ae6b03255b0e65e140a33f7f724c54d8e2acdb",
+      "Fx/kal10_diamond_chambers.frag": "781e4648a25f014f4c40c6086ed7b15e772bb23ba28b85df817928c28a3f1728"
+    }
+  },
+  "recursive": {
+    "previous_branch": "collections/recursive",
+    "commit": "4e49ddc60171ba776a37e57308e2ea05ae44e910",
+    "shaders": {
+      "Fx/rcs01_zoom_tunnel.frag": "dc6a8bb923301b5554bbc9ba0a23b2b0e175a5059ab5e60e0530fe63221f859e",
+      "Fx/rcs02_rotating_echo.frag": "2694f7c10767b8c459bce1d0d6d6d597fffd6d6169d4cf4269a74879284df9cf",
+      "Fx/rcs03_log_droste.frag": "c638c260e742b8b176c031152e1b5e6367c67516be1fedc3e4a256d76602a5cc",
+      "Fx/rcs04_mirror_hall.frag": "2d787daffac32b99541fd54e5974d6a62b72907914e553ee18ad2a6bb7697f18",
+      "Fx/rcs05_tile_inception.frag": "9078def4e02cbf359099006bc21478f859175ceec1150e2f5d93cc3c69c7b9ac",
+      "Fx/rcs06_corner_echoes.frag": "7d3bcd645c1808e6fef016f5cd11bee4cb4f68def29d6f925ee7a329550854da",
+      "Fx/rcs07_opposing_tunnels.frag": "f63dc04da3ee3f73d375453b85737a68a81a66f106d1f69a246cd66492f7884f",
+      "Fx/rcs08_strip_inception.frag": "4128be199da78c8210086ee557355756eb897699fe0d0f8f4743a7dcfb7bc178",
+      "Fx/rcs09_orbit_frames.frag": "aa2dd62011616c62aade19ace80e72f5dcd2f9f9ec18ff7b98bee3401859cc79",
+      "Fx/rcs10_foldback_memory.frag": "23a3f50bcfa4012c7e0812e6861f519b05c551308201f4966994a12dfd77a10d"
+    }
+  },
+  "databending": {
+    "previous_branch": "collections/databending",
+    "commit": "ea99f68b3ca0458d71c8838d1667d4090aa5007d",
+    "shaders": {
+      "Fx/dbn01_address_shuffle.frag": "10076894b9df3e482c3a89cfabfa6804b759b6f75dee96ff32202c276f012a8f",
+      "Fx/dbn02_wrong_stride.frag": "1e52607e8897f3e2fe9776d7f5e2accd67b249442240ce663742ea246bdf0a02",
+      "Fx/dbn03_channel_misalignment.frag": "f87e7a0d59422463411f836e313c5d214b2e1d52d723303050f91206604a074d",
+      "Fx/dbn04_packet_repeater.frag": "5b2e0003914ea5894bc12bb07e0ba9ee21cb17fdbdb2cdf6fb19cc0e759fef08",
+      "Fx/dbn05_value_overflow.frag": "bbad176cc264b8d587a9d70ae229f2f8c8641ace7ba3bcf4c6b8f8c1943f5d5d",
+      "Fx/dbn06_scan_buffer_slip.frag": "20e51a5d2fcdaf56e68a3a28d74962b9da77bc269c421badd7d4aea57df2bd80",
+      "Fx/dbn07_nibble_banks.frag": "b49d4098b4aedf8dd0caaec774db0ef569f2a55024e98a218a2c51b4529f6b5c",
+      "Fx/dbn08_word_swaps.frag": "5f86b718496157561275050e4440ea9b71806f7c7a38efebc3407c5b2973e272",
+      "Fx/dbn09_checksum_holes.frag": "ea9c06c5c0932b4dcfa82c2dfd75e56c871e0614b44b3d96f737d7be3af1f883",
+      "Fx/dbn10_page_scroll.frag": "96d13b2c3d70ceb45b41600a5ec44f9d5573ed8758573a171842d8f413c5f657"
+    }
+  },
+  "bitwise": {
+    "previous_branch": "collections/bitwise",
+    "commit": "513412e332cac5565b5d79c0fd88ffd805593ac1",
+    "shaders": {
+      "Fx/bit01_xor_lattice.frag": "7403f6f9f4ec3fd28376d80ac544eaef60b1a7edd564caefb6e69ccb377d233f",
+      "Fx/bit02_and_aperture.frag": "8e10cbbcd59e026bc1956a9988daeb53b603a18cda7a04038b9a9f91463a55d5",
+      "Fx/bit03_or_memory.frag": "5d13e4f2abe4d2ab351fd309014a47958cc9ea441ee0cc3935e36a18404a4d1a",
+      "Fx/bit04_rotate_nibble.frag": "11af8361282a5c617e89ebf5fd82e2a16b4e3500963e9145ed8264ff6d28b446",
+      "Fx/bit05_xor_neighbours.frag": "aaed8a738da1bd6d845352bd84ab113ba48971fba7b7ca6ee22124ed72125206",
+      "Fx/bit06_xor_threshold.frag": "6a331d18cd2a060d2c75b9c7502ac6debc34aab9962249c1bc7c76fd2fc9ae3c",
+      "Fx/bit07_and_neighbours.frag": "17d795672976bf856535b8eccf03c290fd152b419c2258c91fe815b3cc56a42d",
+      "Fx/bit08_or_stripes.frag": "1bf024233ba39c41306e5150bc1fb81e1b9a6be13e43e179a171429ec3ef0e67",
+      "Fx/bit09_reverse_bits.frag": "b0d5e0add403d53cce8b4e949ae4a6fbbca1c6423d0dfcd7a9a66924643dcb63",
+      "Fx/bit10_bitplane_weave.frag": "78b1832726b35864ecc9a5c135ec4525aeddcfee62777efc6ee736629bb92350"
+    }
+  },
+  "compression": {
+    "previous_branch": "collections/compression",
+    "commit": "7ea51d8ee4f1e39a89b4a03544610046bf94c482",
+    "shaders": {
+      "Fx/cmp01_block_quantizer.frag": "46d3a2128a07069235beb043047060d3d6e4c4de429ceef6c7b73e1606210b7a",
+      "Fx/cmp02_chroma_blocks.frag": "b30987954804a5a2fc991bfe4f43eac8ab770e5d01e5c580f84944036dab2ea2",
+      "Fx/cmp03_ringing_edges.frag": "200df1dd49dff6b2e983f84f5591955d09500bdf7d9ba622bc487af6b7c773d9",
+      "Fx/cmp04_mosquito_edges.frag": "1e5c6f70961e4de04f04a1b80e58eae3fb91746cfadbf8a3c0a68f1c216238fd",
+      "Fx/cmp05_residual_blocks.frag": "7986bf1dc72bf6bc195f987cc2aae002c87de06f727f085ee2b894224fa5bbbe",
+      "Fx/cmp06_dc_band_loss.frag": "a43ca6b3568f6bf817605c9eeb978430d7bfa032e54fc41395fe0bb3cf7bd2c6",
+      "Fx/cmp07_checker_residual.frag": "79b782c1ad2446fcdd5b9948d275a4fb7f00610cd221f867e83f4500136201c4",
+      "Fx/cmp08_edge_steps.frag": "985b16ae3e682dc6187fe9564ba0507d90fce6198c2a4a52e5bb879040b6ea14",
+      "Fx/cmp09_staggered_blocks.frag": "973dc7ff13a71287c4e1605913feeea2fa1d14859124863ef1dd48a57a1d6c91",
+      "Fx/cmp10_chroma_dropout.frag": "13184480a478b6dd8382b32912551a8a246e3830837c516779caeb0b7e258e15"
+    }
+  },
+  "wave": {
+    "previous_branch": "collections/wave",
+    "commit": "e1d76e1c825ce0119d33248610aa4c4a8126ef24",
+    "shaders": {
+      "Fx/wav01_sine_swim.frag": "6a63d559917c014d2ae85e550ca7abc58039cb6f9d29697beba4fa9e6d6c48f7",
+      "Fx/wav02_sawtooth_tears.frag": "66c904750537ed0151ff51666d8ed9272798de07e18eae488a4b3caef3dd44fc",
+      "Fx/wav03_triangle_shutter.frag": "edaefeb3ed7b260f5d4257d9ed2e8e10ac670721b75db9ab5b40237d1f2b80e1",
+      "Fx/wav04_circular_ripples.frag": "d465ccca3d4f442b8f8d0c0605ce11c5a71d7ab630c3a12d4edaeb2977bcd7a9",
+      "Fx/wav05_cross_modulator.frag": "10a1e207941c6feff996c70e06493cd4899d0d7eb71e65e852e636aad70cd3d5",
+      "Fx/wav06_vertical_wobble.frag": "3219869a7403361071e307ec0e2e2f80fd6aea7c3a8b6399a87138815dfb2830",
+      "Fx/wav07_square_chopper.frag": "16879afabd6ccb7b373b854c92e0376be4f91e9e2f971cc9dfc2efff3f21c5a1",
+      "Fx/wav08_breathing_zoom.frag": "24772f0ce4ca8a36856464a6d2e9afa896e8a25dca8db8cb5483a42f70dce9aa",
+      "Fx/wav09_diagonal_current.frag": "2d0ecf1e2378ea54dd7a24061ca8ee25e4c7d258a86196d7d929734994402eea",
+      "Fx/wav10_harmonic_bend.frag": "1e72ff5ec8c34f679977eda7ac1feff00a2eb77c89f6bee9e155b3a3a89b3916"
+    }
+  },
+  "phase": {
+    "previous_branch": "collections/phase",
+    "commit": "0c3844ff5da411cbc6bf18abdfd6d799956b6347",
+    "shaders": {
+      "Fx/phs01_sine_phase_warp.frag": "08dcc0ad8f0622ee5b5e62fbed1fe6d8c05c352bf558256524749a8a904a61eb",
+      "Fx/phs02_phase_pinch.frag": "c0621cfdc40eb7c531f54062eb9bfa675d614294c1d88a8efcb7de6938f7e727",
+      "Fx/phs03_radial_phase_twist.frag": "93418b76a0f61b2b20ea3526b066cccbcee931d6147e6fd0287078f31adba3b0",
+      "Fx/phs04_video_phase_carrier.frag": "c5a7f5cdf8db45de9235663941111f0c4cc3544aafa4a16ff1cf29881d028247",
+      "Fx/phs05_rgb_phase_split.frag": "df2ff4ce9f7a152a06965c309836b3cd8c32410ffb29a75c6a20eaf21f1acda6",
+      "Fx/phs06_triangle_phase_fold.frag": "2f3964ca3e4cf5318ade1ac739f8b4aad63b8d116ec0d6c6b4bd62e30b118ae2",
+      "Fx/phs07_checker_phase.frag": "228eada70aaff8e4052d02bfaa394556c8baead20860a95cdd35bd1a8f77583f",
+      "Fx/phs08_memory_phase.frag": "b3508645ce1be33839372cb23b1d3fcb58ee5c4759eba917b6f6d046e6840f25",
+      "Fx/phs09_saw_phase_carrier.frag": "9578bde97a5c34cdd76dce1ff8eda279e651340548b7143a49a41a755bc2d242",
+      "Fx/phs10_opposed_phase_windows.frag": "9323809b6c8aa9005d3debdc58e4928cb6f4aa3088b92ce787e333c9aeb3110b"
+    }
+  },
+  "interference": {
+    "previous_branch": "collections/interference",
+    "commit": "d3c5df1ca6c2d713e19fa1c0303de600410fac08",
+    "shaders": {
+      "Fx/sig01_beat_mesh.frag": "dd77c10831a1ec9a5eb351c04e7589fe767e9fb8bbaecb56f380d2784d39e82f",
+      "Fx/sig02_horizontal_sync.frag": "a236479b2b61ef88b266d237e87fc216d014bb9de0b9d1f8b9d62525f3057385",
+      "Fx/sig03_field_desync.frag": "214cb4a1de87b53c1f776c32d303c24c4cec08d684965fe800955e8eb90e16e1",
+      "Fx/sig04_rf_ghosts.frag": "0a59a6fbd1aa49c10ca33b30c06ba7c2ec8d1c82071202dce51f0ff9b4efe11b",
+      "Fx/sig05_chroma_crosstalk.frag": "db084a5f9e0b1931ea94d889b95467390f8cb3023eb6f6a49f4e66cd9560cc2a",
+      "Fx/sig06_mains_hum.frag": "b19b3964e8083663de7a3996b35a916635c60b7259b6593f51eb244ee0ea9af2",
+      "Fx/sig07_tracking_bar.frag": "2ca25ad52a1a4db3d212fa288080a2bbc937aa809665a7933b837ef98a67b4ab",
+      "Fx/sig08_multipath_comb.frag": "58abe84f5e60e674f75d14ab68d40c686edfca6221e2893b5fc3c4993ce769cd",
+      "Fx/sig09_line_phase_noise.frag": "9f63238561af46964110e1e4d09d2377bd6c3c21b018b76f904cb81d3ecabbd7",
+      "Fx/sig10_burst_hold.frag": "231bbe938e49680f36a54a8622eccfd8c9e4ddc0175ec624b81c4dbdc015ad85"
+    }
+  }
+}

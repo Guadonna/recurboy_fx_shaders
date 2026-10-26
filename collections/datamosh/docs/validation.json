@@ -1,0 +1,150 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "datamosh",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/dm01_block_vectors.frag",
+      "dry_max_error": 0,
+      "texture_reads": 6,
+      "knob_a_delta": 2.243139949845679,
+      "knob_b_delta": 10.155574845679013,
+      "clock_delta": 3.3306182484567897,
+      "difference_from_input": 16.866669077932098,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 72.11923707561728,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm02_chroma_bleed.frag",
+      "dry_max_error": 0,
+      "texture_reads": 4,
+      "knob_a_delta": 16.309244791666668,
+      "knob_b_delta": 28.019483024691358,
+      "clock_delta": 10.464284336419754,
+      "difference_from_input": 28.801130883487655,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 66.2120949074074,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm03_motion_drag.frag",
+      "dry_max_error": 0,
+      "texture_reads": 5,
+      "knob_a_delta": 3.292558834876543,
+      "knob_b_delta": 1.9796850887345678,
+      "clock_delta": 1.1859736689814813,
+      "difference_from_input": 3.4372227044753085,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 75.03040605709876,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm04_slice_loss.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 34.35536024305556,
+      "knob_b_delta": 48.71090133101852,
+      "clock_delta": 14.148640046296297,
+      "difference_from_input": 46.34223090277778,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 56.44520399305556,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm05_keyframe_starvation.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 2.648594232253086,
+      "knob_b_delta": 1.6880184220679013,
+      "clock_delta": 7.436530671296296,
+      "difference_from_input": 2.161940586419753,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 74.15371817129629,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm06_cross_block_shear.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 19.805000964506174,
+      "knob_b_delta": 38.58024691358025,
+      "clock_delta": 19.06485218942901,
+      "difference_from_input": 24.07783564814815,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 66.85727719907408,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm07_column_melt.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 5.363968460648148,
+      "knob_b_delta": 46.43168885030864,
+      "clock_delta": 5.478766396604938,
+      "difference_from_input": 24.729130497685187,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 66.78682002314815,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm08_motion_eraser.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 17.801227334104937,
+      "knob_b_delta": 18.79998553240741,
+      "clock_delta": 2.4608663676697526,
+      "difference_from_input": 10.97827449845679,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 41.891818576388886,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm09_temporal_checker.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 3.1069396219135803,
+      "knob_b_delta": 3.5878544560185186,
+      "clock_delta": 5.27363884066358,
+      "difference_from_input": 3.5932556905864197,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 40.64470003858025,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/dm10_chroma_avalanche.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 30.15643084490741,
+      "knob_b_delta": 23.830994405864196,
+      "clock_delta": 8.908640769675927,
+      "difference_from_input": 20.023015528549383,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 66.04359567901234,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 4.373926986882716,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}

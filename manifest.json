@@ -1,209 +1,71 @@
 {
-  "version": "0.4.1",
-  "status": "hardware-unverified",
-  "api": "GLSL ES 1.00",
-  "effects": [
+  "version": "1.3.0",
+  "collections": [
     {
-      "file": "Fx/01_liquid_memory.frag",
-      "name": "Жидкая память",
-      "controls": [
-        "Wet / reset",
-        "Вязкость / размер потока",
-        "Длина следа",
-        "Host time speed"
-      ],
-      "texture_reads": 4,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "fb-growth",
+      "version": "0.4.1",
+      "count": 11
     },
     {
-      "file": "Fx/02_mycelium.frag",
-      "name": "Мицелий",
-      "controls": [
-        "Wet / reset",
-        "Шаг ветвления",
-        "Питание / рост",
-        "Host time speed"
-      ],
-      "texture_reads": 7,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ],
-      "color_mode": "source RGB ratios, scalar intensity feedback; black areas neutral"
+      "name": "feedback",
+      "version": "0.1.0",
+      "count": 10
     },
     {
-      "file": "Fx/03_erosion.frag",
-      "name": "Эрозия",
-      "controls": [
-        "Wet / reset",
-        "Сила размыва",
-        "Осаждение",
-        "Host time speed"
-      ],
-      "texture_reads": 5,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "datamosh",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/04_reaction_diffusion.frag",
-      "name": "Реакция–диффузия",
-      "controls": [
-        "Wet / reset",
-        "Размер частиц: 3–31 px",
-        "Восстановление / частота фронтов",
-        "Не используется"
-      ],
-      "texture_reads": 7,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.2,
-        0.7,
-        0.65
-      ],
-      "color_mode": "RGB carried by propagating excitation/recovery fronts; reset after palette changes"
+      "name": "pixel-sorting",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/05_temporal_refraction.frag",
-      "name": "Временное преломление",
-      "controls": [
-        "Wet / reset",
-        "Искажение",
-        "Память",
-        "Host time speed"
-      ],
-      "texture_reads": 3,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "displacement",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/06_magnetic_ink.frag",
-      "name": "Магнитные чернила",
-      "controls": [
-        "Wet / reset",
-        "Направление поля",
-        "Длина штрихов",
-        "Host time speed"
-      ],
-      "texture_reads": 5,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "kaleidoscope",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/07_crystallization.frag",
-      "name": "Кристаллизация",
-      "controls": [
-        "Wet / reset",
-        "Размер граней",
-        "Удержание",
-        "Host time speed"
-      ],
-      "texture_reads": 3,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "recursive",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/08_elastic_membrane.frag",
-      "name": "Эластичная мембрана",
-      "controls": [
-        "Wet / reset",
-        "Упругость",
-        "Затухание",
-        "Host time speed"
-      ],
-      "texture_reads": 5,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "databending",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/09_digital_fossils.frag",
-      "name": "Цифровые окаменелости",
-      "controls": [
-        "Wet / reset",
-        "Смещение слоёв",
-        "Глубина памяти",
-        "Host time speed"
-      ],
-      "texture_reads": 3,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "bitwise",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/10_capillary_watercolor.frag",
-      "name": "Капиллярная акварель",
-      "controls": [
-        "Wet / reset",
-        "Растекание",
-        "Пигмент по краям",
-        "Host time speed"
-      ],
-      "texture_reads": 6,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ]
+      "name": "compression",
+      "version": "0.2.0",
+      "count": 10
     },
     {
-      "file": "Fx/11_differential_growth.frag",
-      "name": "Differential growth",
-      "controls": [
-        "Wet / reset",
-        "Размер фронта / деформация видео",
-        "Восстановление / частота роста",
-        "Host time speed"
-      ],
-      "texture_reads": 7,
-      "passes": 1,
-      "default_knobs": [
-        1.0,
-        0.55,
-        0.7,
-        0.65
-      ],
-      "color_mode": "RGB carried by propagating excitation/recovery fronts; reset after palette changes"
+      "name": "wave",
+      "version": "0.2.0",
+      "count": 10
+    },
+    {
+      "name": "phase",
+      "version": "0.2.0",
+      "count": 10
+    },
+    {
+      "name": "interference",
+      "version": "0.2.0",
+      "count": 10
     }
   ],
-  "collection": "fb-growth"
+  "mode": "FX"
 }

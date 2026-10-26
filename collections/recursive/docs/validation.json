@@ -1,0 +1,149 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2+deb13u1",
+  "collection": "recursive",
+  "hardware_validation": false,
+  "effects": [
+    {
+      "file": "Fx/rcs01_zoom_tunnel.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 21.605010609567902,
+      "knob_b_delta": 28.129509066358025,
+      "clock_delta": 2.7585672260802467,
+      "difference_from_input": 26.86060474537037,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 51.58182629243827,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs02_rotating_echo.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 33.41429157021605,
+      "knob_b_delta": 42.56108940972222,
+      "clock_delta": 3.986990017361111,
+      "difference_from_input": 26.47655044367284,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 62.781117380401234,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs03_log_droste.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 68.92271894290124,
+      "knob_b_delta": 62.63575424382716,
+      "clock_delta": 30.237263695987657,
+      "difference_from_input": 74.12669994212963,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs04_mirror_hall.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 17.817828896604937,
+      "knob_b_delta": 42.71625434027778,
+      "clock_delta": 2.6663001543209877,
+      "difference_from_input": 39.78487895447531,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 44.43757233796296,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs05_tile_inception.frag",
+      "dry_max_error": 0,
+      "texture_reads": 3,
+      "knob_a_delta": 56.31059510030864,
+      "knob_b_delta": 60.200532889660494,
+      "clock_delta": 15.938902150848767,
+      "difference_from_input": 64.73756992669753,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 28.713987750771604,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs06_corner_echoes.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 20.875651041666668,
+      "knob_b_delta": 35.28735050154321,
+      "clock_delta": 1.7184630594135801,
+      "difference_from_input": 28.045223283179013,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 63.61976755401235,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs07_opposing_tunnels.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 22.65186149691358,
+      "knob_b_delta": 51.590880594135804,
+      "clock_delta": 4.372176408179013,
+      "difference_from_input": 31.04181134259259,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 64.96659191743827,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs08_strip_inception.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 10.989064911265432,
+      "knob_b_delta": 36.30639949845679,
+      "clock_delta": 11.928590374228396,
+      "difference_from_input": 35.74857735339506,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 65.07118055555556,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs09_orbit_frames.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 19.981119791666668,
+      "knob_b_delta": 17.307568962191358,
+      "clock_delta": 6.119391396604938,
+      "difference_from_input": 13.711769386574074,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 39.074544270833336,
+      "gray_error": 0
+    },
+    {
+      "file": "Fx/rcs10_foldback_memory.frag",
+      "dry_max_error": 0,
+      "texture_reads": 2,
+      "knob_a_delta": 29.7177734375,
+      "knob_b_delta": 61.89656876929013,
+      "clock_delta": 5.472497106481482,
+      "difference_from_input": 38.066116898148145,
+      "feedback_frames": 120,
+      "boundary_draws": 24,
+      "history_delta": 56.14863040123457,
+      "gray_error": 0
+    }
+  ],
+  "min_pair_difference": 10.019470968364198,
+  "additional_resolutions": [
+    [
+      63,
+      47
+    ],
+    [
+      720,
+      576
+    ]
+  ],
+  "semantics": {}
+}
