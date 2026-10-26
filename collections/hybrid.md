@@ -1,6 +1,6 @@
 # HYBRID / EXPERIMENTAL
 
-[Все паттерны](../README.md) · [FX](https://github.com/Guadonna/recurboy_fx_shaders/tree/fx) · [Главная](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)
+[Все паттерны](https://github.com/Guadonna/recurboy_fx_shaders/tree/patterns) · [FX](https://github.com/Guadonna/recurboy_fx_shaders/tree/fx) · [Главная](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)
 
 6 самостоятельных PATTERN-шейдеров для штатного RecurBoy. Установка: скопировать папку `Shaders` из отдельного ZIP в корень USB; выбрать файл в меню PATTERN. В общем архиве папки подборок содержат только `.frag`; скопировать их целиком в `/Shaders/`.
 

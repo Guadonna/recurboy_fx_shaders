@@ -633,7 +633,7 @@ def main():
                               description=p['explanation'], controls=p['controls']))
             rows.append(f'| `{filename}` | **{p["title"]}** — {p["explanation"]} | '+ ' | '.join(p['controls']) + ' |')
         manifest['collections'].append(dict(id=group, name=name, version='0.1.0', shaders=items))
-        readme = f'# {name}\n\n[Все паттерны](../README.md) · [FX](https://github.com/Guadonna/recurboy_fx_shaders/tree/fx) · [Главная](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)\n\n{len(items)} самостоятельных PATTERN-шейдеров для штатного RecurBoy. '
+        readme = f'# {name}\n\n[Все паттерны](https://github.com/Guadonna/recurboy_fx_shaders/tree/patterns) · [FX](https://github.com/Guadonna/recurboy_fx_shaders/tree/fx) · [Главная](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)\n\n{len(items)} самостоятельных PATTERN-шейдеров для штатного RecurBoy. '
         readme += 'Установка: скопировать папку `Shaders` из отдельного ZIP в корень USB; выбрать файл в меню PATTERN. '
         readme += 'В общем архиве папки подборок содержат только `.frag`; скопировать их целиком в `/Shaders/`.\n\n'
         readme += 'Ручки 1–3 / CV 1–3 непрерывно меняют параметры. Ручка 4 / CV 4 управляет штатными скоростью и направлением времени; около середины — остановка. '
