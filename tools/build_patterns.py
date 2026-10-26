@@ -6,7 +6,7 @@ import re
 import textwrap
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 GROUPS = [
  ('data-corrupt', 'DATA CORRUPT / SIGNAL DECAY', 'dc', ('0.10, 0.95, 0.90', '1.0, 0.13, 0.40')),
  ('digital', 'DIGITAL / COMPUTATIONAL', 'dg', ('0.55, 0.30, 1.0', '1.0, 0.85, 0.16')),
@@ -633,7 +633,7 @@ def main():
                               description=p['explanation'], controls=p['controls']))
             rows.append(f'| `{filename}` | **{p["title"]}** — {p["explanation"]} | '+ ' | '.join(p['controls']) + ' |')
         manifest['collections'].append(dict(id=group, name=name, version='0.1.0', shaders=items))
-        readme = f'# {name}\n\n{len(items)} самостоятельных PATTERN-шейдеров для штатного RecurBoy. '
+        readme = f'# {name}\n\n[Все паттерны](../README.md) · [FX](https://github.com/Guadonna/recurboy_fx_shaders/tree/fx) · [Главная](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)\n\n{len(items)} самостоятельных PATTERN-шейдеров для штатного RecurBoy. '
         readme += 'Установка: скопировать папку `Shaders` из отдельного ZIP в корень USB; выбрать файл в меню PATTERN. '
         readme += 'В общем архиве папки подборок содержат только `.frag`; скопировать их целиком в `/Shaders/`.\n\n'
         readme += 'Ручки 1–3 / CV 1–3 непрерывно меняют параметры. Ручка 4 / CV 4 управляет штатными скоростью и направлением времени; около середины — остановка. '

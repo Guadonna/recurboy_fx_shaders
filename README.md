@@ -1,18 +1,20 @@
 # RecurBoy Pattern Collections
 
-**5 коллекций · 46 самостоятельных генераторов PATTERN для штатного RecurBoy.** Патчи, пересборка приложения, входное видео и дополнительные буферы не нужны. Старый CV Matrix и его предварительный релиз удалены по запросу; имя существующей ветки `patterns/cv-matrix` сохранено.
+[Главная](https://github.com/Guadonna/recurboy_fx_shaders/tree/main) · **Паттерны** · [FX](https://github.com/Guadonna/recurboy_fx_shaders/tree/fx)
 
-**[Скачать все паттерны 0.2.0](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.0/recurboy-all-patterns-v0.2.0.zip)** · [Релиз и SHA256SUMS](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/patterns-v0.2.0) · [Общий каталог](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)
+**5 коллекций · 46 самостоятельных генераторов PATTERN для штатного RecurBoy.** Патчи, пересборка приложения, входное видео и дополнительные буферы не нужны.
+
+**[Скачать все паттерны 0.2.1](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.1/recurboy-all-patterns-v0.2.1.zip)** · [Релиз и SHA256SUMS](https://github.com/Guadonna/recurboy_fx_shaders/releases/tag/patterns-v0.2.1) · [Общий каталог](https://github.com/Guadonna/recurboy_fx_shaders/tree/main)
 
 ## Коллекции
 
 | Подборка | Шейдеров | Рисунок | Параметры каждого шейдера | Отдельный ZIP |
 |---|---:|---|---|---|
-| **Data Corrupt / Signal Decay** | 10 | Повреждённые блоки, битовые витражи, адресные штрихкоды, выпадающие пакеты и вытянутые кодовые ленты. | [Описание](collections/data-corrupt.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.0/recurboy-patterns-data-corrupt-v0.1.0.zip) |
-| **Digital / Computational** | 10 | Квантованные контуры, dithering, вложенные плитки, XOR/AND, Rule 90, булева геометрия, муар и соединённые дорожки. | [Описание](collections/digital.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.0/recurboy-patterns-digital-v0.1.0.zip) |
-| **Analog Echo / Electronic Memory** | 10 | Эхо-контуры, разъезд цветовых полос, магнитная протяжка, искривлённая решётка, дрожащая развёртка и биения. | [Описание](collections/analog.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.0/recurboy-patterns-analog-v0.1.0.zip) |
-| **Organic Nature / Emergent Systems** | 10 | Лабиринты, клеточные мембраны, грибные сети, мрамор, эрозия, розетки и органические складки. | [Описание](collections/organic.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.0/recurboy-patterns-organic-v0.1.0.zip) |
-| **Hybrid / Experimental** | 6 | Органическая порча, сад колец, жидкие блоки, паразит развёртки, цифровой морфогенез и ветвящееся эхо. | [Описание](collections/hybrid.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.0/recurboy-patterns-hybrid-v0.1.0.zip) |
+| **Data Corrupt / Signal Decay** | 10 | Повреждённые блоки, битовые витражи, адресные штрихкоды, выпадающие пакеты и вытянутые кодовые ленты. | [Описание](collections/data-corrupt.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.1/recurboy-patterns-data-corrupt-v0.1.0.zip) |
+| **Digital / Computational** | 10 | Квантованные контуры, dithering, вложенные плитки, XOR/AND, Rule 90, булева геометрия, муар и соединённые дорожки. | [Описание](collections/digital.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.1/recurboy-patterns-digital-v0.1.0.zip) |
+| **Analog Echo / Electronic Memory** | 10 | Эхо-контуры, разъезд цветовых полос, магнитная протяжка, искривлённая решётка, дрожащая развёртка и биения. | [Описание](collections/analog.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.1/recurboy-patterns-analog-v0.1.0.zip) |
+| **Organic Nature / Emergent Systems** | 10 | Лабиринты, клеточные мембраны, грибные сети, мрамор, эрозия, розетки и органические складки. | [Описание](collections/organic.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.1/recurboy-patterns-organic-v0.1.0.zip) |
+| **Hybrid / Experimental** | 6 | Органическая порча, сад колец, жидкие блоки, паразит развёртки, цифровой морфогенез и ветвящееся эхо. | [Описание](collections/hybrid.md) | [ZIP](https://github.com/Guadonna/recurboy_fx_shaders/releases/download/patterns-v0.2.1/recurboy-patterns-hybrid-v0.1.0.zip) |
 
 По одному самостоятельному паттерну на каждую из 46 идей списка. Темы с памятью и симуляцией воплощены как **процедурные визуальные интерпретации**: здесь нет настоящего фидбека, физической жидкости, многопроходной диффузии, агентов Physarum или порчи видеокодека. Это позволяет использовать штатный PATTERN-режим без изменения прошивки. Для настоящей видеообратной связи есть отдельные FX-подборки в общем каталоге.
 
@@ -90,6 +92,6 @@ EGL_PLATFORM=surfaceless .venv/bin/python tools/validate_pattern.py
 python3 tools/package.py
 ```
 
-Исходники формул и метаданных — `tools/build_patterns.py`; сгенерированные `.frag`, `manifest.json` и README подборок хранятся в Git. Результаты проверки — `artifacts/`, архивы — `dist/patterns-v0.2.0/`. Для GLES нужны EGL/Mesa, PyOpenGL, numpy и Pillow.
+Исходники формул и метаданных — `tools/build_patterns.py`; сгенерированные `.frag`, `manifest.json` и README подборок хранятся в Git. Результаты проверки — `artifacts/`, архивы — `dist/patterns-v0.2.1/`. Для GLES нужны EGL/Mesa, PyOpenGL, numpy и Pillow.
 
 Релиз `patterns-vX.Y.Z` создаётся тегом **этой ветки** после успешного CI: отдельный ZIP каждой коллекции, общий ZIP только с `подборка/*.frag` и внешний `SHA256SUMS`. Публикация через `.github/workflows/patterns.yml`. Опубликованные версии не перезаписываются. FX-релизы `collections-vX.Y.Z` ведутся отдельно. В `main` хранится только README-каталог.
